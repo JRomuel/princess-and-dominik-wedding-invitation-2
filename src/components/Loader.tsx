@@ -16,16 +16,17 @@ const PATH = [
   'C 436,40  482,68  525,70',   // sweep down → Marinduque
 ].join(' ')
 
-const DURATION = 3200 // ms
+const DURATION = 4000 // ms
 
 const easeInOut = (t: number) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 
 interface Props {
   onDone: () => void
+  images?: string[]
 }
 
-export default function Loader({ onDone }: Props) {
+export default function Loader({ onDone, images = [] }: Props) {
   const pathRef  = useRef<SVGPathElement>(null)
   const planeRef = useRef<SVGTextElement>(null)
   const rafRef   = useRef(0)
@@ -63,22 +64,28 @@ export default function Loader({ onDone }: Props) {
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
 
-  // Hide when document is fully loaded AND minimum duration has passed
+  // Dismiss when minimum duration has elapsed AND all images are preloaded into cache
   useEffect(() => {
-    let loadDone  = document.readyState === 'complete'
-    let timerDone = false
-    const check = () => { if (loadDone && timerDone) onDone() }
-
-    const onLoad = () => { loadDone = true; check() }
-    if (!loadDone) window.addEventListener('load', onLoad)
+    let timerDone  = false
+    let imagesDone = images.length === 0
+    const check = () => { if (timerDone && imagesDone) onDone() }
 
     const t = setTimeout(() => { timerDone = true; check() }, DURATION)
 
-    return () => {
-      window.removeEventListener('load', onLoad)
-      clearTimeout(t)
+    if (images.length > 0) {
+      let count = 0
+      images.forEach(src => {
+        const img = new Image()
+        img.onload = img.onerror = () => {
+          count++
+          if (count === images.length) { imagesDone = true; check() }
+        }
+        img.src = src
+      })
     }
-  }, [onDone])
+
+    return () => clearTimeout(t)
+  }, [onDone, images])
 
   return (
     <motion.div
