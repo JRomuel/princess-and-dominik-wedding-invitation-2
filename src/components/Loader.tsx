@@ -112,13 +112,13 @@ export default function Loader({ onDone }: Props) {
           </text>
         </g>
 
-        {/* ── Marinduque pin ───────────────────────────── */}
+        {/* ── PHILIPPINES pin ───────────────────────────── */}
         <g transform="translate(525,70)">
           <path d="M0,0 C-13,-3 -16,-24 0,-30 C16,-24 13,-3 0,0Z" fill="#A34720" />
           <circle cx="0" cy="-19" r="7" fill="#FAF6F0" opacity="0.5" />
           <text y="22" textAnchor="middle" fontSize="12" fontWeight="700"
                 letterSpacing="0.08em" fill="#A34720" fontFamily="system-ui,sans-serif">
-            MARINDUQUE
+            PHILIPPINES
           </text>
         </g>
 
