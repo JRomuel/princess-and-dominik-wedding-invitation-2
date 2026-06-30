@@ -1,0 +1,132 @@
+.invite-card {
+  position: relative;
+  width: clamp(280px, 90vw, 680px);
+  padding: clamp(48px, 9vw, 100px) clamp(28px, 8vw, 96px);
+  margin-left: 4vw;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Stamps */
+.stamp-row {
+  position: absolute;
+  top: clamp(10px, 2vw, 20px);
+  right: clamp(10px, 2vw, 20px);
+  display: flex;
+  gap: 6px;
+}
+
+.stamp {
+  width: clamp(32px, 5.5vw, 64px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Text */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+}
+
+.dear-guests {
+  font-family: 'Ballet', cursive;
+  font-size: clamp(32px, 7vw, 80px);
+  color: #2a2a2a;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.you-are-invited {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  padding-left: clamp(24px, 10vw, 130px);
+}
+
+/* Per-character handwriting animation */
+.handwrite-wrap {
+  display: inline;
+}
+
+.handwrite-char {
+  display: inline;
+  opacity: 0;
+  animation: char-write 0.35s ease-out forwards;
+  animation-delay: calc(var(--i) * 110ms);
+}
+
+/* Fade all chars out together when .fading is applied */
+.handwrite-wrap.fading .handwrite-char {
+  animation: char-fade 0.5s ease-in forwards;
+  animation-delay: 0ms;
+}
+
+@keyframes char-write {
+  from {
+    opacity: 0;
+    transform: translateY(8px) rotate(-6deg);
+    transform-origin: bottom left;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes char-fade {
+  to {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+}
+
+/* Apply the font to the chars */
+.handwrite-char {
+  font-family: 'WindSong', cursive;
+  font-size: clamp(16px, 3.2vw, 40px);
+  font-weight: 400;
+  font-style: italic;
+  color: #3a3a3a;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .invite-card {
+    width: 90vw;
+    margin-left: 0;
+    align-self: center;
+    padding: 40px 24px 36px;
+  }
+
+  .stamp {
+    width: 36px;
+    border: 2px solid #fff;
+  }
+
+  .stamp-row {
+    top: 10px;
+    right: 10px;
+    gap: 4px;
+  }
+
+  .dear-guests {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .you-are-invited {
+    padding-left: 16px;
+  }
+
+  .handwrite-char {
+    font-size: clamp(14px, 5vw, 22px);
+  }
+}

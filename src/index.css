@@ -1,0 +1,37 @@
+:root {
+  --primary: #A34720;
+  --secondary: #D2B396;
+  --cream: #FAF6F0;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 18px/1.5 var(--sans);
+  color: var(--primary);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}

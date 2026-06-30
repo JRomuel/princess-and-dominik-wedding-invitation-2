@@ -1,0 +1,259 @@
+.scattered-cards {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 80px;
+  gap: 0;
+}
+
+.card {
+  background: #fff;
+  flex-shrink: 0;
+}
+
+/* ── Boarding Pass ────────────────────────────── */
+.boarding-pass {
+  width: clamp(340px, 44vw, 560px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  z-index: 1;
+  margin-right: -32px;
+}
+
+.bp-header {
+  background: var(--secondary);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bp-plane {
+  color: #fff;
+  font-size: 16px;
+}
+
+.bp-title {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.bp-body {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+}
+
+.bp-barcode {
+  width: 44px;
+  flex-shrink: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #111 0px, #111 2px,
+    transparent 2px, transparent 4px,
+    #111 4px, #111 6px,
+    transparent 6px, transparent 9px,
+    #111 9px, #111 10px,
+    transparent 10px, transparent 13px,
+    #111 13px, #111 16px,
+    transparent 16px, transparent 18px,
+    #111 18px, #111 19px,
+    transparent 19px, transparent 22px,
+    #111 22px, #111 25px,
+    transparent 25px, transparent 27px,
+    #111 27px, #111 28px,
+    transparent 28px, transparent 32px,
+    #111 32px, #111 34px,
+    transparent 34px, transparent 36px,
+    #111 36px, #111 39px,
+    transparent 39px, transparent 42px,
+    #111 42px, #111 43px,
+    transparent 43px, transparent 48px
+  );
+  min-height: 110px;
+}
+
+.bp-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bp-route {
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.bp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.bp-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.bp-value {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  color: #2a2a2a;
+  text-transform: uppercase;
+}
+
+.bp-row {
+  display: flex;
+  gap: 20px;
+}
+
+/* ── Photo Polaroid ───────────────────────────── */
+.photo-card {
+  width: clamp(240px, 30vw, 380px);
+  padding: 8px 8px 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  position: relative;
+  z-index: 3;
+  transform: rotate(-6deg);
+  transform-origin: center bottom;
+}
+
+.paperclip {
+  position: absolute;
+  top: 4px;
+  left: -44px;
+  transform: rotate(90deg);
+  width: 52px;
+  height: 100px;
+  border: 6px solid #b0b0b0;
+  border-radius: 26px;
+  z-index: 4;
+}
+
+.paperclip::before {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 64px;
+  border: 6px solid #b0b0b0;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.photo-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ── Passport ─────────────────────────────────── */
+.passport {
+  width: clamp(200px, 26vw, 320px);
+  padding: 3px;
+  background: #e8c0a0;
+  border: 2px solid #e8c0a0;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 4;
+  transform: rotate(8deg);
+  transform-origin: center bottom;
+  margin-left: -80px;
+  border-radius: 6px;
+}
+
+.passport-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .scattered-cards {
+    padding: 20px 8px 48px;
+    overflow: hidden;
+  }
+
+  .card {
+    flex-shrink: 1;
+  }
+
+  .boarding-pass {
+    width: 42vw;
+    margin-right: -16px;
+  }
+
+  .bp-header {
+    padding: 8px 10px;
+  }
+
+  .bp-plane {
+    font-size: 12px;
+  }
+
+  .bp-title {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .bp-body {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .bp-barcode {
+    width: 24px;
+    min-height: 70px;
+  }
+
+  .bp-details {
+    gap: 5px;
+  }
+
+  .bp-route {
+    font-size: 13px;
+  }
+
+  .bp-label {
+    font-size: 6px;
+    letter-spacing: 0.8px;
+  }
+
+  .bp-value {
+    font-size: 7px;
+    letter-spacing: 0.4px;
+  }
+
+  .bp-row {
+    gap: 8px;
+  }
+
+  .photo-card {
+    width: 28vw;
+    padding: 5px 5px 20px;
+  }
+
+  .passport {
+    width: 30vw;
+    margin-left: -16px;
+  }
+}
