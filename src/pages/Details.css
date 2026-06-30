@@ -1,0 +1,62 @@
+.details-page {
+  min-height: 100svh;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 24px;
+  gap: 48px;
+}
+
+.details-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.details-eyebrow {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-family: var(--sans);
+}
+
+.details-title {
+  font-size: clamp(36px, 7vw, 72px);
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary);
+  font-weight: 400;
+}
+
+.details-date {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-family: var(--sans);
+}
+
+.details-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 480px;
+}
+
+.details-section h2 {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  font-family: var(--sans);
+}
+
+.details-section p {
+  font-size: 18px;
+  color: var(--primary);
+  font-family: var(--sans);
+}
