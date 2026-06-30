@@ -3,7 +3,7 @@ import couplePhoto from '../assets/DSC03234.jpeg'
 import passportImg from '../assets/passport.png'
 import './ScatteredCards.css'
 
-const spring = { type: 'spring', stiffness: 120, damping: 14 }
+const spring = { type: 'spring', stiffness: 120, damping: 14 } as const
 
 const boardingPassVariants = {
   initial: { opacity: 0, x: -120, y: -40, rotate: -12 },
