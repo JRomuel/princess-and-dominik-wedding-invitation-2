@@ -41,7 +41,7 @@ export default function ScatteredCards() {
         <div className="bp-body">
           <div className="bp-barcode" />
           <div className="bp-details">
-            <div className="bp-route">MNL ► CDO</div>
+            <div className="bp-route">DEU ► PHL</div>
             <div className="bp-field">
               <span className="bp-label">NAMES</span>
               <span className="bp-value">PRINCESS &amp; DOMINIK</span>
