@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import heroImg from './assets/IMG_0564.png'
@@ -13,6 +13,12 @@ import PageTransition from './components/PageTransition'
 import './App.css'
 
 const PRELOAD = [heroImg, couplePhoto, passportImg]
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 
 interface HomeProps { loaded: boolean; onDone: () => void }
 
@@ -45,6 +51,8 @@ function App() {
   const handleHomeDone = useCallback(() => setHomeLoaded(true), [])
 
   return (
+    <>
+    <ScrollToTop />
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={
@@ -59,6 +67,7 @@ function App() {
         } />
       </Routes>
     </AnimatePresence>
+    </>
   )
 }
 

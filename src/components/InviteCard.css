@@ -101,10 +101,10 @@
 /* ── Mobile ───────────────────────────────────── */
 @media (max-width: 600px) {
   .invite-card {
-    width: 90vw;
+    width: 80vw;
     margin-left: 0;
     align-self: center;
-    padding: 40px 24px 36px;
+    padding: 36px 20px 32px;
   }
 
   .stamp {

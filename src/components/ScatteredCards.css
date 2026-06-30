@@ -189,7 +189,7 @@
 /* ── Mobile ───────────────────────────────────── */
 @media (max-width: 600px) {
   .scattered-cards {
-    padding: 20px 8px 48px;
+    padding: 16px 20px 48px;
     overflow: hidden;
   }
 
@@ -198,8 +198,8 @@
   }
 
   .boarding-pass {
-    width: 42vw;
-    margin-right: -16px;
+    width: 40vw;
+    margin-right: -12px;
   }
 
   .bp-header {
@@ -248,12 +248,30 @@
   }
 
   .photo-card {
-    width: 28vw;
-    padding: 5px 5px 20px;
+    width: 27vw;
+    padding: 4px 4px 18px;
+  }
+
+  .paperclip {
+    width: 18px;
+    height: 36px;
+    border-width: 3px;
+    border-radius: 10px;
+    left: -14px;
+    top: 2px;
+  }
+
+  .paperclip::before {
+    width: 9px;
+    height: 22px;
+    border-width: 3px;
+    border-radius: 5px;
+    top: 6px;
   }
 
   .passport {
-    width: 30vw;
-    margin-left: -16px;
+    width: 25vw;
+    margin-left: -10px;
+    transform: rotate(5deg);
   }
 }

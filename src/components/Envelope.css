@@ -154,4 +154,10 @@
   .env-wrapper {
     padding: 0 0 40px;
   }
+
+  .env-arrow {
+    width: 80px;
+    bottom: -6%;
+    right: 2%;
+  }
 }

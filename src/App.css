@@ -4,6 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  overflow-x: clip;
 }
 
 .hero-overlay {

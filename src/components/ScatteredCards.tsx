@@ -17,9 +17,11 @@ const photoVariants = {
     transition: { ...spring, delay: 0.4 } },
 }
 
+const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600
+
 const passportVariants = {
   initial: { opacity: 0, x: 120, y: -60, rotate: 20 },
-  animate: { opacity: 1, x: 0, y: 0, rotate: 8,
+  animate: { opacity: 1, x: 0, y: 0, rotate: isMobile ? 5 : 8,
     transition: { ...spring, delay: 0.65 } },
 }
 
@@ -44,22 +46,22 @@ export default function ScatteredCards() {
             <div className="bp-route">DEU ► PHL</div>
             <div className="bp-field">
               <span className="bp-label">NAMES</span>
-              <span className="bp-value">PRINCESS &amp; DOMINIK</span>
+              <span className="bp-value">PRINCES &amp; DOMINIK</span>
             </div>
             <div className="bp-row">
               <div className="bp-field">
                 <span className="bp-label">WEDDING DATE</span>
-                <span className="bp-value">07 DEC 2025</span>
+                <span className="bp-value">28 JAN 2027</span>
               </div>
               <div className="bp-field">
                 <span className="bp-label">TIME</span>
-                <span className="bp-value">4:00 PM</span>
+                <span className="bp-value">2:00 PM</span>
               </div>
             </div>
             <div className="bp-field">
               <span className="bp-label">DESTINATION</span>
-              <span className="bp-value">SACRED HEART CATHEDRAL</span>
-              <span className="bp-value">CAGAYAN DE ORO, PHILIPPINES</span>
+              <span className="bp-value">BOAC CATHEDRAL</span>
+              <span className="bp-value">MARINDUQUE, PHILIPPINES</span>
             </div>
           </div>
         </div>
