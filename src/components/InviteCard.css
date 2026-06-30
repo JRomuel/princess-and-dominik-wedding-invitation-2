@@ -45,9 +45,6 @@
 }
 
 .you-are-invited {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
   margin: 0;
   padding-left: clamp(24px, 10vw, 130px);
 }
@@ -101,32 +98,32 @@
 /* ── Mobile ───────────────────────────────────── */
 @media (max-width: 600px) {
   .invite-card {
-    width: 80vw;
-    margin-left: 0;
-    align-self: center;
-    padding: 36px 20px 32px;
+    width: 65%;
+    margin-left: 10%;
+    align-self: flex-start;
+    padding: 28px 16px 24px;
   }
 
   .stamp {
-    width: 36px;
+    width: 28px;
     border: 2px solid #fff;
   }
 
   .stamp-row {
-    top: 10px;
-    right: 10px;
+    top: 8px;
+    right: 8px;
     gap: 4px;
   }
 
   .dear-guests {
-    font-size: clamp(28px, 9vw, 42px);
+    font-size: clamp(22px, 7.5vw, 34px);
   }
 
   .you-are-invited {
-    padding-left: 16px;
+    padding-left: 28px;
   }
 
   .handwrite-char {
-    font-size: clamp(14px, 5vw, 22px);
+    font-size: clamp(12px, 4.2vw, 18px);
   }
 }
