@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import paperTexture from '../assets/paper-texture.jpg'
-import stamp1 from '../assets/stamp1.jpg'
-import stamp2 from '../assets/stamp2.jpg'
+import stamp1 from '../assets/stamp1-new.jpg'
+import stamp2 from '../assets/stamp2-new.jpg'
 import './InviteCard.css'
 
 const TEXT = 'You are invited'

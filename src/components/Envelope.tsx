@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import paperTexture from '../assets/paper-texture.jpg'
+import envelopeImg from '../assets/envelope.png'
 import circleAnim from '../assets/circle-animation.gif'
 import arrowAnim from '../assets/arrow animation.gif'
+import envSeal from '../assets/env-seal.png'
 import './Envelope.css'
 
 export default function Envelope() {
@@ -15,11 +16,9 @@ export default function Envelope() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 1.0 }}
     >
-      <div className="env" style={{ backgroundImage: `url(${paperTexture})` }}>
-        <div className="env-shade env-shade-top" />
-        <div className="env-shade env-shade-bottom" />
-        <div className="env-seal" onClick={() => navigate('/details')}>
-          <span className="env-seal-text">P&amp;D</span>
+      <div className="env" style={{ backgroundImage: `url(${envelopeImg})` }} onClick={() => navigate('/details')}>
+        <div className="env-seal">
+          <img src={envSeal} alt="Wax seal" className="env-seal-img" />
         </div>
         <img src={arrowAnim} alt="" className="env-arrow" />
       </div>

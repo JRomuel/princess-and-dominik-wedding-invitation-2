@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import couplePhoto from '../assets/DSC03234.jpeg'
+import couplePhoto from '../assets/newly-wed.jpeg'
 import passportImg from '../assets/passport.png'
 import './ScatteredCards.css'
 
