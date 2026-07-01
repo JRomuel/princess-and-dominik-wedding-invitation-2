@@ -84,11 +84,11 @@
   }
 
   .details-nav-toggle--active {
-    background: rgba(163, 71, 32, 0.85);
+    background: transparent;
   }
 
   .details-nav-toggle--active span {
-    background: var(--cream);
+    background: var(--primary);
   }
 
   .details-nav-toggle--active span:nth-child(1) {
