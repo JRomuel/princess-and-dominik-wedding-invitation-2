@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
+import detailsHeroBg from '../assets/details-hero-background.jpeg'
 import './Details.css'
 
 type SectionId =
@@ -72,17 +73,26 @@ export default function Details() {
       </nav>
 
       {/* ── Home ── */}
-      <section id="home" ref={ref('home')} className="d-section d-section--hero">
-        <p className="d-eyebrow">Love · Adventure · Forever</p>
-        <h1 className="d-display">Princes &amp; Dominik</h1>
-        <p className="d-date">January 28, 2027</p>
-        <p className="d-sub">Boac Cathedral · Boac, Marinduque, Philippines</p>
-        <div className="d-divider" />
-        <p className="d-body d-body--center">
-          From a chance meeting to a love that feels like home.<br />
-          We can't wait to celebrate this next chapter with you.
-        </p>
-        <p className="d-hashtag">#PRINCESandDOMINIK</p>
+      <section
+        id="home"
+        ref={ref('home')}
+        className="d-section d-section--hero"
+        style={{ backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})` }}
+      >
+        <div className="d-hero-content">
+          <h1 className="d-display">
+            <span className="d-display-line d-display-line--left">Princes</span>
+            <span className="d-display-line d-display-line--center d-display-line--and">and</span>
+            <span className="d-display-line d-display-line--right">Dominik</span>
+          </h1>
+        </div>
+        <div className="d-hero-footer">
+          <p className="d-sub">
+            <span className="d-sub-line d-sub-line--upper">Boac Cathedral</span><br />
+            <span className="d-sub-line d-sub-line--italic">Marinduque, Philippines</span>
+          </p>
+          <p className="d-date">01.28.2027</p>
+        </div>
       </section>
 
       {/* ── Our Story ── */}

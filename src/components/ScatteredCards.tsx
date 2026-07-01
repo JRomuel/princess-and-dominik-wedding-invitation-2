@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import couplePhoto from '../assets/newly-wed.jpeg'
 import passportImg from '../assets/passport.png'
+import paperClipImg from '../assets/paper-clip.png'
 import './ScatteredCards.css'
 
 const spring = { type: 'spring', stiffness: 120, damping: 14 } as const
@@ -74,7 +75,7 @@ export default function ScatteredCards() {
         initial="initial"
         animate="animate"
       >
-        <div className="paperclip" />
+        <img src={paperClipImg} alt="" className="paperclip" />
         <img src={couplePhoto} alt="Princess & Dominik" className="photo-img" />
       </motion.div>
 

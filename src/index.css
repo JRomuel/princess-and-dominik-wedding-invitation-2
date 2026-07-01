@@ -5,7 +5,7 @@
   --secondary: #D2B396;
   --cream: #FAF6F0;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Montserrat', system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
 
   font: 18px/1.5 var(--sans);

@@ -132,27 +132,14 @@
 
 .paperclip {
   position: absolute;
-  top: 4px;
-  left: -44px;
-  transform: rotate(90deg);
-  width: 52px;
-  height: 100px;
-  border: 6px solid #b0b0b0;
-  border-radius: 26px;
+  top: -22px;
+  left: -30px;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  transform: rotate(247deg);
   z-index: 4;
-}
-
-.paperclip::before {
-  content: '';
-  position: absolute;
-  top: 17px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 26px;
-  height: 64px;
-  border: 6px solid #b0b0b0;
-  border-radius: 14px;
-  background: transparent;
+  pointer-events: none;
 }
 
 .photo-img {
@@ -253,20 +240,10 @@
   }
 
   .paperclip {
-    width: 18px;
-    height: 36px;
-    border-width: 3px;
-    border-radius: 10px;
-    left: -14px;
-    top: 2px;
-  }
-
-  .paperclip::before {
-    width: 9px;
-    height: 22px;
-    border-width: 3px;
-    border-radius: 5px;
-    top: 6px;
+    width: 34px;
+    height: 34px;
+    top: -8px;
+    left: -11px;
   }
 
   .passport {
