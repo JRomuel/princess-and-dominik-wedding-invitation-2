@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import heroImg from './assets/IMG_0564.png'
 import couplePhoto from './assets/newly-wed.jpeg'
 import passportImg from './assets/passport.png'
+import detailsHeroBg from './assets/details-hero-background.jpeg'
 import InviteCard from './components/InviteCard'
 import ScatteredCards from './components/ScatteredCards'
 import Envelope from './components/Envelope'
@@ -12,7 +13,7 @@ import Details from './pages/Details'
 import PageTransition from './components/PageTransition'
 import './App.css'
 
-const PRELOAD = [heroImg, couplePhoto, passportImg]
+const PRELOAD = [heroImg, couplePhoto, passportImg, detailsHeroBg]
 
 function Home() {
   return (
