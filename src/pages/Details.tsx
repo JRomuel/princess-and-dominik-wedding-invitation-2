@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import detailsHeroBg from '../assets/details-hero-background.jpeg'
 import './Details.css'
@@ -31,6 +31,8 @@ const NAV: { label: string; id: SectionId }[] = [
 export default function Details() {
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
+  const [navOpen, setNavOpen] = useState(false)
+  const [navOverDark, setNavOverDark] = useState(true)
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -41,8 +43,19 @@ export default function Details() {
       rafId = requestAnimationFrame(raf)
     }
     rafId = requestAnimationFrame(raf)
+
+    const checkBackground = () => {
+      const probeY = window.scrollY + 32
+      const isWithin = (el: HTMLElement | null | undefined) =>
+        !!el && probeY >= el.offsetTop && probeY < el.offsetTop + el.offsetHeight
+      setNavOverDark(isWithin(sectionRefs.current.home) || isWithin(sectionRefs.current.rsvp))
+    }
+    checkBackground()
+    lenis.on('scroll', checkBackground)
+
     return () => {
       cancelAnimationFrame(rafId)
+      lenis.off('scroll', checkBackground)
       lenis.destroy()
     }
   }, [])
@@ -52,6 +65,7 @@ export default function Details() {
     if (el && lenisRef.current) {
       lenisRef.current.scrollTo(el, { offset: -64 })
     }
+    setNavOpen(false)
   }
 
   function ref(id: SectionId) {
@@ -63,7 +77,17 @@ export default function Details() {
 
       {/* ── Sticky Nav ── */}
       <nav className="details-nav">
-        <div className="details-nav-inner">
+        <button
+          className={`details-nav-toggle${navOpen ? ' details-nav-toggle--active' : navOverDark ? ' details-nav-toggle--on-dark' : ''}`}
+          aria-label={navOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={navOpen}
+          onClick={() => setNavOpen(open => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <div className={`details-nav-inner${navOpen ? ' details-nav-inner--open' : ''}`}>
           {NAV.map(({ label, id }) => (
             <button key={id} className="details-nav-btn" onClick={() => scrollTo(id)}>
               {label}
