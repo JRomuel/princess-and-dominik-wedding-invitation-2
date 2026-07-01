@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: transparent;
+  background: #fff;
 }
 
 .details-nav-toggle {
@@ -47,11 +47,17 @@
   opacity: 1;
 }
 
+.details-nav-btn--active {
+  font-weight: 600;
+  opacity: 1;
+}
+
 @media (max-width: 700px) {
   .details-nav {
     display: flex;
     justify-content: flex-end;
     padding: 12px 16px;
+    background: transparent;
   }
 
   .details-nav-toggle {

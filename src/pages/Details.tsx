@@ -33,6 +33,7 @@ export default function Details() {
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
   const [navOpen, setNavOpen] = useState(false)
   const [navOverDark, setNavOverDark] = useState(true)
+  const [activeSection, setActiveSection] = useState<SectionId>('home')
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -50,12 +51,28 @@ export default function Details() {
         !!el && probeY >= el.offsetTop && probeY < el.offsetTop + el.offsetHeight
       setNavOverDark(isWithin(sectionRefs.current.home) || isWithin(sectionRefs.current.rsvp))
     }
-    checkBackground()
-    lenis.on('scroll', checkBackground)
+
+    const checkActiveSection = () => {
+      const probeY = window.scrollY + 100
+      let current: SectionId = NAV[0].id
+      for (const { id } of NAV) {
+        const el = sectionRefs.current[id]
+        if (el && el.offsetTop <= probeY) current = id
+      }
+      setActiveSection(current)
+    }
+
+    const handleScroll = () => {
+      checkBackground()
+      checkActiveSection()
+    }
+
+    handleScroll()
+    lenis.on('scroll', handleScroll)
 
     return () => {
       cancelAnimationFrame(rafId)
-      lenis.off('scroll', checkBackground)
+      lenis.off('scroll', handleScroll)
       lenis.destroy()
     }
   }, [])
@@ -89,7 +106,11 @@ export default function Details() {
         </button>
         <div className={`details-nav-inner${navOpen ? ' details-nav-inner--open' : ''}`}>
           {NAV.map(({ label, id }) => (
-            <button key={id} className="details-nav-btn" onClick={() => scrollTo(id)}>
+            <button
+              key={id}
+              className={`details-nav-btn${activeSection === id ? ' details-nav-btn--active' : ''}`}
+              onClick={() => scrollTo(id)}
+            >
               {label}
             </button>
           ))}
