@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import paperTexture from '../assets/paper-texture.jpg'
+import paperTexture from '../assets/paper-texture-2.jpg'
 import stamp1 from '../assets/stamp1-new.jpg'
 import stamp2 from '../assets/stamp2-new.jpg'
 import './InviteCard.css'
