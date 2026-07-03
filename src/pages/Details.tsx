@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { preload } from 'react-dom'
 import Lenis from 'lenis'
 import detailsHeroBg from '../assets/details-hero-background-2.jpeg'
 import mapImage from '../assets/map-image-2.png'
@@ -84,6 +85,7 @@ function PassportPhoto() {
           src={src}
           alt=""
           className={`d-passport-photo-img${i === active ? ' d-passport-photo-img--active' : ''}`}
+          fetchPriority={i === 0 ? 'high' : undefined}
         />
       ))}
     </div>
@@ -91,6 +93,8 @@ function PassportPhoto() {
 }
 
 export default function Details() {
+  preload(detailsHeroBg, { as: 'image', fetchPriority: 'high' })
+
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
   const [navOpen, setNavOpen] = useState(false)
@@ -188,7 +192,12 @@ export default function Details() {
           <p className="d-intro-text">You Are Invited</p>
           <div className="d-intro-map">
             <div className="d-intro-map-frame">
-              <img src={mapImage} alt="Map showing Germany and the Philippines" className="d-intro-map-img" />
+              <img
+                src={mapImage}
+                alt="Map showing Germany and the Philippines"
+                className="d-intro-map-img"
+                fetchPriority="high"
+              />
               <MapPin style={{ left: '49.5%', top: '29%' }} />
               <MapPin style={{ left: '81%', top: '56%' }} />
               <img src={compass} alt="" className="d-intro-map-compass" />
