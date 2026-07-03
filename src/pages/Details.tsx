@@ -220,6 +220,7 @@ function PassportPhoto() {
 
 export default function Details() {
   preload(detailsHeroBg, { as: 'image', fetchPriority: 'high' })
+  preload(mapImage, { as: 'image', fetchPriority: 'high' })
 
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
