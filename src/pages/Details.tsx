@@ -1,7 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
-import detailsHeroBg from '../assets/details-hero-background.jpeg'
+import detailsHeroBg from '../assets/details-hero-background-2.jpeg'
+import mapImage from '../assets/map-image-2.png'
+import introBg from '../assets/intro-bg.jpg'
+import compass from '../assets/pd-compass.png'
+import passportPhoto1 from '../assets/passport-image-1.jpeg'
+import passportPhoto2 from '../assets/passport-image-2.jpeg'
+import passportPhoto3 from '../assets/passport-image-3.jpeg'
 import './Details.css'
+
+const PASSPORT_PHOTOS = [passportPhoto1, passportPhoto2, passportPhoto3]
+
+const arrows = (n: number) => '<'.repeat(n)
+const MRZ_LINE_1 = `${arrows(38)}LUXOR${arrows(14)}RESORT${arrows(41)}`
+const MRZ_LINE_2 = `${arrows(36)}SEE${arrows(13)}YOU${arrows(9)}IN${arrows(7)}MARINDUQUE${arrows(29)}`
+
+function MrzLine({ text }: { text: string }) {
+  return (
+    <p className="d-passport-mrz-line">
+      {[...text].map((char, i) => <span key={i}>{char}</span>)}
+    </p>
+  )
+}
 
 type SectionId =
   | 'home'
@@ -27,6 +47,48 @@ const NAV: { label: string; id: SectionId }[] = [
   { label: 'Gallery',   id: 'gallery'   },
   { label: 'RSVP',      id: 'rsvp'      },
 ]
+
+function MapPin({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg
+      className="d-map-pin"
+      style={style}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="204.2 131.7 1049.9 1707.9"
+      fillRule="evenodd"
+    >
+      <path
+        d="m730.94 1839.6c-38.766-190.3-107.12-348.67-189.9-495.44-61.407-108.87-132.54-209.36-198.36-314.94-21.972-35.243-40.934-72.476-62.047-109.05-42.216-73.137-76.444-157.94-74.269-267.93 2.125-107.47 33.208-193.68 78.03-264.17 73.719-115.94 197.2-210.99 362.88-235.97 135.47-20.424 262.48 14.082 352.54 66.748 73.596 43.038 130.6 100.53 173.92 168.28 45.22 70.716 76.36 154.26 78.97 263.23 1.3401 55.83-7.7999 107.53-20.68 150.42-13.03 43.409-33.99 79.695-52.64 118.45-36.41 75.659-82.05 144.98-127.86 214.34-136.44 206.61-264.5 417.31-320.58 706.03z"
+        fill="#A34720"
+      />
+      <circle cx="729.55" cy="651.05" r="183.33" fill="rgb(255, 255, 255)" />
+    </svg>
+  )
+}
+
+function PassportPhoto() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(i => (i + 1) % PASSPORT_PHOTOS.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="d-passport-photo">
+      {PASSPORT_PHOTOS.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          className={`d-passport-photo-img${i === active ? ' d-passport-photo-img--active' : ''}`}
+        />
+      ))}
+    </div>
+  )
+}
 
 export default function Details() {
   const lenisRef = useRef<Lenis | null>(null)
@@ -116,6 +178,72 @@ export default function Details() {
           ))}
         </div>
       </nav>
+
+      {/* ── Intro ── */}
+      <section
+        className="d-section-intro"
+        style={{ backgroundImage: `url(${introBg})` }}
+      >
+        <div className="d-intro-box">
+          <p className="d-intro-text">You Are Invited</p>
+          <div className="d-intro-map">
+            <div className="d-intro-map-frame">
+              <img src={mapImage} alt="Map showing Germany and the Philippines" className="d-intro-map-img" />
+              <MapPin style={{ left: '49.5%', top: '29%' }} />
+              <MapPin style={{ left: '81%', top: '56%' }} />
+              <img src={compass} alt="" className="d-intro-map-compass" />
+            </div>
+          </div>
+          <p className="d-intro-footer">Princes &amp; Dominik - The Wedding</p>
+        </div>
+
+        <div className="d-intro-box d-passport-box">
+          <div className="d-passport-header">
+            <h2 className="d-passport-title">Passport</h2>
+            <div className="d-passport-field">
+              <p className="d-passport-label">Type</p>
+              <p className="d-passport-value">Wedding</p>
+            </div>
+            <div className="d-passport-field">
+              <p className="d-passport-label">Code</p>
+              <p className="d-passport-value">PD</p>
+            </div>
+            <div className="d-passport-field">
+              <p className="d-passport-label">Passport No.</p>
+              <p className="d-passport-value">28JAN2027</p>
+            </div>
+          </div>
+
+          <div className="d-passport-body">
+            <PassportPhoto />
+            <div className="d-passport-info">
+              <div className="d-passport-group">
+                <p className="d-passport-group-label">Names</p>
+                <p className="d-passport-group-value">Princes D. Largo</p>
+                <p className="d-passport-group-value">Dominik Moser</p>
+              </div>
+              <div className="d-passport-group">
+                <p className="d-passport-group-label">Destination</p>
+                <p className="d-passport-group-value">Boac Cathedral</p>
+                <p className="d-passport-group-value">Marinduque, Philippines</p>
+              </div>
+              <div className="d-passport-group">
+                <p className="d-passport-group-label">Wedding Date</p>
+                <p className="d-passport-group-value">01.28.2027</p>
+              </div>
+              <div className="d-passport-group">
+                <p className="d-passport-group-label">RSVP By</p>
+                <p className="d-passport-group-value">December 1, 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="d-passport-mrz">
+            <MrzLine text={MRZ_LINE_1} />
+            <MrzLine text={MRZ_LINE_2} />
+          </div>
+        </div>
+      </section>
 
       {/* ── Home ── */}
       <section
