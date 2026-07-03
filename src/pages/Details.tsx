@@ -67,6 +67,19 @@ function MapPin({ style }: { style?: React.CSSProperties }) {
   )
 }
 
+function HeartIcon() {
+  return (
+    <svg
+      className="d-passport-heart"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="var(--primary)"
+    >
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  )
+}
+
 function PassportPhoto() {
   const [active, setActive] = useState(0)
 
@@ -208,41 +221,52 @@ export default function Details() {
 
         <div className="d-intro-box d-passport-box">
           <div className="d-passport-header">
-            <h2 className="d-passport-title">Passport</h2>
-            <div className="d-passport-field">
-              <p className="d-passport-label">Type</p>
-              <p className="d-passport-value">Wedding</p>
-            </div>
-            <div className="d-passport-field">
-              <p className="d-passport-label">Code</p>
-              <p className="d-passport-value">PD</p>
-            </div>
-            <div className="d-passport-field">
-              <p className="d-passport-label">Passport No.</p>
-              <p className="d-passport-value">28JAN2027</p>
+            <div className="d-passport-title-row">
+              <h2 className="d-passport-title">Save the Date</h2>
+              <HeartIcon />
+              <p className="d-passport-date">01.28.2027</p>
             </div>
           </div>
 
           <div className="d-passport-body">
             <PassportPhoto />
             <div className="d-passport-info">
-              <div className="d-passport-group">
-                <p className="d-passport-group-label">Names</p>
-                <p className="d-passport-group-value">Princes D. Largo</p>
-                <p className="d-passport-group-value">Dominik Moser</p>
+              <div className="d-passport-info-left">
+                <div className="d-passport-field">
+                  <p className="d-passport-group-label">Passport Type</p>
+                  <p className="d-passport-group-value">Wedding</p>
+                </div>
+                <div className="d-passport-field">
+                  <p className="d-passport-group-label">Code</p>
+                  <p className="d-passport-group-value">MDQ</p>
+                </div>
+                <div className="d-passport-field">
+                  <p className="d-passport-group-label">Passport No.</p>
+                  <p className="d-passport-group-value">28JAN2027</p>
+                </div>
               </div>
-              <div className="d-passport-group">
-                <p className="d-passport-group-label">Destination</p>
-                <p className="d-passport-group-value">Boac Cathedral</p>
-                <p className="d-passport-group-value">Marinduque, Philippines</p>
-              </div>
-              <div className="d-passport-group">
-                <p className="d-passport-group-label">Wedding Date</p>
-                <p className="d-passport-group-value">01.28.2027</p>
-              </div>
-              <div className="d-passport-group">
-                <p className="d-passport-group-label">RSVP By</p>
-                <p className="d-passport-group-value">December 1, 2026</p>
+              <div className="d-passport-info-right">
+                <div className="d-passport-group">
+                  <p className="d-passport-group-label">The Bride</p>
+                  <p className="d-passport-group-value">Princes Dianne Moser</p>
+                </div>
+                <div className="d-passport-group">
+                  <p className="d-passport-group-label">The Groom</p>
+                  <p className="d-passport-group-value">Dominik Moser</p>
+                </div>
+                <div className="d-passport-group">
+                  <p className="d-passport-group-label">Date</p>
+                  <p className="d-passport-group-value">January 28, 2027</p>
+                </div>
+                <div className="d-passport-group">
+                  <p className="d-passport-group-label">Ceremony</p>
+                  <p className="d-passport-group-value">Boac Cathedral</p>
+                </div>
+          
+                <div className="d-passport-group">
+                  <p className="d-passport-group-label">Reception</p>
+                  <p className="d-passport-group-value">Luxor Resort Marinduque ✈</p>
+                </div>
               </div>
             </div>
           </div>
