@@ -302,7 +302,7 @@
   text-transform: capitalize;
   text-align: center;
   color: var(--primary);
-  font-family: 'WindSong', cursive;
+  font-family: 'Great Vibes', cursive;
   opacity: 0.85;
   margin: 0;
   padding: 0 48px 56px;
@@ -340,7 +340,25 @@
 /* ─── Passport ─────────────────────────────────────── */
 
 .d-passport-box {
+  position: relative;
   align-items: stretch;
+}
+
+.d-passport-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/passport-bg-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.d-passport-box > * {
+  position: relative;
+  z-index: 1;
 }
 
 .d-passport-header {
@@ -450,7 +468,7 @@
   font-size: clamp(8px, 1vw, 16px);
   font-weight: 400;
   color: var(--primary);
-  opacity: 0.85;
+  opacity: 0.7;
   text-transform: uppercase;
 }
 
@@ -492,6 +510,151 @@
 
 .d-passport-mrz-line + .d-passport-mrz-line {
   margin-top: 4px;
+}
+
+.d-passport-ornament-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -14px;
+}
+
+.d-passport-ornament {
+  width: clamp(120px, 16vw, 220px);
+  height: auto;
+}
+
+/* ─── Countdown ────────────────────────────────────── */
+
+.d-countdown-box {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 48px;
+  box-sizing: border-box;
+  gap: 24px;
+}
+
+.d-countdown-label {
+  font-size: clamp(20px, 3.6vw, 42px);
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary);
+  opacity: 0.85;
+  margin: 0;
+}
+
+.d-countdown-timer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(6px, 1.6vw, 18px);
+}
+
+.d-countdown-unit {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(6px, 1.6vw, 18px);
+}
+
+.d-countdown-unit-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.d-countdown-value {
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(28px, 6vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--primary);
+}
+
+.d-countdown-unit-label {
+  font-family: var(--sans);
+  font-size: clamp(9px, 1.4vw, 14px);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+.d-countdown-colon {
+  font-family: var(--sans);
+  font-size: clamp(24px, 5vw, 56px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.4;
+  transform: translateY(-6px);
+}
+
+/* ─── Music Player ─────────────────────────────────── */
+
+.d-music-player {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+}
+
+.d-music-disc {
+  position: relative;
+  width: clamp(110px, 12vw, 150px);
+  height: clamp(110px, 12vw, 150px);
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  background:
+    radial-gradient(circle, var(--primary) 0 15%, transparent 15.5%),
+    repeating-radial-gradient(circle, #222 0, #222 2px, #333 2px, #333 5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.d-music-icon-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-music-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--cream);
+  flex-shrink: 0;
+}
+
+.d-music-label-arc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.d-music-label-text {
+  font-family: var(--sans);
+  font-size: 6.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  fill: var(--cream);
 }
 
 /* ─── Hero ─────────────────────────────────────────── */

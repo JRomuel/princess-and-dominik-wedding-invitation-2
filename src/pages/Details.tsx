@@ -8,9 +8,53 @@ import compass from '../assets/pd-compass.png'
 import passportPhoto1 from '../assets/passport-image-1.jpeg'
 import passportPhoto2 from '../assets/passport-image-2.jpeg'
 import passportPhoto3 from '../assets/passport-image-3.jpeg'
+import weddingSong from '../assets/Adele+-+Make+You+Feel+My+Love+(Lyrics).mp3'
 import './Details.css'
 
 const PASSPORT_PHOTOS = [passportPhoto1, passportPhoto2, passportPhoto3]
+const WEDDING_DATE = new Date('2027-01-28T14:00:00+08:00')
+
+function getTimeLeft(target: Date) {
+  const diff = Math.max(0, target.getTime() - Date.now())
+  return {
+    days: Math.floor(diff / 86400000),
+    hours: Math.floor(diff / 3600000) % 24,
+    minutes: Math.floor(diff / 60000) % 60,
+    seconds: Math.floor(diff / 1000) % 60,
+  }
+}
+
+function pad(n: number) {
+  return n.toString().padStart(2, '0')
+}
+
+function Countdown() {
+  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(WEDDING_DATE))
+
+  useEffect(() => {
+    const interval = setInterval(() => setTimeLeft(getTimeLeft(WEDDING_DATE)), 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="d-countdown-timer">
+      {[
+        { label: 'Days', value: timeLeft.days },
+        { label: 'Hours', value: timeLeft.hours },
+        { label: 'Minutes', value: timeLeft.minutes },
+        { label: 'Seconds', value: timeLeft.seconds },
+      ].map(({ label, value }, i) => (
+        <div className="d-countdown-unit" key={label}>
+          {i > 0 && <span className="d-countdown-colon">:</span>}
+          <div className="d-countdown-unit-inner">
+            <span className="d-countdown-value">{pad(value)}</span>
+            <span className="d-countdown-unit-label">{label}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 const arrows = (n: number) => '<'.repeat(n)
 const MRZ_LINE_1 = `${arrows(38)}LUXOR${arrows(14)}RESORT${arrows(41)}`
@@ -77,6 +121,69 @@ function HeartIcon() {
     >
       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
     </svg>
+  )
+}
+
+function PassportOrnament() {
+  return (
+    <svg
+      className="d-passport-ornament"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="330.2 194.2 931.8 1465.0"
+      fill="var(--primary)"
+    >
+      <path d="M343.05,196.12c-12.84,75.88,4,153.43,40.46,220.59c37.07,68.28,93.47,126.37,160.34,165.86 C618.9,626.91,704.96,649.72,791.4,657c44.7,3.76,89.7,3.46,134.41-0.03c39.65-3.09,80.36-7.19,118.73-18.11 c31.27-8.89,63.79-23.35,83.85-50.04c20.66-27.47,21.84-63.16,5.14-92.86c-17.07-30.36-48.75-51.47-83.49-54.54 c-39.05-3.45-77.46,13.16-106.7,38.23c-60.08,51.52-78.38,134.76-70.66,210.64c8.66,85.05,47.65,160.86,93.91,231.34 c50.82,77.42,108.37,150.2,148.61,234.11c40.79,85.06,66.48,177.41,75.52,271.32c2.18,22.69,3.37,45.45,3.62,68.24 c0.02,1.93,3.02,1.93,3,0c-1.01-89-16.79-177.67-46.53-261.57c-14.75-41.62-32.89-82.04-54.26-120.68 c-21.27-38.45-45.94-74.86-71.01-110.89c-49.2-70.7-102.2-141.88-130.33-224.21c-24.66-72.17-32.16-155.78-0.35-227.03 c16.12-36.1,42.26-67.85,76.77-87.65c34.14-19.59,77.61-27.08,113.95-8.84c32.02,16.07,57.72,49.85,56.86,86.74 c-0.83,35.53-26.48,62.55-56.33,78.3c-31.9,16.83-67.9,23.49-103.28,28.35c-43.21,5.93-86.82,9.12-130.45,8.87 c-85.88-0.49-172.55-14.43-251.71-48.64c-72.98-31.54-137.06-80.71-184.18-144.98c-44.69-60.96-73.85-134.64-74.86-210.79 c-0.25-18.55,1.22-37.07,4.31-55.36C346.26,195.03,343.37,194.22,343.05,196.12L343.05,196.12z" />
+      <path d="M1132.67,1572.57l0.12,10.67l21.96,14.2l0.07,5.96c0.02,2.01,1.67,3.62,3.68,3.6c2.01-0.02,3.62-1.67,3.6-3.68l-0.01-1.14 l7.12,4.6l0.06,5.29c0.02,2.01,1.67,3.62,3.68,3.6c2.01-0.02,3.62-1.67,3.6-3.68l-0.01-0.46l11.22,7.26l-0.68,19.79 c-0.21,6.26,4.95,20.61,11.22,20.54l0,0c6.27-0.07,11.1-14.54,10.74-20.79l-1.15-20.01l11.06-7.52l0.01,0.71 c0.02,2.01,1.67,3.62,3.68,3.6c2.01-0.02,3.62-1.67,3.6-3.68l-0.06-5.54l7.01-4.77l0.02,1.39c0.02,2.01,1.67,3.62,3.68,3.6l0,0 c2.01-0.02,3.62-1.67,3.6-3.68l-0.07-6.21l21.62-14.71l-0.12-10.67l-55.77,16.97l-2.85-49.54l19.49-13.26 c0.75-0.51,1.2-1.37,1.19-2.28c-0.02-1.81-1.78-3.1-3.51-2.57l-22.67,6.9c-0.43,0.13-0.83,0.3-1.21,0.51 c-0.38-0.2-0.79-0.36-1.22-0.48l-22.82-6.37c-1.75-0.49-3.47,0.84-3.45,2.65c0.01,0.91,0.48,1.76,1.24,2.25l19.9,12.87 c0.09,0.06,0.18,0.11,0.27,0.16l-1.69,49.6L1132.67,1572.57z" />
+    </svg>
+  )
+}
+
+function MusicPlayer() {
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const [playing, setPlaying] = useState(false)
+
+  function toggle() {
+    const audio = audioRef.current
+    if (!audio) return
+    if (playing) {
+      audio.pause()
+    } else {
+      audio.play()
+    }
+    setPlaying(p => !p)
+  }
+
+  return (
+    <div className="d-music-player">
+      <audio ref={audioRef} src={weddingSong} loop />
+      <button
+        type="button"
+        className={`d-music-disc${playing ? ' d-music-disc--playing' : ''}`}
+        onClick={toggle}
+        aria-label={playing ? 'Pause music' : 'Play music'}
+      >
+        <svg className="d-music-label-arc" viewBox="0 0 100 100">
+          <path id="d-music-arc-path" d="M22,54 A28,28 0 1 1 78,54" fill="none" />
+          <text className="d-music-label-text">
+            <textPath href="#d-music-arc-path" startOffset="50%" textAnchor="middle">
+              Click to play music
+            </textPath>
+          </text>
+        </svg>
+        <span className="d-music-icon-wrap">
+          {playing ? (
+            <svg className="d-music-icon" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="5" width="4" height="14" />
+              <rect x="14" y="5" width="4" height="14" />
+            </svg>
+          ) : (
+            <svg className="d-music-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+        </span>
+      </button>
+    </div>
   )
 }
 
@@ -220,6 +327,8 @@ export default function Details() {
         </div>
 
         <div className="d-intro-box d-passport-box">
+          <MusicPlayer />
+
           <div className="d-passport-header">
             <div className="d-passport-title-row">
               <h2 className="d-passport-title">Save the Date</h2>
@@ -275,6 +384,15 @@ export default function Details() {
             <MrzLine text={MRZ_LINE_1} />
             <MrzLine text={MRZ_LINE_2} />
           </div>
+        </div>
+
+        <div className="d-passport-ornament-wrap">
+          <PassportOrnament />
+        </div>
+
+        <div className="d-countdown-box">
+          <p className="d-countdown-label">Counting down the days until our greatest adventure</p>
+          <Countdown />
         </div>
       </section>
 
