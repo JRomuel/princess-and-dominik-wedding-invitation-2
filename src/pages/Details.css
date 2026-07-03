@@ -1152,6 +1152,8 @@
 
   .d-section-intro {
     padding: 90px 10px;
+    background-size: auto;
+    background-position: 78% 56%;
   }
 
   .d-hero-content {
