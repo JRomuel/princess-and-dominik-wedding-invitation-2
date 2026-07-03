@@ -608,18 +608,25 @@
 
 .d-music-disc {
   position: relative;
-  width: clamp(110px, 12vw, 150px);
-  height: clamp(110px, 12vw, 150px);
-  border: none;
+  width: clamp(130px, 14vw, 180px);
+  height: clamp(130px, 14vw, 180px);
+  border: 1.5px solid var(--primary);
   border-radius: 50%;
   padding: 0;
   box-sizing: border-box;
   cursor: pointer;
   display: block;
-  background:
-    radial-gradient(circle, var(--primary) 0 15%, transparent 15.5%),
-    repeating-radial-gradient(circle, #222 0, #222 2px, #333 2px, #333 5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background: var(--cream);
+  box-shadow: 0 4px 14px rgba(163, 71, 32, 0.18);
+}
+
+.d-music-disc::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 .d-music-icon-wrap {
@@ -634,9 +641,9 @@
 }
 
 .d-music-icon {
-  width: 30px;
-  height: 30px;
-  color: var(--cream);
+  width: 38px;
+  height: 38px;
+  color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -651,10 +658,11 @@
 
 .d-music-label-text {
   font-family: var(--sans);
-  font-size: 6.5px;
+  font-size: 9px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  fill: var(--cream);
+  fill: var(--primary);
+  opacity: 0.75;
 }
 
 /* ─── Hero ─────────────────────────────────────────── */
@@ -1232,5 +1240,28 @@
 
   .d-passport-mrz {
     padding: 16px 0;
+  }
+
+  .d-music-player {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .d-music-disc {
+    width: 78px;
+    height: 78px;
+  }
+
+  .d-music-disc::before {
+    inset: 8px;
+  }
+
+  .d-music-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .d-music-label-text {
+    font-size: 6.5px;
   }
 }

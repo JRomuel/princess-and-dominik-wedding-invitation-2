@@ -165,7 +165,13 @@ function MusicPlayer() {
         <svg className="d-music-label-arc" viewBox="0 0 100 100">
           <path id="d-music-arc-path" d="M22,54 A28,28 0 1 1 78,54" fill="none" />
           <text className="d-music-label-text">
-            <textPath href="#d-music-arc-path" startOffset="50%" textAnchor="middle">
+            <textPath
+              href="#d-music-arc-path"
+              startOffset="50%"
+              textAnchor="middle"
+              textLength="80"
+              lengthAdjust="spacingAndGlyphs"
+            >
               Click to play music
             </textPath>
           </text>
