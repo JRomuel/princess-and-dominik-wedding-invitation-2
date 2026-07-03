@@ -572,7 +572,7 @@
 .d-countdown-value {
   font-family: var(--sans);
   font-variant-numeric: tabular-nums;
-  font-size: clamp(28px, 6vw, 64px);
+  font-size: clamp(40px, 6vw, 80px);
   font-weight: 400;
   line-height: 1;
   color: var(--primary);
