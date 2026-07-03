@@ -119,7 +119,7 @@
   font-size: clamp(26px, 3.8vw, 48px);
   line-height: 1.6;
   letter-spacing: 0.3px;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ms Madi', cursive;
 }
 
 @media (max-width: 600px) {

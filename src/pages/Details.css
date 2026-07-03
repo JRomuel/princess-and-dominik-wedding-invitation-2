@@ -180,7 +180,7 @@
 }
 
 .d-display {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ms Madi', cursive;
   font-size: clamp(52px, 10vw, 96px);
   color: var(--primary);
   font-weight: 400;
@@ -189,12 +189,11 @@
 }
 
 .d-heading {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(36px, 7vw, 64px);
+  font-size: clamp(36px, 7vw, 75px);
   color: var(--primary);
   font-weight: 400;
   line-height: 1;
-  margin: 0;
+  margin-bottom: 50px;
 }
 
 .d-heading--light {
@@ -219,10 +218,9 @@
 }
 
 .d-body {
-  font-size: 16px;
+  font-size: clamp(20px, 2vw, 28px);
   line-height: 1.85;
   color: var(--primary);
-  opacity: 0.78;
   margin: 0;
 }
 
@@ -257,6 +255,7 @@
 .d-section-intro {
   width: 100%;
   padding: 120px 10px;
+  background-color: var(--secondary-accent);
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
@@ -302,7 +301,7 @@
   text-transform: capitalize;
   text-align: center;
   color: var(--primary);
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ms Madi', cursive;
   opacity: 0.85;
   margin: 0;
   padding: 0 48px 56px;
@@ -334,7 +333,6 @@
   bottom: 0;
   width: clamp(70px, 17%, 190px);
   height: auto;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
 
 /* ─── Passport ─────────────────────────────────────── */
@@ -393,9 +391,8 @@
 
 .d-passport-date {
   font-family: var(--sans);
-  font-size: clamp(20px, 4.5vw, 40px);
+  font-size: clamp(20px, 2vw, 28px);
   color: var(--primary);
-  opacity: 0.78;
   white-space: nowrap;
   margin: 0;
 }
@@ -522,6 +519,73 @@
 .d-passport-ornament {
   width: clamp(120px, 16vw, 220px);
   height: auto;
+  fill: #fff;
+}
+
+/* ─── Welcome ──────────────────────────────────────── */
+
+.d-welcome-box {
+  padding: 64px 48px;
+  gap: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.d-welcome-box .d-heading,
+.d-welcome-box .d-body {
+  color: #fff;
+}
+
+.d-rsvp-cta {
+  margin-top: 60px;
+  padding: 20px 64px;
+  background: #fff;
+  border: none;
+  border-radius: 3px;
+  color: var(--primary);
+  font-size: 26px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.d-rsvp-cta:hover {
+  opacity: 0.85;
+}
+
+/* ─── Save the Date ───────────────────────────────── */
+
+.d-save-date-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 16px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.d-save-date-box .d-save-date-title,
+.d-save-date-box .d-passport-date {
+  color: #fff;
+}
+
+.d-save-date-title {
+  font-family: 'Ms Madi', cursive;
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 400;
+  color: var(--primary);
+  text-transform: capitalize;
+  margin: 0;
 }
 
 /* ─── Countdown ────────────────────────────────────── */
@@ -539,13 +603,19 @@
   gap: 24px;
 }
 
+.d-countdown-box .d-countdown-label,
+.d-countdown-box .d-countdown-value,
+.d-countdown-box .d-countdown-unit-label,
+.d-countdown-box .d-countdown-colon {
+  color: #fff;
+}
+
 .d-countdown-label {
-  font-size: clamp(20px, 3.6vw, 42px);
+  font-size: clamp(24px, 3.6vw, 55px);
   letter-spacing: 1px;
   text-align: center;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ms Madi', cursive;
   color: var(--primary);
-  opacity: 0.85;
   margin: 0;
 }
 
@@ -584,7 +654,6 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--primary);
-  opacity: 0.6;
 }
 
 .d-countdown-colon {
@@ -888,7 +957,7 @@
 }
 
 .d-card-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ms Madi', cursive;
   font-size: 28px;
   color: var(--primary);
   font-weight: 400;
@@ -1152,8 +1221,6 @@
 
   .d-section-intro {
     padding: 90px 10px;
-    background-size: auto;
-    background-position: 78% 24%;
   }
 
   .d-hero-content {

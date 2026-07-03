@@ -3,12 +3,12 @@ import { preload } from 'react-dom'
 import Lenis from 'lenis'
 import detailsHeroBg from '../assets/details-hero-background-2.jpeg'
 import mapImage from '../assets/map-image-2.png'
-import introBg from '../assets/intro-bg.jpg'
 import compass from '../assets/pd-compass.png'
 import passportPhoto1 from '../assets/passport-image-1.jpeg'
 import passportPhoto2 from '../assets/passport-image-2.jpeg'
 import passportPhoto3 from '../assets/passport-image-3.jpeg'
 import weddingSong from '../assets/Adele+-+Make+You+Feel+My+Love+(Lyrics).mp3'
+import glitterBg from '../assets/glitter.gif'
 import './Details.css'
 
 const PASSPORT_PHOTOS = [passportPhoto1, passportPhoto2, passportPhoto3]
@@ -312,7 +312,6 @@ export default function Details() {
       {/* ── Intro ── */}
       <section
         className="d-section-intro"
-        style={{ backgroundImage: `url(${introBg})` }}
       >
         <div className="d-intro-box">
           <p className="d-intro-text">You Are Invited</p>
@@ -396,8 +395,40 @@ export default function Details() {
           <PassportOrnament />
         </div>
 
+        <div className="d-welcome-box">
+          <h2 className="d-heading">Welcome Aboard</h2>
+          <p className="d-body d-body--center">
+            Something borrowed, something blue, our Loved as old as Time as our vows we say. The earth and skies as witnesses, on our wedding day.
+          </p>
+        </div>
+
+        <div className="d-save-date-box" style={{ backgroundImage: `url(${glitterBg})` }}>
+          <p className="d-save-date-title">Save the Date</p>
+          <p className="d-passport-date">Thu 28th January</p>
+          <p className="d-passport-date">01.28.2027 | 2 PM</p>
+        </div>
+
+        <div className="d-welcome-box">
+          <p className="d-body d-body--center">
+            Kindly join Princess and Dominik as they continue their life journey together.
+            <br />
+            Black tie event.
+            <br />
+            <br />
+            Ceremony at Boac Cathedral
+            <br />
+            Reception to follow.
+            <br />
+            <br />
+            Please respond before 10th September. <br /> We can't wait to celebrate with you!
+          </p>
+          <button type="button" className="d-rsvp-cta" onClick={() => scrollTo('rsvp')}>
+            RSVP
+          </button>
+        </div>
+
         <div className="d-countdown-box">
-          <p className="d-countdown-label">Counting down the days until our greatest adventure</p>
+          <p className="d-countdown-label">Counting down the days until <br /> our greatest adventure</p>
           <Countdown />
         </div>
       </section>

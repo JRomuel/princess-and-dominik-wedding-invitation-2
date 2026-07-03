@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 
 :root {
   --primary: #A34720;
   --secondary: #D2B396;
+  --secondary-accent: #D2B396;
   --cream: #FAF6F0;
 
   --sans: 'Playfair Display', system-ui, 'Segoe UI', sans-serif;
