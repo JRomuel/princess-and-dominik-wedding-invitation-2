@@ -285,6 +285,11 @@
   opacity: 1;
 }
 
+.d-reveal-word {
+  display: inline-block;
+  will-change: opacity;
+}
+
 /* ─── Table of Contents ────────────────────────────── */
 
 .d-section--toc {

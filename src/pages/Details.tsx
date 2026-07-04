@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { preload } from 'react-dom'
 import Lenis from 'lenis'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import detailsHeroBg from '../assets/details-hero-background-22.jpeg'
 import mapImage from '../assets/map-image-2.png'
 import compass from '../assets/pd-compass.png'
@@ -35,6 +35,56 @@ function getTimeLeft(target: Date) {
 
 function pad(n: number) {
   return n.toString().padStart(2, '0')
+}
+
+function RevealWord({
+  children,
+  progress,
+  range,
+}: {
+  children: string
+  progress: MotionValue<number>
+  range: [number, number]
+}) {
+  const opacity = useTransform(progress, range, [0.3, 1])
+  return (
+    <motion.span className="d-reveal-word" style={{ opacity }}>
+      {children}{' '}
+    </motion.span>
+  )
+}
+
+function RevealParagraphs({ paragraphs, className }: { paragraphs: string[]; className?: string }) {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 0.9', 'end 0.4'],
+  })
+
+  const paragraphWords = paragraphs.map((text) => text.replace(/\s+/g, ' ').trim().split(' '))
+  const totalWords = paragraphWords.reduce((sum, words) => sum + words.length, 0)
+  const paragraphStarts = paragraphWords.reduce<number[]>((starts, _words, i) => {
+    starts.push(i === 0 ? 0 : starts[i - 1] + paragraphWords[i - 1].length)
+    return starts
+  }, [])
+
+  return (
+    <div ref={containerRef}>
+      {paragraphWords.map((words, pi) => (
+        <p key={pi} className={className}>
+          {words.map((word, wi) => {
+            const idx = paragraphStarts[pi] + wi
+            const range: [number, number] = [idx / totalWords, (idx + 1) / totalWords]
+            return (
+              <RevealWord key={wi} progress={scrollYProgress} range={range}>
+                {word}
+              </RevealWord>
+            )
+          })}
+        </p>
+      ))}
+    </div>
+  )
 }
 
 function Countdown() {
@@ -243,7 +293,7 @@ export default function Details() {
     target: heroRef,
     offset: ['start 75%', 'end start'],
   })
-  const heroBgY = useTransform(heroScrollProgress, [0, 1], ['-6%', '6%'])
+  const heroBgY = useTransform(heroScrollProgress, [0, 1], ['-18%', '18%'])
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -386,7 +436,7 @@ export default function Details() {
           className="d-hero-bg"
           style={{
             backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})`,
-            scale: 1.14,
+            scale: 1.4,
             y: heroBgY,
           }}
         />
@@ -545,24 +595,23 @@ export default function Details() {
             <br /><br />
             <em>Our Story</em>
           </h2>
-          <p className="d-body">
-            From a chance meeting to a love that feels like home — that's the simplest way to
-            describe the journey of Princes and Dominik. What started as an unexpected encounter
-            quickly grew into something neither of them could have planned, a connection built on
-            laughter, shared adventures, and an unspoken understanding that they were meant to
-            find each other.
-          </p>
-          <p className="d-body">
-            Through every season and every mile between them, their love only deepened. Dominik's
-            quiet steadiness and Princes' warmth created a partnership that felt effortless and
-            extraordinary all at once. Together they discovered that home isn't a place — it's a
-            person.
-          </p>
-          <p className="d-body">
-            And now, surrounded by the people they love most, in the heart of Marinduque where
-            the sea meets the shore, they are ready to say "forever." We can't wait to see you
-            there.
-          </p>
+          <RevealParagraphs
+            className="d-body"
+            paragraphs={[
+              `From a chance meeting to a love that feels like home — that's the simplest way to
+              describe the journey of Princes and Dominik. What started as an unexpected encounter
+              quickly grew into something neither of them could have planned, a connection built on
+              laughter, shared adventures, and an unspoken understanding that they were meant to
+              find each other.`,
+              `Through every season and every mile between them, their love only deepened. Dominik's
+              quiet steadiness and Princes' warmth created a partnership that felt effortless and
+              extraordinary all at once. Together they discovered that home isn't a place — it's a
+              person.`,
+              `And now, surrounded by the people they love most, in the heart of Marinduque where
+              the sea meets the shore, they are ready to say "forever." We can't wait to see you
+              there.`,
+            ]}
+          />
           <p className="d-hashtag">#PRINCESandDOMINIK</p>
         </div>
       </section>
