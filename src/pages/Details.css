@@ -250,6 +250,223 @@
   background: rgba(250, 246, 240, 0.35);
 }
 
+/* ─── Table of Contents ────────────────────────────── */
+
+.d-section--toc {
+  background-color: var(--secondary-accent);
+}
+
+.d-toc-collage {
+  position: relative;
+  width: min(640px, 94vw);
+  height: clamp(880px, 128vw, 1040px);
+  margin: 0 auto;
+}
+
+.d-toc-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  aspect-ratio: 4 / 3;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 3% 3% 6%;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+  transform: rotate(-2deg);
+  z-index: 1;
+}
+
+.d-toc-photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+.d-toc-card {
+  --toc-rotate: 0deg;
+  position: absolute;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(var(--toc-rotate));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.d-toc-card:hover {
+  transform: translateY(-2px) rotate(var(--toc-rotate));
+}
+
+.d-toc-card-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.d-toc-card--gifts .d-toc-card-shape {
+  z-index: 3;
+}
+
+.d-toc-card-label {
+  position: relative;
+  z-index: 2;
+  font-family: 'Ms Madi', cursive;
+  font-size: clamp(24px, 3.4vw, 34px);
+  color: var(--primary);
+}
+
+.d-toc-card-label--light {
+  color: var(--cream);
+}
+
+.d-toc-card--venue {
+  top: 38%;
+  left: 0;
+  width: 62%;
+  aspect-ratio: 799 / 525;
+  z-index: 1;
+}
+
+.d-toc-card--rsvp {
+  top: 30%;
+  right: 0;
+  width: 36%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+  --toc-rotate: -2deg;
+}
+
+.d-toc-card--attire {
+  top: 52%;
+  right: 0;
+  width: 58%;
+  aspect-ratio: 799 / 560;
+  clip-path: polygon(
+    0% 2%, 4% 4%, 9% 1%, 15% 5%, 18% 2%, 24% 6%, 31% 1%, 36% 3%,
+    44% 0.5%, 50% 4%, 53% 2%, 61% 7%, 68% 1%, 74% 3%, 80% 0%, 86% 5%,
+    91% 2%, 96% 4%, 100% 1%,
+    100% 99%,
+    95% 96%, 90% 99%, 84% 95%, 78% 100%, 73% 97%, 66% 94%, 60% 99%,
+    55% 96%, 48% 100%, 42% 95%, 37% 98%, 30% 94%, 23% 99%, 17% 96%,
+    11% 100%, 5% 95%, 0% 98%
+  );
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  z-index: 0;
+  --toc-rotate: 1deg;
+}
+
+.d-toc-card--gifts {
+  position: absolute;
+  bottom: 7%;
+  left: 0;
+  width: 54%;
+  aspect-ratio: 800 / 640;
+  z-index: 1;
+}
+
+.d-toc-gift-rotate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 125%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease;
+}
+
+.d-toc-gift-rotate:hover {
+  transform: translate(-50%, -50%) rotate(90deg) scale(1.03);
+}
+
+.d-toc-card-insert {
+  position: absolute;
+  top: -14%;
+  left: 22%;
+  width: 56%;
+  height: 46%;
+  z-index: 1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px 6px 2px 2px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10%;
+}
+
+.d-toc-card-label--insert {
+  font-size: clamp(16px, 2.2vw, 22px);
+}
+
+@media (max-width: 640px) {
+  .d-toc-collage {
+    width: 100%;
+    height: 148vw;
+  }
+}
+
+.d-toc-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 32px auto 0;
+  border: none;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.d-toc-scroll-chevron {
+  animation: d-toc-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+.d-toc-scroll-chevron--1 {
+  margin-bottom: -18px;
+  animation-delay: 0s;
+}
+
+.d-toc-scroll-chevron--2 {
+  animation-delay: 0.25s;
+}
+
+@keyframes d-toc-scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
 /* ─── Intro ────────────────────────────────────────── */
 
 .d-section-intro {

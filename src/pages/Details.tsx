@@ -9,6 +9,12 @@ import passportPhoto2 from '../assets/passport-image-2.jpeg'
 import passportPhoto3 from '../assets/passport-image-3.jpeg'
 import weddingSong from '../assets/Adele+-+Make+You+Feel+My+Love+(Lyrics).mp3'
 import glitterBg from '../assets/glitter.gif'
+import roundCard from '../assets/round-card.png'
+import cutPaperTexture from '../assets/cut-paper-texture.png'
+import envelopContentTexture from '../assets/envelop-content-textture.png'
+import envelopeSmall from '../assets/envelope-small.png'
+import circleTexture from '../assets/circle-texture.png'
+import tocPhoto from '../assets/card-image.jpg'
 import './Details.css'
 
 const PASSPORT_PHOTOS = [passportPhoto1, passportPhoto2, passportPhoto3]
@@ -221,6 +227,7 @@ function PassportPhoto() {
 export default function Details() {
   preload(detailsHeroBg, { as: 'image', fetchPriority: 'high' })
   preload(mapImage, { as: 'image', fetchPriority: 'high' })
+  preload(tocPhoto, { as: 'image', fetchPriority: 'high' })
 
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
@@ -310,6 +317,79 @@ export default function Details() {
         </div>
       </nav>
 
+      {/* ── Table of Contents ── */}
+      <section id="table-of-contents" className="d-section d-section--toc">
+        <div className="d-toc-collage">
+          <div className="d-toc-photo">
+            <img src={tocPhoto} alt="Princes and Dominik" className="d-toc-photo-img" />
+          </div>
+
+          <button type="button" className="d-toc-card d-toc-card--venue" onClick={() => scrollTo('venue')}>
+            <img src={roundCard} alt="" className="d-toc-card-shape" />
+            <span className="d-toc-card-label">Venue</span>
+          </button>
+
+          <button
+            type="button"
+            className="d-toc-card d-toc-card--rsvp"
+            style={{ backgroundImage: `url(${envelopContentTexture})` }}
+            onClick={() => scrollTo('rsvp')}
+          >
+            <span className="d-toc-card-label d-toc-card-label--light">RSVP</span>
+          </button>
+
+          <button
+            type="button"
+            className="d-toc-card d-toc-card--attire"
+            style={{ backgroundImage: `url(${cutPaperTexture})` }}
+            onClick={() => scrollTo('attire')}
+          >
+            <span className="d-toc-card-label">Attire</span>
+          </button>
+
+          <div className="d-toc-card--gifts">
+            <button type="button" className="d-toc-gift-rotate" onClick={() => scrollTo('gifts')}>
+              <span className="d-toc-card-insert" style={{ backgroundImage: `url(${circleTexture})` }}>
+                <span className="d-toc-card-label d-toc-card-label--insert">Gifts</span>
+              </span>
+              <img src={envelopeSmall} alt="" className="d-toc-card-shape" />
+            </button>
+          </div>
+        </div>
+
+        <button type="button" className="d-toc-scroll" aria-label="Scroll down" onClick={() => scrollTo('home')}>
+          <svg className="d-toc-scroll-chevron d-toc-scroll-chevron--1" viewBox="0 0 24 24" width="40" height="40" fill="none">
+            <path d="M4 9l8 8 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <svg className="d-toc-scroll-chevron d-toc-scroll-chevron--2" viewBox="0 0 24 24" width="40" height="40" fill="none">
+            <path d="M4 9l8 8 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </section>
+
+      {/* ── Home ── */}
+      <section
+        id="home"
+        ref={ref('home')}
+        className="d-section d-section--hero"
+        style={{ backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})` }}
+      >
+        <div className="d-hero-content">
+          <h1 className="d-display">
+            <span className="d-display-line d-display-line--left">Princes</span>
+            <span className="d-display-line d-display-line--center d-display-line--and">and</span>
+            <span className="d-display-line d-display-line--right">Dominik</span>
+          </h1>
+        </div>
+        <div className="d-hero-footer">
+          <p className="d-sub">
+            <span className="d-sub-line d-sub-line--upper">Boac Cathedral</span><br />
+            <span className="d-sub-line d-sub-line--italic">Marinduque, Philippines</span>
+          </p>
+          <p className="d-date">01.28.2027</p>
+        </div>
+      </section>
+
       {/* ── Intro ── */}
       <section
         className="d-section-intro"
@@ -377,7 +457,7 @@ export default function Details() {
                   <p className="d-passport-group-label">Ceremony</p>
                   <p className="d-passport-group-value">Boac Cathedral</p>
                 </div>
-          
+
                 <div className="d-passport-group">
                   <p className="d-passport-group-label">Reception</p>
                   <p className="d-passport-group-value">Luxor Resort Marinduque ✈</p>
@@ -431,29 +511,6 @@ export default function Details() {
         <div className="d-countdown-box">
           <p className="d-countdown-label">Counting down the days until <br /> our greatest adventure</p>
           <Countdown />
-        </div>
-      </section>
-
-      {/* ── Home ── */}
-      <section
-        id="home"
-        ref={ref('home')}
-        className="d-section d-section--hero"
-        style={{ backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})` }}
-      >
-        <div className="d-hero-content">
-          <h1 className="d-display">
-            <span className="d-display-line d-display-line--left">Princes</span>
-            <span className="d-display-line d-display-line--center d-display-line--and">and</span>
-            <span className="d-display-line d-display-line--right">Dominik</span>
-          </h1>
-        </div>
-        <div className="d-hero-footer">
-          <p className="d-sub">
-            <span className="d-sub-line d-sub-line--upper">Boac Cathedral</span><br />
-            <span className="d-sub-line d-sub-line--italic">Marinduque, Philippines</span>
-          </p>
-          <p className="d-date">01.28.2027</p>
         </div>
       </section>
 
