@@ -16,6 +16,8 @@ import envelopContentTexture from '../assets/envelop-content-textture.png'
 import envelopeSmall from '../assets/envelope-small.png'
 import circleTexture from '../assets/circle-texture.png'
 import tocPhoto from '../assets/card-image.jpg'
+import storyPhoto1 from '../assets/newly-wed.jpeg'
+import storyPhoto2 from '../assets/IMG_0564.png'
 import './Details.css'
 
 const PASSPORT_PHOTOS = [passportPhoto1, passportPhoto2, passportPhoto3]
@@ -357,11 +359,10 @@ export default function Details() {
 
           <div className="d-toc-card--gifts">
             <button type="button" className="d-toc-gift-rotate" onClick={() => scrollTo('gifts')}>
-              <span className="d-toc-card-insert" style={{ backgroundImage: `url(${circleTexture})` }}>
-                <span className="d-toc-card-label d-toc-card-label--insert">Gifts</span>
-              </span>
+              <span className="d-toc-card-insert" style={{ backgroundImage: `url(${circleTexture})` }} />
               <img src={envelopeSmall} alt="" className="d-toc-card-shape" />
             </button>
+            <span className="d-toc-card-label d-toc-card-label--insert">Gifts</span>
           </div>
         </div>
 
@@ -524,7 +525,7 @@ export default function Details() {
         </div>
 
         <div className="d-countdown-box">
-          <p className="d-countdown-label">Counting down the days until <br /> our greatest adventure</p>
+          <p className="d-countdown-label">Counting down the days until <br />  our greatest adventure</p>
           <Countdown />
         </div>
       </section>
@@ -532,9 +533,18 @@ export default function Details() {
       {/* ── Our Story ── */}
       <section id="our-story" ref={ref('our-story')} className="d-section">
         <div className="d-section-inner">
-          <p className="d-eyebrow">How it began</p>
-          <h2 className="d-heading">Our Story</h2>
-          <div className="d-divider" />
+          <img src={compass} alt="" className="d-story-compass" />
+
+          <div className="d-story-photos">
+            <img src={storyPhoto1} alt="" className="d-story-photo d-story-photo--one" />
+            <img src={storyPhoto2} alt="" className="d-story-photo d-story-photo--two" />
+          </div>
+
+          <h2 className="d-heading d-heading--story">
+            <span className="d-heading--story-names">Princes &amp; Dominik</span>
+            <br /><br />
+            <em>Our Story</em>
+          </h2>
           <p className="d-body">
             From a chance meeting to a love that feels like home — that's the simplest way to
             describe the journey of Princes and Dominik. What started as an unexpected encounter
@@ -562,7 +572,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow">Wedding Day · January 28, 2027</p>
           <h2 className="d-heading">Venue</h2>
-          <div className="d-divider" />
 
           <div className="d-timeline">
             <div className="d-timeline-item">
@@ -603,7 +612,6 @@ export default function Details() {
         <div className="d-section-inner d-section-inner--wide">
           <p className="d-eyebrow">The wedding party</p>
           <h2 className="d-heading">Entourage</h2>
-          <div className="d-divider" />
 
           <div className="d-entourage-grid">
 
@@ -691,7 +699,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow">Dress code</p>
           <h2 className="d-heading">Attire</h2>
-          <div className="d-divider" />
           <p className="d-body d-body--center">
             The dress code for the wedding is <strong>Semi-Formal</strong>. We kindly ask that
             you avoid wearing white, ivory, or cream as these are reserved for the bride.
@@ -730,7 +737,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow">Celebrate with us</p>
           <h2 className="d-heading">Gifts</h2>
-          <div className="d-divider" />
           <p className="d-body d-body--center">
             Your presence at our wedding is the greatest gift of all. However, if you wish to
             give a gift, we would be grateful for a monetary contribution to help us build our
@@ -762,7 +768,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow">Getting here</p>
           <h2 className="d-heading">Travel</h2>
-          <div className="d-divider" />
           <p className="d-body d-body--center">
             Marinduque is a heart-shaped island province in the MIMAROPA region of the Philippines,
             accessible by air and sea. Plan your trip early — island accommodations fill up fast!
@@ -811,7 +816,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow">Questions &amp; answers</p>
           <h2 className="d-heading">FAQ</h2>
-          <div className="d-divider" />
 
           <div className="d-faq-list">
             {[
@@ -862,7 +866,6 @@ export default function Details() {
         <div className="d-section-inner d-section-inner--wide">
           <p className="d-eyebrow">Our moments</p>
           <h2 className="d-heading">Gallery</h2>
-          <div className="d-divider" />
           <p className="d-body d-body--center">
             Photos from our journey together. More memories to be added as we count down to
             January 28, 2027.
@@ -885,7 +888,6 @@ export default function Details() {
         <div className="d-section-inner">
           <p className="d-eyebrow d-eyebrow--light">Kindly reply by December 1, 2026</p>
           <h2 className="d-heading d-heading--light">RSVP</h2>
-          <div className="d-divider d-divider--light" />
           <p className="d-body d-body--light d-body--center">
             We would be honored by your presence at our wedding in Marinduque.
             Please let us know if you will be joining us so we can finalize our arrangements.
