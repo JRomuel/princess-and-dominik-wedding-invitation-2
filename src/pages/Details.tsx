@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { preload } from 'react-dom'
 import Lenis from 'lenis'
-import detailsHeroBg from '../assets/details-hero-background-2.jpeg'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import detailsHeroBg from '../assets/details-hero-background-22.jpeg'
 import mapImage from '../assets/map-image-2.png'
 import compass from '../assets/pd-compass.png'
 import passportPhoto1 from '../assets/passport-image-1.jpeg'
@@ -231,9 +232,16 @@ export default function Details() {
 
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
+  const heroRef = useRef<HTMLElement | null>(null)
   const [navOpen, setNavOpen] = useState(false)
   const [navOverDark, setNavOverDark] = useState(true)
   const [activeSection, setActiveSection] = useState<SectionId>('home')
+
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ['start 75%', 'end start'],
+  })
+  const heroBgY = useTransform(heroScrollProgress, [0, 1], ['-6%', '6%'])
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -370,10 +378,17 @@ export default function Details() {
       {/* ── Home ── */}
       <section
         id="home"
-        ref={ref('home')}
+        ref={(el) => { heroRef.current = el; ref('home')(el) }}
         className="d-section d-section--hero"
-        style={{ backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})` }}
       >
+        <motion.div
+          className="d-hero-bg"
+          style={{
+            backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})`,
+            scale: 1.14,
+            y: heroBgY,
+          }}
+        />
         <div className="d-hero-content">
           <h1 className="d-display">
             <span className="d-display-line d-display-line--left">Princes</span>

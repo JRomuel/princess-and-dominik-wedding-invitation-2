@@ -958,9 +958,16 @@
   width: 100%;
   aspect-ratio: 3376 / 3990;
   padding: 0;
+  overflow: hidden;
+}
+
+.d-hero-bg {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  will-change: transform;
 }
 
 .d-hero-content {
