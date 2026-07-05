@@ -1,3 +1,14 @@
+.d-section--entourage {
+  background: var(--primary);
+}
+
+.d-section--entourage .d-eyebrow,
+.d-section--entourage .d-heading,
+.d-section--entourage .d-group-label,
+.d-section--entourage .d-name {
+  color: #fff;
+}
+
 .d-entourage-grid {
   display: flex;
   flex-wrap: wrap;

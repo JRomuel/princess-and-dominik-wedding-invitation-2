@@ -1,0 +1,135 @@
+.d-section--timeline {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 24px;
+}
+
+.d-wt-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.d-section--timeline .d-section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.d-wt-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--primary);
+  border-radius: 4px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  padding: 150px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.d-wt-heading {
+  font-size: clamp(22px, 3.5vw, 28px);
+  color: var(--cream);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.d-wt-subtitle {
+  font-family: 'Ms Madi', cursive;
+  font-size: clamp(32px, 3.5vw, 60px);
+  color: var(--cream);
+  margin: 8px 0 40px;
+}
+
+.d-wt-list {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.d-wt-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 20px 1fr;
+  gap: 0 20px;
+  align-items: flex-start;
+  padding: 24px 0;
+  text-align: left;
+}
+
+.d-wt-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 120px;
+  top: 34px;
+  bottom: -34px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.d-wt-time {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(250, 246, 240, 0.7);
+  font-family: var(--sans);
+  text-align: right;
+  padding-top: 4px;
+  margin: 0;
+}
+
+.d-wt-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cream);
+  opacity: 0.8;
+  margin-top: 5px;
+  justify-self: center;
+}
+
+.d-wt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.d-wt-label {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.7);
+  font-family: var(--sans);
+  margin: 0;
+}
+
+.d-wt-title {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 26px);
+  color: var(--cream);
+  margin: 0;
+}
+
+.d-wt-place {
+  font-size: 15px;
+  color: rgba(250, 246, 240, 0.75);
+  font-family: var(--sans);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .d-section--timeline {
+    padding: 100px 20px;
+  }
+
+  .d-wt-card {
+    padding: 40px 24px;
+  }
+}

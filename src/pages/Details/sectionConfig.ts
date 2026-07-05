@@ -2,6 +2,7 @@ export type SectionId =
   | 'home'
   | 'our-story'
   | 'venue'
+  | 'timeline'
   | 'entourage'
   | 'attire'
   | 'gifts'

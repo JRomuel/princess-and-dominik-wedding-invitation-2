@@ -11,6 +11,7 @@ import Hero from './components/Hero'
 import Intro from './components/Intro/Intro'
 import OurStory from './components/OurStory'
 import Venue from './components/Venue'
+import Timeline from './components/Timeline'
 import Entourage from './components/Entourage'
 import Attire from './components/Attire'
 import Gifts from './components/Gifts'
@@ -100,6 +101,7 @@ export default function Details() {
       <Intro onNavigate={scrollTo} />
       <OurStory onSectionRef={registerSection} />
       <Venue onSectionRef={registerSection} />
+      <Timeline onSectionRef={registerSection} />
       <Entourage onSectionRef={registerSection} />
       <Attire onSectionRef={registerSection} />
       <Gifts onSectionRef={registerSection} />
