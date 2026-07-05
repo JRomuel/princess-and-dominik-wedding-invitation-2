@@ -1,3 +1,45 @@
+.d-section--attire {
+  position: relative;
+  overflow: hidden;
+}
+
+.d-attire-decor {
+  align-self: flex-end;
+  width: 420px;
+  height: auto;
+  fill: var(--primary);
+  display: block;
+  margin: 0 50% 60px 0;
+}
+
+.d-attire-illustrations {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.d-attire-illustration {
+  width: auto;
+  height: 260px;
+  display: block;
+}
+
+.d-attire-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.d-attire-category-label {
+  font-size: clamp(16px, 2.4vw, 22px);
+  font-weight: 700;
+}
+
 .d-color-palette {
   display: flex;
   gap: 12px;
@@ -11,29 +53,3 @@
   border-radius: 50%;
 }
 
-.d-attire-grid {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.d-attire-card {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
-  border-left: 2px solid var(--secondary);
-  padding: 12px 20px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-@media (max-width: 600px) {
-  .d-attire-grid {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
