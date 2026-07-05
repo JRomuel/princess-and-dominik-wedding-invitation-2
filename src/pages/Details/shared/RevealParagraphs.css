@@ -1,0 +1,8 @@
+.d-reveal-paragraphs p:not(:last-child) {
+  margin-bottom: 1.4em;
+}
+
+.d-reveal-word {
+  display: inline-block;
+  will-change: opacity;
+}

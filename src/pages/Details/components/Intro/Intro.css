@@ -1,0 +1,30 @@
+.d-section-intro {
+  width: 100%;
+  padding: 120px 10px;
+  background-color: var(--secondary-accent);
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.d-intro-box {
+  width: 100%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .d-section-intro {
+    padding: 90px 10px;
+  }
+}

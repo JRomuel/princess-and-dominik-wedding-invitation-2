@@ -1,0 +1,133 @@
+.details-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+.details-nav-toggle {
+  display: none;
+}
+
+.details-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.details-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding: 16px 12px;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.details-nav-btn:hover {
+  opacity: 1;
+}
+
+.details-nav-btn--active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .details-nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    background: transparent;
+  }
+
+  .details-nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 9px 7px;
+    cursor: pointer;
+    z-index: 101;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .details-nav-toggle:focus,
+  .details-nav-toggle:focus-visible {
+    outline: none;
+  }
+
+  .details-nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .details-nav-toggle--active {
+    background: transparent;
+  }
+
+  .details-nav-toggle--active span {
+    background: var(--primary);
+  }
+
+  .details-nav-toggle--active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .details-nav-toggle--active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .details-nav-toggle--active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .details-nav-toggle--on-dark span {
+    background: var(--cream);
+  }
+
+  .details-nav-inner {
+    display: none;
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    background: rgba(250, 246, 240, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 24px;
+  }
+
+  .details-nav-inner--open {
+    display: flex;
+  }
+
+  .details-nav-btn {
+    flex-shrink: 0;
+    padding: 14px 11px;
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    text-align: center;
+  }
+}

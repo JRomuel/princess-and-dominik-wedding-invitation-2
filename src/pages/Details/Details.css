@@ -1,0 +1,106 @@
+/* ─── Shared tokens used across multiple Details sections ─── */
+
+.details-page {
+  min-height: 100svh;
+  background: var(--cream);
+}
+
+/* ─── Section Base ─────────────────────────────────── */
+
+.d-section {
+  width: 100%;
+  padding: 100px 24px;
+}
+
+.d-section--alt {
+  background: rgba(210, 179, 150, 0.1);
+}
+
+.d-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.d-section-inner--wide {
+  max-width: 1000px;
+}
+
+/* ─── Shared Typography ────────────────────────────── */
+
+.d-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-family: var(--sans);
+  margin: 0;
+}
+
+.d-eyebrow--light {
+  color: rgba(250, 246, 240, 0.6);
+}
+
+.d-heading {
+  font-size: clamp(36px, 7vw, 75px);
+  color: var(--primary);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+
+.d-heading--light {
+  color: var(--cream);
+}
+
+.d-body {
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.85;
+  color: var(--primary);
+  margin: 0;
+}
+
+.d-body--center {
+  text-align: center;
+}
+
+.d-body--small {
+  font-size: 13px;
+  opacity: 0.55;
+}
+
+.d-body--light {
+  color: rgba(250, 246, 240, 0.8);
+  opacity: 1;
+}
+
+/* ─── Shared Card Labels (Venue, Attire, Gifts, Travel) ── */
+
+.d-card-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-family: var(--sans);
+  margin: 0;
+}
+
+.d-card-title {
+  font-family: 'Ms Madi', cursive;
+  font-size: 28px;
+  color: var(--primary);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ─── Responsive ────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .d-section {
+    padding: 72px 20px;
+  }
+}
