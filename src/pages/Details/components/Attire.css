@@ -27,6 +27,12 @@
   display: block;
 }
 
+@media (max-width: 600px) {
+  .d-attire-illustration {
+    height: 180px;
+  }
+}
+
 .d-attire-category {
   display: flex;
   flex-direction: column;
