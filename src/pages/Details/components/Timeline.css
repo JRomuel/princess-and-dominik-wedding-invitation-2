@@ -1,7 +1,7 @@
 .d-section--timeline {
   position: relative;
   overflow: hidden;
-  padding: 200px 24px;
+  padding: 200px 24px !important;
 }
 
 .d-wt-bg {

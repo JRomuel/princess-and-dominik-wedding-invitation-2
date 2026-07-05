@@ -13,9 +13,11 @@ function RevealWord({
 }) {
   const opacity = useTransform(progress, range, [0.3, 1])
   return (
-    <motion.span className="d-reveal-word" style={{ opacity }}>
-      {children}{' '}
-    </motion.span>
+    <>
+      <motion.span className="d-reveal-word" style={{ opacity }}>
+        {children}
+      </motion.span>{' '}
+    </>
   )
 }
 
