@@ -19,6 +19,7 @@ export default function MusicPlayer() {
 
   return (
     <div className="d-music-player">
+      <p className="d-music-title">Listen to our Music</p>
       <audio ref={audioRef} src={weddingSong} loop />
       <button
         type="button"

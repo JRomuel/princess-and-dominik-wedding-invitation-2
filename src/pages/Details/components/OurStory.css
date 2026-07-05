@@ -53,3 +53,7 @@
   margin: 0;
   opacity: 0.8;
 }
+
+.d-story-music {
+  margin-top: clamp(60px, 10vw, 120px);
+}

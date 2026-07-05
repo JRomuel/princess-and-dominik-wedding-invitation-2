@@ -2,6 +2,7 @@ import compass from '../../../assets/pd-compass.png'
 import storyPhoto1 from '../../../assets/newly-wed.jpeg'
 import storyPhoto2 from '../../../assets/IMG_0564.png'
 import RevealParagraphs from '../shared/RevealParagraphs'
+import MusicPlayer from '../shared/MusicPlayer'
 import type { SectionId } from '../sectionConfig'
 import './OurStory.css'
 
@@ -39,6 +40,10 @@ export default function OurStory({ onSectionRef }: { onSectionRef: (id: SectionI
           ]}
         />
         <p className="d-hashtag">#PRINCESandDOMINIK</p>
+
+        <div className="d-story-music">
+          <MusicPlayer />
+        </div>
       </div>
     </section>
   )

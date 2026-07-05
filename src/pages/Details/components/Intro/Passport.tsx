@@ -1,4 +1,3 @@
-import MusicPlayer from '../../shared/MusicPlayer'
 import PassportPhoto from '../../shared/PassportPhoto'
 import { HeartIcon, PassportOrnament } from '../../shared/icons'
 import './Passport.css'
@@ -19,8 +18,6 @@ export default function Passport() {
   return (
     <>
       <div className="d-intro-box d-passport-box">
-        <MusicPlayer />
-
         <div className="d-passport-header">
           <div className="d-passport-title-row">
             <h2 className="d-passport-title">Save the Date</h2>
