@@ -1,7 +1,7 @@
 .d-section-intro {
   width: 100%;
   padding: 120px 10px;
-  background-color: var(--secondary-accent);
+  background-color: var(--primary);
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;

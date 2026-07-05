@@ -1,43 +1,92 @@
+import boacCathedral from '../../../assets/boac-church.png'
+import luxorImage from '../../../assets/luxor-image.jpg'
 import type { SectionId } from '../sectionConfig'
 import './Venue.css'
 
 export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
-    <section id="venue" ref={(el) => onSectionRef('venue', el)} className="d-section d-section--alt">
+    <section id="venue" ref={(el) => onSectionRef('venue', el)} className="d-section d-section--venue">
       <div className="d-section-inner">
-        <p className="d-eyebrow">Wedding Day · January 28, 2027</p>
-        <h2 className="d-heading">Venue</h2>
+        <h2 className="d-venue-title">Warm welcome!</h2>
 
-        <div className="d-timeline">
-          <div className="d-timeline-item">
-            <div className="d-timeline-time">2:00 PM</div>
-            <div className="d-timeline-dot" />
-            <div className="d-timeline-content">
-              <p className="d-card-label">Ceremony</p>
-              <p className="d-card-title">Boac Cathedral</p>
-              <p className="d-body">Boac, Marinduque, Philippines</p>
-            </div>
-          </div>
+        <div className="d-venue-photo d-venue-photo--ceremony">
+          <svg viewBox="0 0 415 501" preserveAspectRatio="xMidYMin slice">
+            <defs>
+              <clipPath id="d-venue-photo-clip">
+                <path d="M414.77608539218045,85.80331014631808C415.4770928280164,223.2408251379228 414.10512113216606,362.2105420964261 415.587251139362,501C336.0128927800432,498.4863876229312 254.24538258575203,501.5608059486688 174.48075077956346,498.78681938114664C135.81518349724158,501.4806908131447 109.70766370832335,498.6866754617415 71.6029023746702,499.76822979131697C55.00905492923963,500.7095826337252 44.02326697049653,498.92702086831383 29.201966898536824,499.76822979131697C23.02308707124011,498.3161429599425 13.96006236507556,500.20886303669954 7.881326457183978,499.55792756056616C7.230390981050612,499.92846006236516 -2.1030223075077963,501.3805468937396 0.45064763732309915,498.326157351883C0.7510793955384986,341.1502758455266 0.28040297433437283,169.73392899976017 0.24034540657231954,10.7554569441113C6.759714559846487,11.256176541136965 17.5251858958983,17.675401775005998 27.72985128328137,17.19471096186136C30.403693931398422,14.641041017030464 38.32507795634446,18.49658191412809 48.11915327416647,19.207603741904535C49.98183017510195,21.380726792995926 57.03196210122333,16.41358839050132 60.146437994722966,17.69543055888703C67.23662748860639,19.63822259534661 72.81464379947231,18.566682657711684 81.79755337011275,20.839949628208206C103.36855360997843,9.72397457423843 126.41166946509956,15.53232189973615 147.89254017750062,1.81260494123291C148.35320220676422,-5.668145838330536 154.7724274406333,12.367774046533942 167.77110817941954,11.897097625329819C177.22469417126413,11.336291676661071 182.4021348045095,12.798392899976015 189.12179179659393,15.301990885104344C197.0732189973615,14.35062365075558 202.35080355001202,17.46509954425522 212.23500839529868,18.476553130247066C221.57843607579758,14.290537299112499 229.8503238186616,18.49658191412809 243.56002638522432,19.708323338930203C245.7932357879588,17.004437514991608 243.5299832094028,24.324958023506838 253.05366994483094,22.041676661069808C261.4757735668027,26.878627968337735 267.11387622931164,31.965939074118502 277.8593187814824,35.81146557927561C283.29713360518116,39.9373950587671 291.5690213480451,41.299352362676906 299.0698009114896,37.744243223794676C298.10841928520034,40.82867594147279 307.8924802110818,40.277884384744546 314.55205085152323,40.788618373710726C318.0270448548813,39.03609978412089 327.66088990165514,32.957363876229316 333.3590789158072,37.04323578795875C348.00011993283766,40.25785560086353 372.8458263372512,28.651175341808592 384.05193091868557,21.33065483329336C381.6584912449029,19.12748860638043 401.30672823219004,10.965759174862079 414.65591268889426,5.037239146078197C414.7460422163589,30.603981770208687 414.8662149196451,60.116394818901426 414.77608539218045,85.80331014631808Z" />
+              </clipPath>
+            </defs>
+            <g clipPath="url(#d-venue-photo-clip)">
+              <image
+                href={boacCathedral}
+                x={-24}
+                y={-24}
+                width={463}
+                height={549}
+                preserveAspectRatio="xMidYMid slice"
+              />
+            </g>
+          </svg>
+        </div>
 
-          <div className="d-timeline-item">
-            <div className="d-timeline-time">4:30 PM</div>
-            <div className="d-timeline-dot" />
-            <div className="d-timeline-content">
-              <p className="d-card-label">Cocktails</p>
-              <p className="d-card-title">Luxor Resort</p>
-              <p className="d-body">Marinduque, Philippines</p>
-            </div>
-          </div>
+        <div className="d-venue-details d-venue-details--ceremony">
+          <p className="d-card-label">Ceremony</p>
+          <p className="d-body">
+            The ceremony will be held at Immaculate Conception Cathedral Parish Boac at 2 pm.
+            <br /><br />
+            Plenty of parking at the front. <br /> Mataas na Bayan, Boac, Philippines, 4900
+            <br /><br />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Immaculate+Conception+Cathedral+Parish+Boac%2C+Mataas+na+Bayan%2C+Boac%2C+Philippines%2C+4900"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="d-venue-link"
+            >
+              Location Guide ➝
+            </a>
+          </p>
+        </div>
 
-          <div className="d-timeline-item">
-            <div className="d-timeline-time">6:00 PM</div>
-            <div className="d-timeline-dot" />
-            <div className="d-timeline-content">
-              <p className="d-card-label">Reception</p>
-              <p className="d-card-title">Luxor Resort</p>
-              <p className="d-body">Marinduque, Philippines</p>
-            </div>
-          </div>
+        <div className="d-venue-photo">
+          <svg viewBox="0 0 500 432" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <clipPath id="d-venue-reception-clip">
+                <path d="M410.2245637933452,420.3710010216551C388.2289308680062,428.444079408642 369.7389771429716,418.63819387407597 350.3375468258579,427.312245838258C348.82509665658364,431.99983974037946 336.8156413389691,418.78843726837476 322.0617400188305,423.7164206013742C301.76886556221075,419.21913499869794 266.86231695346464,427.7830084737274 246.85991305915584,419.85015725475273C216.99152627256154,405.5269536649372 181.47398786033375,408.2113023097418 148.02980828942887,407.2597608125163C105.8114144914762,390.3724032933352 69.89322702778502,386.35589655241495 28.506180011618824,370.99100542879467C-7.031390853182155,365.1014643722831 3.3053546745728077,391.6043991265851 1.0416875338047638,297.81245617901C1.2319958332498648,201.6266351489413 1.9832128047436848,112.1717181834572 0,6.580660670285863C8.89440894248683,3.6659388208898416 24.379494781546104,7.662413109236964 42.34860473967828,9.635609687694064C57.30283058554859,7.662413109236964 81.00122197960697,1.5625313007071457 101.04369077906208,3.3955007111520663C98.38939081311726,1.7428233738656624 121.39666259340132,1.9431478995973477 132.32436547206476,3.3253871271459765C161.05090246198841,-8.443678759590536 158.2764077806046,14.773933772711793 183.55736292794327,15.84566998537631C183.0866002924738,21.85540575732687 208.4376690238186,11.85921192331577 212.55433802760473,24.820208738155813C233.35804002484022,29.20731585167972 244.59624591838778,58.7651996233899 268.0041667501352,65.03535727879165C269.69690899256796,68.22051723792543 285.9332118031211,61.41949958933472 307.9288447284601,71.29549870790682C363.0581542098199,69.60275646547406 434.7242532903303,69.92327570664477 497.4057973917747,69.97335683807769C501.87303431559127,177.33728640397445 495.44261703960416,283.4191390051884 500,394.08842324565796C490.6548608746169,438.72072757867744 529.7481920711552,430.95815220657465 410.2245637933452,420.3710010216551Z" />
+              </clipPath>
+            </defs>
+            <image
+              href={luxorImage}
+              width={500}
+              height={432}
+              preserveAspectRatio="xMidYMid slice"
+              clipPath="url(#d-venue-reception-clip)"
+            />
+          </svg>
+        </div>
+
+        <div className="d-venue-details">
+          <p className="d-card-label">Reception</p>
+          <p className="d-body">Come for the love, stay for the party! <br /> Please join us at 4 pm for dinner, cocktails, and dancing!
+            <br /><br />
+            Reception is about 20 min drive away
+            <br /><br />
+            Luxor Resort & Restaurant
+            <br />
+            Marinduque Circumferential Road, Brgy. Pangi, Gasan, Philippines, 4905
+
+            <br />
+            <br />
+            <a href="https://luxormarinduque.com/" target="blank" className="d-venue-link">luxormarinduque.com</a>
+            <br /><br />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Luxor+Resort+%26+Restaurant%2C+Marinduque+Circumferential+Road%2C+Brgy.+Pangi%2C+Gasan%2C+Philippines%2C+4905"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="d-venue-link"
+            >
+              Location Guide ➝
+            </a>
+          </p>
         </div>
       </div>
     </section>

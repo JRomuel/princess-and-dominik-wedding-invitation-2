@@ -1,53 +1,59 @@
-.d-timeline {
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-  padding: 8px 0;
-}
-
-.d-timeline::before {
-  content: '';
-  position: absolute;
-  left: 90px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(163, 71, 32, 0.15);
-}
-
-.d-timeline-item {
-  display: grid;
-  grid-template-columns: 80px 20px 1fr;
-  gap: 0 16px;
-  align-items: flex-start;
-  padding: 20px 0;
-}
-
-.d-timeline-time {
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: var(--secondary);
-  font-family: var(--sans);
-  text-align: right;
-  padding-top: 4px;
-}
-
-.d-timeline-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.d-section--venue {
   background: var(--primary);
-  opacity: 0.5;
-  margin-top: 5px;
-  justify-self: center;
+  margin: 80px 0;
+  padding: 300px 24px !important;
 }
 
-.d-timeline-content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: left;
+.d-venue-title {
+  font-family: 'Ms Madi', cursive;
+  font-size: clamp(48px, 8vw, 90px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 120px;
+}
+
+.d-venue-photo {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.d-venue-photo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.d-venue-photo--ceremony {
+  max-width: 420px;
+  aspect-ratio: 415 / 430;
+}
+
+.d-venue-photo--ceremony svg {
+  height: 100%;
+}
+
+.d-venue-details {
+  max-width: 480px;
+}
+
+.d-venue-details--ceremony {
+  margin-bottom: 100px;
+}
+
+.d-section--venue .d-venue-details .d-card-label,
+.d-section--venue .d-venue-details .d-body {
+  color: #fff;
+}
+
+.d-venue-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.d-section--venue .d-venue-details .d-card-label {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 40px;
 }
