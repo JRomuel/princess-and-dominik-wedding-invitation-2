@@ -1,5 +1,8 @@
 .d-section--entourage {
   background: var(--primary);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 200px !important;
 }
 
 .d-section--entourage .d-eyebrow,
@@ -10,20 +13,54 @@
 }
 
 .d-entourage-decor {
-  width: clamp(198px, 30vw, 520px);
+  align-self: stretch;
+  width: 480px;
   height: auto;
   fill: #fff;
-  margin: 0 0 100px;
-  align-self: flex-end;
   display: block;
+  margin: 0 0 96px 50%;
+}
+
+.d-entourage-subtitle {
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: var(--sans);
+  margin: 0 0 40px;
+}
+
+.d-entourage-subtitle--tight {
+  margin-bottom: 8px;
+}
+
+.d-entourage-caption {
+  font-style: italic;
+  text-transform: none;
+}
+
+.d-entourage-subtitle:has(+ .d-entourage-caption) {
+  margin-bottom: 0;
 }
 
 .d-entourage-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.d-entourage-row {
   display: flex;
   flex-wrap: wrap;
   gap: 32px 48px;
   justify-content: center;
   width: 100%;
+  margin-bottom: 72px;
+}
+
+.d-entourage-row:last-child {
+  margin-bottom: 0;
 }
 
 .d-entourage-group {
@@ -31,6 +68,14 @@
   flex-direction: column;
   gap: 6px;
   min-width: 160px;
+}
+
+.d-entourage-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+  justify-content: center;
+  width: 100%;
 }
 
 .d-entourage-group--wide {
@@ -48,10 +93,14 @@
   margin: 0 0 4px;
 }
 
+.d-group-label--lg {
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 600;
+}
+
 .d-name {
   font-size: clamp(18px, 2.6vw, 24px);
   color: var(--primary);
   font-family: var(--sans);
   margin: 0;
-  opacity: 0.8;
 }
