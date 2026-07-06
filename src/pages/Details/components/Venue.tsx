@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import boacCathedral from '../../../assets/boac-church.png'
 import luxorImage from '../../../assets/luxor-image.jpg'
 import type { SectionId } from '../sectionConfig'
@@ -9,7 +10,13 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
       <div className="d-section-inner">
         <h2 className="d-venue-title">Warm welcome!</h2>
 
-        <div className="d-venue-photo d-venue-photo--ceremony">
+        <motion.div
+          className="d-venue-photo d-venue-photo--ceremony"
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
           <svg viewBox="0 0 415 501" preserveAspectRatio="xMidYMin slice">
             <defs>
               <clipPath id="d-venue-photo-clip">
@@ -27,7 +34,7 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
               />
             </g>
           </svg>
-        </div>
+        </motion.div>
 
         <div className="d-venue-details d-venue-details--ceremony">
           <p className="d-card-label">Ceremony</p>
@@ -47,7 +54,13 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
           </p>
         </div>
 
-        <div className="d-venue-photo">
+        <motion.div
+          className="d-venue-photo"
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
           <svg viewBox="0 0 500 432" preserveAspectRatio="xMidYMid slice">
             <defs>
               <clipPath id="d-venue-reception-clip">
@@ -62,7 +75,7 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
               clipPath="url(#d-venue-reception-clip)"
             />
           </svg>
-        </div>
+        </motion.div>
 
         <div className="d-venue-details">
           <p className="d-card-label">Reception</p>
