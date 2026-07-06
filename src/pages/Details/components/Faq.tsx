@@ -31,10 +31,6 @@ const FAQS = [
     q: 'What if I have dietary restrictions?',
     a: 'Please indicate any dietary restrictions when you submit your RSVP. We will do our best to accommodate your needs at the reception.',
   },
-  {
-    q: 'Where can I find more details?',
-    a: 'Visit our wedding website at www.princesanddominik.com for the latest updates, RSVP, and any additional information.',
-  },
 ]
 
 export default function Faq({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
