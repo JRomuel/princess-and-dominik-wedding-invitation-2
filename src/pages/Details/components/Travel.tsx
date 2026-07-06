@@ -4,6 +4,7 @@ import boacHotelImg from '../../../assets/boac-hotel.jpg'
 import marinaImg from '../../../assets/marina.jpg'
 import rezidenciaImg from '../../../assets/faeldo.jpg'
 import type { SectionId } from '../sectionConfig'
+import { reveal } from '../shared/reveal'
 import './Travel.css'
 
 const CLIP_VARIANTS = {
@@ -63,7 +64,7 @@ const HOTELS = [
 
 export default function Travel({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
-    <section id="travel" ref={(el) => onSectionRef('travel', el)} className="d-section d-section--alt d-section--travel">
+    <section id="travel" ref={(el) => onSectionRef('travel', el)} className="d-section d-section--dark d-section--travel">
       <div className="d-section-inner">
         <svg
           className="d-travel-decor"
@@ -90,10 +91,7 @@ export default function Travel({ onSectionRef }: { onSectionRef: (id: SectionId,
               <motion.div
                 className="d-hotel-photo"
                 style={{ aspectRatio: variant.aspectRatio }}
-                initial={{ opacity: 0, scale: 0.85, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                {...reveal({ scale: 0.85, y: 40, duration: 0.8, amount: 0.3, delay: i * 0.15 })}
               >
                 <svg viewBox={variant.viewBox} preserveAspectRatio="xMidYMid slice">
                   <defs>

@@ -1,4 +1,5 @@
 import type { SectionId } from '../sectionConfig'
+import { W } from '../weddingInfo'
 import './Attire.css'
 
 export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -68,10 +69,10 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
         </p>
 
         <div className="d-color-palette">
-          <div className="d-swatch" style={{ background: '#A34720' }} title="Terracotta" />
-          <div className="d-swatch" style={{ background: '#D2B396' }} title="Warm Tan" />
+          <div className="d-swatch" style={{ background: 'var(--primary)' }} title="Terracotta" />
+          <div className="d-swatch" style={{ background: 'var(--secondary)' }} title="Warm Tan" />
           <div className="d-swatch" style={{ background: '#CAB49F' }} title="Blush" />
-          <div className="d-swatch" style={{ background: '#EFE4DA', border: '1px solid rgba(163,71,32,0.2)' }} title="Cream" />
+          <div className="d-swatch" style={{ background: '#EFE4DA', border: '1px solid rgba(var(--primary-rgb), 0.2)' }} title="Cream" />
         </div>
         <p className="d-body d-body--small d-body--center">Suggested palette — feel free to mix earth tones and warm neutrals.</p>
 
@@ -90,7 +91,7 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
         <p className="d-body d-body--center">Please avoid jeans and casual attire.</p>
 
         <p className="d-body d-body--small d-body--center">
-          The ceremony is held inside Boac Cathedral. The cocktails and reception at Luxor Resort
+          The ceremony is held inside {W.ceremony.name}. The cocktails and reception at {W.reception.name}
           are semi-outdoor — light layers are recommended for the evening breeze.
         </p>
       </div>

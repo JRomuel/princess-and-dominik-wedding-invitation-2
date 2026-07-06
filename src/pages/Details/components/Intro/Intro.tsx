@@ -1,4 +1,5 @@
 import type { SectionId } from '../../sectionConfig'
+import { W } from '../../weddingInfo'
 import IntroMap from './IntroMap'
 import Passport from './Passport'
 import Welcome from './Welcome'
@@ -28,12 +29,12 @@ export default function Intro({ onNavigate }: { onNavigate: (id: SectionId) => v
           Black tie event.
           <br />
           <br />
-          Ceremony at Boac Cathedral
+          Ceremony at {W.ceremony.name}
           <br />
           Reception to follow.
           <br />
           <br />
-          Please respond before 10th September. <br /> We can't wait to celebrate with you!
+          Please respond before {W.rsvpDeadline}. <br /> We can't wait to celebrate with you!
         </p>
         <button type="button" className="d-rsvp-cta" onClick={() => onNavigate('rsvp')}>
           RSVP

@@ -113,7 +113,7 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    background: rgba(250, 246, 240, 0.97);
+    background: rgba(var(--cream-rgb), 0.97);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     padding: 24px;

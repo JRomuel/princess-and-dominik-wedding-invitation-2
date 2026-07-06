@@ -13,7 +13,22 @@
 }
 
 .d-section--alt {
-  background: rgba(210, 179, 150, 0.1);
+  background: rgba(var(--secondary-rgb), 0.1);
+}
+
+/* ─── Dark section modifier (Entourage, Gallery, Gifts, Travel) ─── */
+
+.d-section--dark {
+  background: var(--primary);
+}
+
+.d-section--dark .d-eyebrow,
+.d-section--dark .d-heading,
+.d-section--dark .d-body,
+.d-section--dark .d-card-label,
+.d-section--dark .d-group-label,
+.d-section--dark .d-name {
+  color: var(--cream);
 }
 
 .d-section-inner {
@@ -42,7 +57,7 @@
 }
 
 .d-eyebrow--light {
-  color: rgba(250, 246, 240, 0.6);
+  color: rgba(var(--cream-rgb), 0.6);
 }
 
 .d-heading {
@@ -74,7 +89,7 @@
 }
 
 .d-body--light {
-  color: rgba(250, 246, 240, 0.8);
+  color: rgba(var(--cream-rgb), 0.8);
   opacity: 1;
 }
 

@@ -1,18 +1,12 @@
 .d-section.d-section--gifts {
-  background: var(--primary);
   padding-top:200px;
   padding-bottom:200px;
-}
-
-.d-section--gifts .d-heading,
-.d-section--gifts .d-body {
-  color: #fff;
 }
 
 .d-gifts-decor {
   width: min(100%, 420px);
   height: auto;
-  fill: #fff;
+  fill: var(--cream);
   display: block;
   margin: 0 auto 56px;
 }
@@ -29,14 +23,14 @@
   flex: 1;
   min-width: 240px;
   max-width: 340px;
-  border: 1px solid rgba(163, 71, 32, 0.12);
+  border: 1px solid rgba(var(--primary-rgb), 0.12);
   border-radius: 4px;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   text-align: left;
-  background: rgba(250, 246, 240, 0.7);
+  background: rgba(var(--cream-rgb), 0.7);
 }
 
 @media (max-width: 600px) {

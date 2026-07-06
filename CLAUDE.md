@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Travel-themed wedding invitation SPA for Princess & Dominik (December 7, 2025, Sacred Heart Cathedral, Cagayan de Oro City, Philippines).
+Travel-themed wedding invitation SPA for Princess & Dominik (January 28, 2027, Boac Cathedral ceremony and Luxor Resort reception, Marinduque, Philippines).
 
 ## Commands
 
@@ -37,7 +37,7 @@ Use `clamp()` for responsive sizing. Scattered card layouts use absolute positio
 
 ## Routing
 
-React Router v7. Routes: `/` (Home — envelope/card landing) and `/details` (countdown, RSVP). Wedding data is hardcoded in the `W` constant at the top of `src/pages/Details.tsx`.
+React Router v7. Routes: `/` (Home — envelope/card landing) and `/details` (countdown, RSVP). Wedding data (date, RSVP deadline, ceremony/reception names & addresses) lives in the `W` constant in `src/pages/Details/weddingInfo.ts`.
 
 ## RSVP
 

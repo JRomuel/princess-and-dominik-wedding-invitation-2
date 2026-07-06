@@ -1,22 +1,14 @@
 .d-section--entourage {
-  background: var(--primary);
   position: relative;
   overflow: hidden;
   padding-bottom: 200px !important;
-}
-
-.d-section--entourage .d-eyebrow,
-.d-section--entourage .d-heading,
-.d-section--entourage .d-group-label,
-.d-section--entourage .d-name {
-  color: #fff;
 }
 
 .d-entourage-decor {
   align-self: stretch;
   width: 480px;
   height: auto;
-  fill: #fff;
+  fill: var(--cream);
   display: block;
   margin: 0 0 96px 50%;
 }
@@ -26,7 +18,7 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--cream);
   font-family: var(--sans);
   margin: 0 0 40px;
 }

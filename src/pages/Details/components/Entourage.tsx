@@ -3,7 +3,7 @@ import './Entourage.css'
 
 export default function Entourage({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
-    <section id="entourage" ref={(el) => onSectionRef('entourage', el)} className="d-section d-section--entourage">
+    <section id="entourage" ref={(el) => onSectionRef('entourage', el)} className="d-section d-section--dark d-section--entourage">
       <div className="d-section-inner d-section-inner--wide">
         <svg
           className="d-entourage-decor"

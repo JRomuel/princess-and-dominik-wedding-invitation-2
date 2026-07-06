@@ -1,17 +1,12 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import detailsHeroBg from '../../../assets/details-hero-background-22.jpeg'
 import type { SectionId } from '../sectionConfig'
+import { W } from '../weddingInfo'
+import { useParallaxBg } from '../shared/useParallaxBg'
 import './Hero.css'
 
 export default function Hero({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
-  const heroRef = useRef<HTMLElement | null>(null)
-
-  const { scrollYProgress: heroScrollProgress } = useScroll({
-    target: heroRef,
-    offset: ['start 75%', 'end start'],
-  })
-  const heroBgY = useTransform(heroScrollProgress, [0, 1], ['-18%', '18%'])
+  const { ref: heroRef, y: heroBgY } = useParallaxBg<HTMLElement>()
 
   return (
     <section
@@ -22,7 +17,7 @@ export default function Hero({ onSectionRef }: { onSectionRef: (id: SectionId, e
       <motion.div
         className="d-hero-bg"
         style={{
-          backgroundImage: `linear-gradient(rgba(163, 71, 32, 0.28), rgba(163, 71, 32, 0.28)), url(${detailsHeroBg})`,
+          backgroundImage: `linear-gradient(rgba(var(--primary-rgb), 0.28), rgba(var(--primary-rgb), 0.28)), url(${detailsHeroBg})`,
           scale: 1.4,
           y: heroBgY,
         }}
@@ -36,10 +31,10 @@ export default function Hero({ onSectionRef }: { onSectionRef: (id: SectionId, e
       </div>
       <div className="d-hero-footer">
         <p className="d-sub">
-          <span className="d-sub-line d-sub-line--upper">Boac Cathedral</span><br />
-          <span className="d-sub-line d-sub-line--italic">Marinduque, Philippines</span>
+          <span className="d-sub-line d-sub-line--upper">{W.ceremony.name}</span><br />
+          <span className="d-sub-line d-sub-line--italic">{W.location}</span>
         </p>
-        <p className="d-date">01.28.2027</p>
+        <p className="d-date">{W.dateNumeric}</p>
       </div>
     </section>
   )

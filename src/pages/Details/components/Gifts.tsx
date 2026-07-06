@@ -3,7 +3,7 @@ import './Gifts.css'
 
 export default function Gifts({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
-    <section id="gifts" ref={(el) => onSectionRef('gifts', el)} className="d-section d-section--gifts">
+    <section id="gifts" ref={(el) => onSectionRef('gifts', el)} className="d-section d-section--dark d-section--gifts">
       <div className="d-section-inner">
         <svg
           className="d-gifts-decor"

@@ -1,4 +1,5 @@
 import glitterBg from '../../../../assets/glitter.gif'
+import { W } from '../../weddingInfo'
 import './SaveDate.css'
 
 export default function SaveDate() {
@@ -6,7 +7,7 @@ export default function SaveDate() {
     <div className="d-save-date-box" style={{ backgroundImage: `url(${glitterBg})` }}>
       <p className="d-save-date-title">Save the Date</p>
       <p className="d-passport-date">Thu 28th January</p>
-      <p className="d-passport-date">01.28.2027 | 2 PM</p>
+      <p className="d-passport-date">{W.dateNumeric} | {W.ceremony.time}</p>
     </div>
   )
 }

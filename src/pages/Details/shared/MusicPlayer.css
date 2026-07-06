@@ -24,7 +24,7 @@
   cursor: pointer;
   display: block;
   background: var(--cream);
-  box-shadow: 0 4px 14px rgba(163, 71, 32, 0.18);
+  box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.18);
 }
 
 .d-music-disc::before {

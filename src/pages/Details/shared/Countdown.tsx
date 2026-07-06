@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
+import { W } from '../weddingInfo'
 import './Countdown.css'
-
-const WEDDING_DATE = new Date('2027-01-28T14:00:00+08:00')
 
 function getTimeLeft(target: Date) {
   const diff = Math.max(0, target.getTime() - Date.now())
@@ -18,10 +17,10 @@ function pad(n: number) {
 }
 
 export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(WEDDING_DATE))
+  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(W.weddingDate))
 
   useEffect(() => {
-    const interval = setInterval(() => setTimeLeft(getTimeLeft(WEDDING_DATE)), 1000)
+    const interval = setInterval(() => setTimeLeft(getTimeLeft(W.weddingDate)), 1000)
     return () => clearInterval(interval)
   }, [])
 

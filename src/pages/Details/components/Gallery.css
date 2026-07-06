@@ -1,12 +1,6 @@
 #gallery.d-gallery-section {
-  background: var(--primary);
   padding-top: 200px;
   padding-bottom: 200px;
-}
-
-.d-gallery-section .d-heading,
-.d-gallery-section .d-body {
-  color: #fff;
 }
 
 @media (max-width: 600px) {
@@ -20,7 +14,7 @@
   font-family: 'Ms Madi', cursive;
   font-style: italic;
   font-size: clamp(32px, 5vw, 70px);
-  color: #fff;
+  color: var(--cream);
   margin: 20px 0 40px;
 }
 
@@ -41,7 +35,7 @@
   font-family: var(--sans);
   font-size: clamp(20px, 3vw, 32px);
   font-weight: 400;
-  color: #fff;
+  color: var(--cream);
 }
 
 .d-gallery-photo {

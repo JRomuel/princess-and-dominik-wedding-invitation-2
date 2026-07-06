@@ -1,18 +1,19 @@
 import type { SectionId } from '../sectionConfig'
+import { W } from '../weddingInfo'
 import './Faq.css'
 
 const FAQS = [
   {
     q: 'When is the RSVP deadline?',
-    a: 'Kindly reply by December 1, 2026 so we can finalize our arrangements with the caterer and venue. Please RSVP as early as possible.',
+    a: `Kindly reply by ${W.rsvpDeadline} so we can finalize our arrangements with the caterer and venue. Please RSVP as early as possible.`,
   },
   {
     q: 'What time should I arrive for the ceremony?',
-    a: 'The ceremony begins at 2:00 PM at Boac Cathedral. We ask that guests be seated by 1:45 PM. Please allow extra time for travel from your accommodation.',
+    a: `The ceremony begins at ${W.ceremony.time} at ${W.ceremony.name}. We ask that guests be seated by 1:45 PM. Please allow extra time for travel from your accommodation.`,
   },
   {
     q: 'Is there transportation between the ceremony and reception?',
-    a: 'Yes! Jeep service will be provided between Boac Cathedral and Luxor Resort. Details will be shared closer to the date.',
+    a: `Yes! Jeep service will be provided between ${W.ceremony.name} and ${W.reception.name}. Details will be shared closer to the date.`,
   },
   {
     q: 'Can I take photos during the ceremony?',

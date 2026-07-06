@@ -1,5 +1,6 @@
 import PassportPhoto from '../../shared/PassportPhoto'
 import { HeartIcon, PassportOrnament } from '../../shared/icons'
+import { W } from '../../weddingInfo'
 import './Passport.css'
 
 const arrows = (n: number) => '<'.repeat(n)
@@ -22,7 +23,7 @@ export default function Passport() {
           <div className="d-passport-title-row">
             <h2 className="d-passport-title">Save the Date</h2>
             <HeartIcon />
-            <p className="d-passport-date">01.28.2027</p>
+            <p className="d-passport-date">{W.dateNumeric}</p>
           </div>
         </div>
 
@@ -40,7 +41,7 @@ export default function Passport() {
               </div>
               <div className="d-passport-field">
                 <p className="d-passport-group-label">Passport No.</p>
-                <p className="d-passport-group-value">28JAN2027</p>
+                <p className="d-passport-group-value">{W.dateCompact}</p>
               </div>
             </div>
             <div className="d-passport-info-right">
@@ -54,16 +55,16 @@ export default function Passport() {
               </div>
               <div className="d-passport-group">
                 <p className="d-passport-group-label">Date</p>
-                <p className="d-passport-group-value">January 28, 2027</p>
+                <p className="d-passport-group-value">{W.dateLong}</p>
               </div>
               <div className="d-passport-group">
                 <p className="d-passport-group-label">Ceremony</p>
-                <p className="d-passport-group-value">Boac Cathedral</p>
+                <p className="d-passport-group-value">{W.ceremony.name}</p>
               </div>
 
               <div className="d-passport-group">
                 <p className="d-passport-group-label">Reception</p>
-                <p className="d-passport-group-value">Luxor Resort Marinduque ✈</p>
+                <p className="d-passport-group-value">{W.reception.name} Marinduque ✈</p>
               </div>
             </div>
           </div>

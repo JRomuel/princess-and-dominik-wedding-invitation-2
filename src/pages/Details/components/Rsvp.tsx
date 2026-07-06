@@ -1,11 +1,12 @@
 import type { SectionId } from '../sectionConfig'
+import { W } from '../weddingInfo'
 import './Rsvp.css'
 
 export default function Rsvp({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
     <section id="rsvp" ref={(el) => onSectionRef('rsvp', el)} className="d-section d-section--rsvp">
       <div className="d-section-inner">
-        <p className="d-eyebrow d-eyebrow--light">Kindly reply by December 1, 2026</p>
+        <p className="d-eyebrow d-eyebrow--light">Kindly reply by {W.rsvpDeadline}</p>
         <h2 className="d-heading d-heading--light">RSVP</h2>
         <p className="d-body d-body--light d-body--center">
           We would be honored by your presence at our wedding in Marinduque.

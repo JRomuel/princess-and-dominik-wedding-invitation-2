@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import boacCathedral from '../../../assets/boac-church.png'
 import luxorImage from '../../../assets/luxor-image.jpg'
 import type { SectionId } from '../sectionConfig'
+import { W } from '../weddingInfo'
+import { reveal } from '../shared/reveal'
 import './Venue.css'
 
 export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -12,10 +14,7 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
 
         <motion.div
           className="d-venue-photo d-venue-photo--ceremony"
-          initial={{ opacity: 0, scale: 0.9, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          {...reveal({ scale: 0.9, y: 40, amount: 0.3 })}
         >
           <svg viewBox="0 0 415 501" preserveAspectRatio="xMidYMin slice">
             <defs>
@@ -39,9 +38,9 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
         <div className="d-venue-details d-venue-details--ceremony">
           <p className="d-card-label">Ceremony</p>
           <p className="d-body">
-            The ceremony will be held at Immaculate Conception Cathedral Parish Boac at 2 pm.
+            The ceremony will be held at {W.ceremony.fullName} at {W.ceremony.time}.
             <br /><br />
-            Plenty of parking at the front. <br /> Mataas na Bayan, Boac, Philippines, 4900
+            Plenty of parking at the front. <br /> {W.ceremony.address}
             <br /><br />
             <a
               href="https://www.google.com/maps/search/?api=1&query=Immaculate+Conception+Cathedral+Parish+Boac%2C+Mataas+na+Bayan%2C+Boac%2C+Philippines%2C+4900"
@@ -56,10 +55,7 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
 
         <motion.div
           className="d-venue-photo"
-          initial={{ opacity: 0, scale: 0.9, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          {...reveal({ scale: 0.9, y: 40, amount: 0.3 })}
         >
           <svg viewBox="0 0 500 432" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -83,9 +79,9 @@ export default function Venue({ onSectionRef }: { onSectionRef: (id: SectionId, 
             <br /><br />
             Reception is about 20 min drive away
             <br /><br />
-            Luxor Resort & Restaurant
+            {W.reception.fullName}
             <br />
-            Marinduque Circumferential Road, Brgy. Pangi, Gasan, Philippines, 4905
+            {W.reception.address}
 
             <br />
             <br />

@@ -8,13 +8,13 @@
 
 .d-welcome-box .d-heading,
 .d-welcome-box .d-body {
-  color: #fff;
+  color: var(--cream);
 }
 
 .d-rsvp-cta {
   margin-top: 60px;
   padding: 20px 64px;
-  background: #fff;
+  background: var(--cream);
   border: none;
   border-radius: 3px;
   color: var(--primary);
