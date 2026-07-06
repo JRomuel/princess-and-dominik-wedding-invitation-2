@@ -29,7 +29,6 @@ export default function Details() {
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})
   const [navOpen, setNavOpen] = useState(false)
-  const [navOverDark, setNavOverDark] = useState(true)
   const [activeSection, setActiveSection] = useState<SectionId>('home')
 
   useEffect(() => {
@@ -42,20 +41,6 @@ export default function Details() {
     }
     rafId = requestAnimationFrame(raf)
 
-    const checkBackground = () => {
-      const probeY = window.scrollY + 32
-      const isWithin = (el: HTMLElement | null | undefined) =>
-        !!el && probeY >= el.offsetTop && probeY < el.offsetTop + el.offsetHeight
-      setNavOverDark(
-        isWithin(sectionRefs.current.home) ||
-        isWithin(sectionRefs.current.venue) ||
-        isWithin(sectionRefs.current.entourage) ||
-        isWithin(sectionRefs.current.gifts) ||
-        isWithin(sectionRefs.current.travel) ||
-        isWithin(sectionRefs.current.gallery)
-      )
-    }
-
     const checkActiveSection = () => {
       const probeY = window.scrollY + 100
       let current: SectionId = NAV[0].id
@@ -66,17 +51,12 @@ export default function Details() {
       setActiveSection(current)
     }
 
-    const handleScroll = () => {
-      checkBackground()
-      checkActiveSection()
-    }
-
-    handleScroll()
-    lenis.on('scroll', handleScroll)
+    checkActiveSection()
+    lenis.on('scroll', checkActiveSection)
 
     return () => {
       cancelAnimationFrame(rafId)
-      lenis.off('scroll', handleScroll)
+      lenis.off('scroll', checkActiveSection)
       lenis.destroy()
     }
   }, [])
@@ -97,7 +77,6 @@ export default function Details() {
     <div className="details-page">
       <Nav
         navOpen={navOpen}
-        navOverDark={navOverDark}
         activeSection={activeSection}
         onToggle={() => setNavOpen(open => !open)}
         onNavigate={scrollTo}

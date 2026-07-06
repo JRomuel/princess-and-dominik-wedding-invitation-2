@@ -54,6 +54,9 @@
   }
 
   .details-nav-toggle {
+    position: fixed;
+    top: 12px;
+    right: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,6 +69,7 @@
     padding: 9px 7px;
     cursor: pointer;
     z-index: 101;
+    mix-blend-mode: difference;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -77,17 +81,13 @@
   .details-nav-toggle span {
     display: block;
     height: 2px;
-    background: var(--primary);
+    background: #fff;
     border-radius: 1px;
     transition: transform 0.25s ease, opacity 0.2s ease;
   }
 
   .details-nav-toggle--active {
     background: transparent;
-  }
-
-  .details-nav-toggle--active span {
-    background: var(--primary);
   }
 
   .details-nav-toggle--active span:nth-child(1) {
@@ -100,10 +100,6 @@
 
   .details-nav-toggle--active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
-  }
-
-  .details-nav-toggle--on-dark span {
-    background: var(--cream);
   }
 
   .details-nav-inner {
