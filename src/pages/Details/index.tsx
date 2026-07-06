@@ -46,7 +46,15 @@ export default function Details() {
       const probeY = window.scrollY + 32
       const isWithin = (el: HTMLElement | null | undefined) =>
         !!el && probeY >= el.offsetTop && probeY < el.offsetTop + el.offsetHeight
-      setNavOverDark(isWithin(sectionRefs.current.home) || isWithin(sectionRefs.current.rsvp))
+      setNavOverDark(
+        isWithin(sectionRefs.current.home) ||
+        isWithin(sectionRefs.current.rsvp) ||
+        isWithin(sectionRefs.current.venue) ||
+        isWithin(sectionRefs.current.entourage) ||
+        isWithin(sectionRefs.current.gifts) ||
+        isWithin(sectionRefs.current.travel) ||
+        isWithin(sectionRefs.current.gallery)
+      )
     }
 
     const checkActiveSection = () => {

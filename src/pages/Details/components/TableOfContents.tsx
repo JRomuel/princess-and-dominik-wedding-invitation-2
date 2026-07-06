@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import roundCard from '../../../assets/round-card.png'
 import cutPaperTexture from '../../../assets/cut-paper-texture.png'
 import envelopContentTexture from '../../../assets/envelop-content-textture.png'
@@ -8,43 +10,73 @@ import type { SectionId } from '../sectionConfig'
 import './TableOfContents.css'
 
 export default function TableOfContents({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
+  const [photoLoaded, setPhotoLoaded] = useState(false)
+
   return (
     <section id="table-of-contents" className="d-section d-section--toc">
       <div className="d-toc-collage">
-        <div className="d-toc-photo">
-          <img src={tocPhoto} alt="Princes and Dominik" className="d-toc-photo-img" />
-        </div>
+        <motion.div
+          className="d-toc-photo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: photoLoaded ? 1 : 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <img
+            src={tocPhoto}
+            alt="Princes and Dominik"
+            className="d-toc-photo-img"
+            onLoad={() => setPhotoLoaded(true)}
+          />
+        </motion.div>
 
-        <button type="button" className="d-toc-card d-toc-card--venue" onClick={() => onNavigate('venue')}>
+        <motion.button
+          type="button"
+          className="d-toc-card d-toc-card--venue"
+          onClick={() => onNavigate('venue')}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: photoLoaded ? 1 : 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+        >
           <img src={roundCard} alt="" className="d-toc-card-shape" />
           <span className="d-toc-card-label">Venue</span>
-        </button>
+        </motion.button>
 
-        <button
+        <motion.button
           type="button"
           className="d-toc-card d-toc-card--rsvp"
           style={{ backgroundImage: `url(${envelopContentTexture})` }}
           onClick={() => onNavigate('rsvp')}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: photoLoaded ? 1 : 0 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
         >
           <span className="d-toc-card-label d-toc-card-label--light">RSVP</span>
-        </button>
+        </motion.button>
 
-        <button
+        <motion.button
           type="button"
           className="d-toc-card d-toc-card--attire"
           style={{ backgroundImage: `url(${cutPaperTexture})` }}
           onClick={() => onNavigate('attire')}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: photoLoaded ? 1 : 0 }}
+          transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
         >
           <span className="d-toc-card-label">Attire</span>
-        </button>
+        </motion.button>
 
-        <div className="d-toc-card--gifts">
+        <motion.div
+          className="d-toc-card--gifts"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: photoLoaded ? 1 : 0 }}
+          transition={{ duration: 0.7, delay: 0.6, ease: 'easeOut' }}
+        >
           <button type="button" className="d-toc-gift-rotate" onClick={() => onNavigate('gifts')}>
             <span className="d-toc-card-insert" style={{ backgroundImage: `url(${circleTexture})` }} />
             <img src={envelopeSmall} alt="" className="d-toc-card-shape" />
           </button>
           <span className="d-toc-card-label d-toc-card-label--insert">Gifts</span>
-        </div>
+        </motion.div>
       </div>
 
       <button type="button" className="d-toc-scroll" aria-label="Scroll down" onClick={() => onNavigate('home')}>
