@@ -1,6 +1,8 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import './Loader.css'
+
+const HEART_PATH = 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'
 
 // CCW upside-down droplet — loop rises ABOVE the crossing.
 // Crossing at (210,88); pointed tip at top (210,-6); wide rounded body in between.
@@ -17,6 +19,7 @@ const PATH = [
 ].join(' ')
 
 const DURATION = 4000 // ms
+const HEART_DELAY = 800 // ms — extra time after arrival so the heart pop is visible before dismissal
 
 const easeInOut = (t: number) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
@@ -30,6 +33,7 @@ export default function Loader({ onDone, images = [] }: Props) {
   const pathRef  = useRef<SVGPathElement>(null)
   const planeRef = useRef<SVGTextElement>(null)
   const rafRef   = useRef(0)
+  const [arrived, setArrived] = useState(false)
 
   // useLayoutEffect fires synchronously after the DOM is committed,
   // so refs are guaranteed to be populated on the first run.
@@ -58,6 +62,7 @@ export default function Loader({ onDone, images = [] }: Props) {
       const raw = Math.min((now - startTime) / DURATION, 1)
       place(easeInOut(raw) * total)
       if (raw < 1) rafRef.current = requestAnimationFrame(tick)
+      else setArrived(true)
     }
 
     rafRef.current = requestAnimationFrame(tick)
@@ -70,7 +75,7 @@ export default function Loader({ onDone, images = [] }: Props) {
     let imagesDone = images.length === 0
     const check = () => { if (timerDone && imagesDone) onDone() }
 
-    const t = setTimeout(() => { timerDone = true; check() }, DURATION)
+    const t = setTimeout(() => { timerDone = true; check() }, DURATION + HEART_DELAY)
 
     if (images.length > 0) {
       let count = 0
@@ -137,6 +142,16 @@ export default function Loader({ onDone, images = [] }: Props) {
           fontSize="40"
           fill="#A34720"
         >✈</text>
+
+        {/* ── Heart pop — appears once the plane reaches Marinduque ── */}
+        <motion.path
+          d={HEART_PATH}
+          fill="#A34720"
+          style={{ x: 513, y: -3 }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={arrived ? { scale: [0, 1.35, 1], opacity: 1 } : { scale: 0, opacity: 0 }}
+          transition={{ duration: 0.6, times: [0, 0.6, 1], ease: 'easeOut' }}
+        />
       </svg>
     </motion.div>
   )
