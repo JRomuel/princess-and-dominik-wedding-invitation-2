@@ -19,6 +19,7 @@
 }
 
 .d-wt-card {
+  position: relative;
   width: 100%;
   max-width: 560px;
   background: var(--primary);
@@ -28,6 +29,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.d-wt-compass {
+  position: absolute;
+  left: -100px;
+  top: 15%;
+  transform: translateY(-50%);
+  width: 190px;
+  height: auto;
+  pointer-events: none;
+  filter: brightness(0) saturate(10%);
 }
 
 .d-wt-heading {
@@ -131,5 +143,9 @@
 
   .d-wt-card {
     padding: 40px 24px;
+  }
+
+  .d-wt-compass {
+    display: none;
   }
 }

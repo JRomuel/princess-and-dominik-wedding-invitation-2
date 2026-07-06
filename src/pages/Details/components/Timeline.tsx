@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import timelineBg from '../../../assets/timeline-bg-3.jpg'
+import timelineBg from '../../../assets/timeline-bg-4.jpg'
+import compassImg from '../../../assets/pd-compass.png'
 import type { SectionId } from '../sectionConfig'
 import './Timeline.css'
 
@@ -31,6 +32,7 @@ export default function Timeline({ onSectionRef }: { onSectionRef: (id: SectionI
 
       <div className="d-section-inner">
         <div className="d-wt-card">
+          <img src={compassImg} alt="" className="d-wt-compass" />
           <h2 className="d-wt-heading">The Wedding Day Schedule</h2>
           <p className="d-wt-subtitle">Thursday</p>
 

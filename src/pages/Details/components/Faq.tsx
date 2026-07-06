@@ -38,7 +38,7 @@ const FAQS = [
 
 export default function Faq({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
-    <section id="faq" ref={(el) => onSectionRef('faq', el)} className="d-section">
+    <section id="faq" ref={(el) => onSectionRef('faq', el)} className="d-section d-faq-section">
       <div className="d-section-inner">
         <p className="d-eyebrow">Questions &amp; answers</p>
         <h2 className="d-heading">FAQ</h2>

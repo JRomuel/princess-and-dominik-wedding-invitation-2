@@ -1,5 +1,4 @@
 import balarImg from '../../../assets/balar.jpg'
-import zenturiaImg from '../../../assets/F-hotel-zenturia-marinduque.jpg'
 import boacHotelImg from '../../../assets/boac-hotel.jpg'
 import marinaImg from '../../../assets/marina.jpg'
 import rezidenciaImg from '../../../assets/faeldo.jpg'
@@ -37,13 +36,6 @@ const HOTELS = [
     image: balarImg,
     address: 'Brgy. Balaring, Boac, Marinduque, Philippines, 4900',
     clip: 'a',
-  },
-  {
-    name: 'Hotel Zenturia',
-    contact: '0917 305 2689',
-    image: zenturiaImg,
-    address: 'Magsaysay St., Isok 1, Boac, Marinduque, Philippines, 4900',
-    clip: 'b',
   },
   {
     name: 'The Boac Hotel',
