@@ -30,6 +30,8 @@
 .d-entourage-caption {
   font-style: italic;
   text-transform: none;
+  font-weight: 400;
+  font-size: clamp(13px, 1.6vw, 15px);
 }
 
 .d-entourage-subtitle:has(+ .d-entourage-caption) {

@@ -1,59 +1,255 @@
-import { useRef, useState } from 'react'
-import weddingSong from '../../../assets/Adele+-+Make+You+Feel+My+Love+(Lyrics).mp3'
+import { useEffect, useRef, useState, type ChangeEvent } from 'react'
+import { loadYouTubeApi, type YTPlayer } from './youtube'
 import './MusicPlayer.css'
 
-export default function MusicPlayer() {
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [playing, setPlaying] = useState(false)
+const TRACKS = [
+  { id: '9IzKueQ2ZxY', title: 'Make You Feel My Love', artist: 'Adele' },
+  { id: '5ZD9_spFojY', title: 'On This Day', artist: 'David Pomeranz' },
+  { id: '22gxJEIrLU0', title: 'Kay Tagal', artist: 'Mark Carpio' },
+]
 
-  function toggle() {
-    const audio = audioRef.current
-    if (!audio) return
-    if (playing) {
-      audio.pause()
-    } else {
-      audio.play()
+function thumbnailUrl(id: string) {
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+}
+
+function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds <= 0) return '0:00'
+  const mins = Math.floor(seconds / 60)
+  const secs = Math.floor(seconds % 60)
+  return `${mins}:${secs.toString().padStart(2, '0')}`
+}
+
+export default function MusicPlayer() {
+  const playerRef = useRef<YTPlayer | null>(null)
+  const trackIndexRef = useRef(0)
+  const [ready, setReady] = useState(false)
+  const [playing, setPlaying] = useState(false)
+  const [trackIndex, setTrackIndex] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [durations, setDurations] = useState<Record<number, number>>({})
+
+  useEffect(() => {
+    let cancelled = false
+
+    loadYouTubeApi().then((YT) => {
+      if (cancelled) return
+      playerRef.current = new YT.Player('d-music-yt-target', {
+        videoId: TRACKS[0].id,
+        playerVars: {
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          modestbranding: 1,
+          rel: 0,
+          iv_load_policy: 3,
+          playsinline: 1,
+        },
+        events: {
+          onReady: () => setReady(true),
+          onStateChange: (event) => {
+            if (event.data === YT.PlayerState.ENDED) {
+              playTrack((trackIndexRef.current + 1) % TRACKS.length)
+            }
+            setPlaying(event.data === YT.PlayerState.PLAYING)
+            const duration = event.target.getDuration()
+            if (duration > 0) {
+              const index = trackIndexRef.current
+              setDurations(prev => (prev[index] ? prev : { ...prev, [index]: duration }))
+            }
+          },
+        },
+      })
+    })
+
+    return () => {
+      cancelled = true
+      playerRef.current?.destroy()
     }
-    setPlaying(p => !p)
+  }, [])
+
+  useEffect(() => {
+    if (!playing) return
+    const interval = setInterval(() => {
+      setCurrentTime(playerRef.current?.getCurrentTime() ?? 0)
+    }, 500)
+    return () => clearInterval(interval)
+  }, [playing])
+
+  function playTrack(index: number) {
+    trackIndexRef.current = index
+    setTrackIndex(index)
+    setCurrentTime(0)
+    playerRef.current?.loadVideoById(TRACKS[index].id)
   }
+
+  function togglePlay() {
+    const player = playerRef.current
+    if (!player) return
+    if (playing) player.pauseVideo()
+    else player.playVideo()
+  }
+
+  function handleTrackClick(index: number) {
+    if (index === trackIndex) togglePlay()
+    else playTrack(index)
+  }
+
+  function handleSeek(event: ChangeEvent<HTMLInputElement>) {
+    const value = Number(event.target.value)
+    setCurrentTime(value)
+    playerRef.current?.seekTo(value, true)
+  }
+
+  const track = TRACKS[trackIndex]
+  const duration = durations[trackIndex] ?? 0
 
   return (
     <div className="d-music-player">
-      <p className="d-music-title">Listen to our Music</p>
-      <audio ref={audioRef} src={weddingSong} loop />
+      <p className="d-music-title">
+        <svg
+          className="d-music-title-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+        Listen to our Music
+      </p>
+      <div id="d-music-yt-target" className="d-music-yt-target" aria-hidden="true" />
+
       <button
         type="button"
-        className={`d-music-disc${playing ? ' d-music-disc--playing' : ''}`}
-        onClick={toggle}
+        className="d-music-thumb"
+        onClick={togglePlay}
+        disabled={!ready}
         aria-label={playing ? 'Pause music' : 'Play music'}
       >
-        <svg className="d-music-label-arc" viewBox="0 0 100 100">
-          <path id="d-music-arc-path" d="M22,54 A28,28 0 1 1 78,54" fill="none" />
-          <text className="d-music-label-text">
-            <textPath
-              href="#d-music-arc-path"
-              startOffset="50%"
-              textAnchor="middle"
-              textLength="80"
-              lengthAdjust="spacingAndGlyphs"
-            >
-              Click to play music
-            </textPath>
-          </text>
-        </svg>
-        <span className="d-music-icon-wrap">
+        <img src={thumbnailUrl(track.id)} alt="" className="d-music-thumb-img" />
+        <span className={`d-music-thumb-overlay${playing ? '' : ' d-music-thumb-overlay--visible'}`}>
           {playing ? (
-            <svg className="d-music-icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <rect x="6" y="5" width="4" height="14" />
               <rect x="14" y="5" width="4" height="14" />
             </svg>
           ) : (
-            <svg className="d-music-icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
             </svg>
           )}
         </span>
       </button>
+
+      <div className="d-music-now">
+        <p className="d-music-now-title">{track.title}</p>
+        <p className="d-music-now-artist">{track.artist}</p>
+      </div>
+
+      <div className="d-music-progress">
+        <span className="d-music-time">{formatTime(currentTime)}</span>
+        <input
+          type="range"
+          className="d-music-seek"
+          min={0}
+          max={duration || 1}
+          step={0.1}
+          value={Math.min(currentTime, duration || 0)}
+          onChange={handleSeek}
+          disabled={!ready || !duration}
+          aria-label="Seek"
+        />
+        <span className="d-music-time">{formatTime(duration)}</span>
+      </div>
+
+      <div className="d-music-transport">
+        <button
+          type="button"
+          className="d-music-transport-btn"
+          onClick={() => playTrack((trackIndex - 1 + TRACKS.length) % TRACKS.length)}
+          disabled={!ready}
+          aria-label="Previous song"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 6h2v12H6zM20 18V6l-8.5 6z" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          className="d-music-transport-btn d-music-transport-btn--play"
+          onClick={togglePlay}
+          disabled={!ready}
+          aria-label={playing ? 'Pause music' : 'Play music'}
+        >
+          {playing ? (
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="5" width="4" height="14" />
+              <rect x="14" y="5" width="4" height="14" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+        </button>
+
+        <button
+          type="button"
+          className="d-music-transport-btn"
+          onClick={() => playTrack((trackIndex + 1) % TRACKS.length)}
+          disabled={!ready}
+          aria-label="Next song"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 6h2v12h-2zM4 6l8.5 6L4 18z" />
+          </svg>
+        </button>
+      </div>
+
+      <p className="d-music-count">{TRACKS.length} songs</p>
+
+      <ul className="d-music-list">
+        {TRACKS.map((t, i) => {
+          const isActive = i === trackIndex
+          const isPlaying = isActive && playing
+          return (
+            <li key={t.id} className={`d-music-item${isActive ? ' d-music-item--active' : ''}`}>
+              <button
+                type="button"
+                className="d-music-item-btn"
+                onClick={() => handleTrackClick(i)}
+                disabled={!ready}
+                aria-label={isPlaying ? `Pause ${t.title}` : `Play ${t.title}`}
+              >
+                <span className="d-music-item-index">
+                  {isPlaying ? (
+                    <span className="d-music-eq" aria-hidden="true">
+                      <span />
+                      <span />
+                      <span />
+                    </span>
+                  ) : (
+                    i + 1
+                  )}
+                </span>
+                <span className="d-music-item-text">
+                  <span className="d-music-item-title">{t.title}</span>
+                  <span className="d-music-item-artist">{t.artist}</span>
+                </span>
+                <span className="d-music-item-duration">
+                  {durations[i] ? formatTime(durations[i]) : '--:--'}
+                </span>
+              </button>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }

@@ -43,10 +43,11 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
             <div className="d-entourage-group d-entourage-group--wide">
               <p className="d-entourage-subtitle">Principal Sponsors</p>
               <p className="d-entourage-subtitle d-entourage-caption">to stand as witnesses to our vows</p>
-              <p className="d-name">Maria Isabel Santillan &amp; Alian Largo</p>
-              <p className="d-name">Mirabel Largo &amp; Leo Calvo</p>
-              <p className="d-name">Sabine Martin &amp; Gunther Martin</p>
+              <p className="d-name">Maria Isabel A. Santillan &amp; Allan Largo</p>
+              <p className="d-name">Maribel Largo &amp; Leo Calvo</p>
+              <p className="d-name">Sabine Martin &amp; Günther Martin</p>
               <p className="d-name">Lalaine Largo &amp; Ulysis Largo</p>
+              <p className="d-name">Mary Jane M. Battung &amp; Frank Vincent A. Battung</p>
             </div>
           </div>
 
@@ -57,7 +58,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
               <div className="d-entourage-columns">
                 <div className="d-entourage-group">
                   <p className="d-group-label d-group-label--lg">Best Man</p>
-                  <p className="d-name">Rico Frohlich</p>
+                  <p className="d-name">Rico Fröhlich</p>
                   <p className="d-name">Matthias Moser</p>
                 </div>
                 <div className="d-entourage-group">
@@ -74,61 +75,71 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
               <div className="d-entourage-columns">
                 <div className="d-entourage-group">
                   <p className="d-entourage-subtitle d-entourage-subtitle--tight">Candle</p>
-                  <p className="d-name">Ma. Lourdes Mantala &amp; Carlo Ray Nebing</p>
+                  <p className="d-name">Ma. Lourdes Mantala &amp; Carlo Ray Nabing</p>
                 </div>
                 <div className="d-entourage-group">
                   <p className="d-entourage-subtitle d-entourage-subtitle--tight">Veil</p>
-                  <p className="d-name">Cynille Largo &amp; Marc Angelo Malabayabas</p>
+                  <p className="d-name">Cyrille Largo &amp; Marc Angelo Malabayabas</p>
                 </div>
               </div>
 
               <div className="d-entourage-group d-entourage-group--wide" style={{ marginTop: '32px' }}>
                 <p className="d-entourage-subtitle d-entourage-subtitle--tight">Cord</p>
-                <p className="d-name">Justyna Süß &amp; Justin Süß</p>
+                <p className="d-name">Daryl Pilande &amp; Sarah Jeane Largo</p>
               </div>
             </div>
           </div>
 
           <div className="d-entourage-row">
-            <div className="d-entourage-group">
-              <p className="d-entourage-subtitle d-entourage-subtitle--tight">Groomsmen</p>
-              <p className="d-name">Daryl Pilande</p>
-              <p className="d-name">Justin Süß</p>
-              <p className="d-name">Manuel Schafler</p>
-              <p className="d-name">Nick Schittenhelm</p>
+            <div className="d-entourage-group d-entourage-group--wide">
+              <p className="d-entourage-subtitle">Groomsmen &amp; Bridesmaids</p>
+              <p className="d-name">Justin Süß &amp; Justyna Süß</p>
+              <p className="d-name">Manuel Schäfler &amp; Ella Williams (Katrin Schäfler)</p>
+              <p className="d-name">Nick Schittenhelm &amp; Sheena Jessica Vidad</p>
+              <p className="d-name">Froilan Bonus &amp; Edilyn Joy Uy</p>
+              <p className="d-name">Niklas Schiller &amp; Stefanie Winkler</p>
+              <p className="d-name">Mark Joseph Largo &amp; Renna Largo</p>
             </div>
+          </div>
 
-            <div className="d-entourage-group">
-              <p className="d-entourage-subtitle d-entourage-subtitle--tight">Bridesmaids</p>
-              <p className="d-name">Sarah Jeane Largo</p>
-              <p className="d-name">Justyna Süß</p>
-              <p className="d-name">Ella Williams</p>
-              <p className="d-name">Sheena Jessica Vidad</p>
+          <div className="d-entourage-row" style={{ marginBottom: '24px' }}>
+            <div className="d-entourage-group d-entourage-group--wide">
+              <p className="d-entourage-subtitle">Bearers &amp; Flower Girls</p>
+            </div>
+          </div>
+
+          <div className="d-entourage-row">
+            <div className="d-entourage-group d-entourage-group--wide">
+              <p className="d-entourage-subtitle d-entourage-subtitle--tight">
+                Banner <br /> <span className="d-entourage-caption">( Here Comes Our Apo )</span>
+              </p>
+              <p className="d-name">Desiderio Largo &amp; Lorna Largo</p>
             </div>
           </div>
 
           <div className="d-entourage-row">
             <div className="d-entourage-group">
               <p className="d-entourage-subtitle d-entourage-subtitle--tight">Ring Bearer</p>
-              <p className="d-name">Carlo Schafler</p>
-              <p className="d-entourage-subtitle d-entourage-subtitle--tight" style={{ marginTop: '32px' }}>Bible Bearer</p>
-              <p className="d-name">Yullross Achilles Largo</p>
+              <p className="d-name">Carlo Schäfler</p>
+            </div>
+
+            <div className="d-entourage-group">
+              <p className="d-entourage-subtitle d-entourage-subtitle--tight">Bible Bearer</p>
+              <p className="d-name">Yulross Achilles Largo</p>
             </div>
 
             <div className="d-entourage-group">
               <p className="d-entourage-subtitle d-entourage-subtitle--tight">Coin Bearer</p>
-              <p className="d-name">Andrei Daniel Largo</p>
-              <p className="d-entourage-subtitle d-entourage-subtitle--tight" style={{ marginTop: '32px' }}>Arrhae Bearer</p>
-              <p className="d-name">Mark Joseph Largo</p>
+              <p className="d-name">Andrei Danielle Largo</p>
             </div>
           </div>
 
           <div className="d-entourage-row">
             <div className="d-entourage-group d-entourage-group--wide">
               <p className="d-entourage-subtitle d-entourage-subtitle--tight">Flower Girls</p>
-              <p className="d-name">Lina Schafler</p>
+              <p className="d-name">Lina Schäfler</p>
               <p className="d-name">Bela Louise Mantala</p>
-              <p className="d-name">Sophia Andres Largo</p>
+              <p className="d-name">Sophia Andrea Largo</p>
             </div>
           </div>
 

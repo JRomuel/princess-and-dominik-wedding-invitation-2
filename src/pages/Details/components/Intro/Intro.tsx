@@ -1,4 +1,3 @@
-import type { SectionId } from '../../sectionConfig'
 import { W } from '../../weddingInfo'
 import IntroMap from './IntroMap'
 import Passport from './Passport'
@@ -7,7 +6,7 @@ import SaveDate from './SaveDate'
 import CountdownSection from './CountdownSection'
 import './Intro.css'
 
-export default function Intro({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
+export default function Intro() {
   return (
     <section className="d-section-intro">
       <IntroMap />
@@ -16,7 +15,14 @@ export default function Intro({ onNavigate }: { onNavigate: (id: SectionId) => v
       <Welcome>
         <h2 className="d-heading">Welcome Aboard</h2>
         <p className="d-body d-body--center">
-          Something borrowed, something blue, our Loved as old as Time as our vows we say. The earth and skies as witnesses, on our wedding day.
+          Every great journey begins with a single step,
+          <br />
+          and ours begins with "I do."
+          <br />
+          <br />
+          Join us as we celebrate a love that has found its home
+          <br />
+          and embark on a lifetime of laughter, dreams, and endless adventures together.
         </p>
       </Welcome>
 
@@ -26,8 +32,6 @@ export default function Intro({ onNavigate }: { onNavigate: (id: SectionId) => v
         <p className="d-body d-body--center">
           Kindly join Princess and Dominik as they continue their life journey together.
           <br />
-          Black tie event.
-          <br />
           <br />
           Ceremony at {W.ceremony.name}
           <br />
@@ -36,9 +40,6 @@ export default function Intro({ onNavigate }: { onNavigate: (id: SectionId) => v
           <br />
           Please respond before {W.rsvpDeadline}. <br /> We can't wait to celebrate with you!
         </p>
-        <button type="button" className="d-rsvp-cta" onClick={() => onNavigate('rsvp')}>
-          RSVP
-        </button>
       </Welcome>
 
       <CountdownSection />

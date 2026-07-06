@@ -56,4 +56,6 @@
 
 .d-story-music {
   margin-top: clamp(60px, 10vw, 120px);
+  width: 100%;
+  max-width: 600px;
 }

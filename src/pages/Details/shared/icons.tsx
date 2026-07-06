@@ -29,6 +29,62 @@ export function HeartIcon() {
   )
 }
 
+export function DiamondRingsIcon() {
+  return (
+    <svg
+      className="d-wt-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="9" cy="15" r="5" />
+      <circle cx="15" cy="9" r="5" />
+      <path d="M9 7L10.5 8.5L9 10L7.5 8.5Z" />
+      <path d="M15 1L16.5 2.5L15 4L13.5 2.5Z" />
+    </svg>
+  )
+}
+
+export function CocktailIcon() {
+  return (
+    <svg
+      className="d-wt-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 4h14l-7 8z" />
+      <path d="M12 12v7" />
+      <path d="M8 19h8" />
+    </svg>
+  )
+}
+
+export function DiningIcon() {
+  return (
+    <svg
+      className="d-wt-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 2v20" />
+      <path d="M4 2v7a3 3 0 0 0 6 0V2" />
+      <path d="M17 2v20" />
+      <path d="M17 2c-2.5 0-4 3-4 6s1.5 5 4 5" />
+    </svg>
+  )
+}
+
 export function PassportOrnament() {
   return (
     <svg

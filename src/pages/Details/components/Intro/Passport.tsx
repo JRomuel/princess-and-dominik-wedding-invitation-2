@@ -47,7 +47,7 @@ export default function Passport() {
             <div className="d-passport-info-right">
               <div className="d-passport-group">
                 <p className="d-passport-group-label">The Bride</p>
-                <p className="d-passport-group-value">Princes Dianne Moser</p>
+                <p className="d-passport-group-value">Princes Dianne Largo Moser</p>
               </div>
               <div className="d-passport-group">
                 <p className="d-passport-group-label">The Groom</p>

@@ -95,6 +95,13 @@
   justify-self: center;
 }
 
+.d-wt-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--cream);
+  flex-shrink: 0;
+}
+
 .d-wt-content {
   display: flex;
   flex-direction: column;
@@ -102,7 +109,10 @@
 }
 
 .d-wt-label {
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: rgba(var(--cream-rgb),0.7);

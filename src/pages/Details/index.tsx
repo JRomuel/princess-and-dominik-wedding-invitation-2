@@ -48,7 +48,6 @@ export default function Details() {
         !!el && probeY >= el.offsetTop && probeY < el.offsetTop + el.offsetHeight
       setNavOverDark(
         isWithin(sectionRefs.current.home) ||
-        isWithin(sectionRefs.current.rsvp) ||
         isWithin(sectionRefs.current.venue) ||
         isWithin(sectionRefs.current.entourage) ||
         isWithin(sectionRefs.current.gifts) ||
@@ -106,7 +105,7 @@ export default function Details() {
 
       <TableOfContents onNavigate={scrollTo} />
       <Hero onSectionRef={registerSection} />
-      <Intro onNavigate={scrollTo} />
+      <Intro />
       <OurStory onSectionRef={registerSection} />
       <Venue onSectionRef={registerSection} />
       <Timeline onSectionRef={registerSection} />

@@ -59,6 +59,11 @@ export default function Gallery({ onSectionRef }: { onSectionRef: (id: SectionId
             <motion.img src={galleryImage5} alt="Princess and Dominik" {...galleryReveal(0.45)} />
           </div>
         </div>
+
+        <p className="d-gallery-subtext" style={{ marginTop: '48px' }}>
+          The best things in life are the people we love, the places we've
+          been, and the memories we've made along the way.
+        </p>
       </div>
     </section>
   )
