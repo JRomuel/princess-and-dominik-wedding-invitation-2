@@ -1,5 +1,15 @@
+import { motion } from 'framer-motion'
 import type { SectionId } from '../sectionConfig'
 import { W } from '../weddingInfo'
+import { reveal } from '../shared/reveal'
+import principalAttireMen from '../../../assets/principal-attire-men.png'
+import principalAttireWoman from '../../../assets/principal-attire-woman.png'
+import groomsmenAttire from '../../../assets/groomsmen.png'
+import bridesmaidAttire from '../../../assets/bridesmaid.png'
+import flowerGirlAttire from '../../../assets/flower-girl.png'
+import bearerAttire from '../../../assets/bearer.png'
+import maleGuestAttire from '../../../assets/male-guest.png'
+import femaleGuestAttire from '../../../assets/female-guest.png'
 import './Attire.css'
 
 export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -78,14 +88,38 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
 
         <div className="d-attire-category">
           <p className="d-body d-body--center"><strong>Principal Sponsors</strong></p>
-          <p className="d-body d-body--center">Ladies: Blue gown/ long dress</p>
-          <p className="d-body d-body--center">Gentlemen: Black suit and tie</p>
+          <p className="d-body d-body--center">Ladies: Beige gown/ long dress</p>
+          <p className="d-body d-body--center">Gentlemen: Light Beige Suit/ Barong Tagalog</p>
+          <div className="d-attire-reference">
+            <motion.img src={principalAttireWoman} alt="Principal sponsor ladies attire reference" {...reveal({ y: 24 })} />
+            <motion.img src={principalAttireMen} alt="Principal sponsor gentlemen attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
+        </div>
+
+        <div className="d-attire-category">
+          <p className="d-body d-body--center"><strong>Bridesmaids & Groom</strong></p>
+          <div className="d-attire-reference">
+            <motion.img src={bridesmaidAttire} alt="Bridesmaid attire reference" {...reveal({ y: 24 })} />
+            <motion.img src={groomsmenAttire} alt="Groomsmen attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
+        </div>
+
+        <div className="d-attire-category">
+          <p className="d-body d-body--center"><strong>Flower Girls & Bearer</strong></p>
+          <div className="d-attire-reference">
+            <motion.img src={flowerGirlAttire} alt="Flower girl attire reference" {...reveal({ y: 24 })} />
+            <motion.img src={bearerAttire} alt="Bearer attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
         </div>
 
         <div className="d-attire-category">
           <p className="d-body d-body--center"><strong>Guests</strong></p>
           <p className="d-body d-body--center">Ladies: Long or cocktail dress</p>
-          <p className="d-body d-body--center">Gentlemen: Long sleeve, polo, pants or suit <br /> <br /></p>
+          <p className="d-body d-body--center">Gentlemen: Long sleeve, polo, pants or suit</p>
+          <div className="d-attire-reference">
+            <motion.img src={femaleGuestAttire} alt="Female guest attire reference" {...reveal({ y: 24 })} />
+            <motion.img src={maleGuestAttire} alt="Male guest attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
         </div>
 
         <p className="d-body d-body--center">Please avoid jeans and casual attire.</p>

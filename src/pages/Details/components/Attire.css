@@ -46,6 +46,25 @@
   font-weight: 700;
 }
 
+.d-attire-reference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 720px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.d-attire-reference img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
 .d-color-palette {
   display: flex;
   gap: 12px;
