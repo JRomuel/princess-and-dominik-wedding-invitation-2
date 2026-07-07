@@ -1,21 +1,6 @@
-import attire1 from '../../../assets/attire-1.webp'
-import attire2 from '../../../assets/attire-2.jpg'
-import attire3 from '../../../assets/attire-3.webp'
-import attire4 from '../../../assets/attire-4.webp'
-import attire5 from '../../../assets/attire-5.webp'
-import attire6 from '../../../assets/attire-6.webp'
-import attire7 from '../../../assets/attire-7.webp'
-import attire8 from '../../../assets/attire-8.webp'
-import attire9 from '../../../assets/attire-9.webp'
-import attire10 from '../../../assets/attire-10.webp'
 import type { SectionId } from '../sectionConfig'
 import { W } from '../weddingInfo'
-import ImageSlider from '../shared/ImageSlider'
 import './Attire.css'
-
-const ATTIRE_IMAGES = [
-  attire1, attire2, attire3, attire4, attire5, attire6, attire7, attire8, attire9, attire10,
-].map((src, i) => ({ src, alt: `Attire inspiration ${i + 1}` }))
 
 export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   return (
@@ -109,8 +94,6 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
           The ceremony is held inside {W.ceremony.name}. The cocktails and reception at {W.reception.name}
           are semi-outdoor — light layers are recommended for the evening breeze.
         </p>
-
-        <ImageSlider images={ATTIRE_IMAGES} />
       </div>
     </section>
   )
