@@ -82,7 +82,6 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
           <div className="d-swatch" style={{ background: 'var(--primary)' }} title="Terracotta" />
           <div className="d-swatch" style={{ background: 'var(--secondary)' }} title="Warm Tan" />
           <div className="d-swatch" style={{ background: '#CAB49F' }} title="Blush" />
-          <div className="d-swatch" style={{ background: '#EFE4DA', border: '1px solid rgba(var(--primary-rgb), 0.2)' }} title="Cream" />
         </div>
         <p className="d-body d-body--small d-body--center">Suggested palette — feel free to mix earth tones and warm neutrals.</p>
 

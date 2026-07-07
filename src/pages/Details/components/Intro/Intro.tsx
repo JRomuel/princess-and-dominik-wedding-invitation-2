@@ -30,7 +30,7 @@ export default function Intro() {
 
       <Welcome>
         <p className="d-body d-body--center">
-          Kindly join Princess and Dominik as they continue their life journey together.
+          Kindly join Princes and Dominik as they continue their life journey together.
           <br />
           <br />
           Ceremony at {W.ceremony.name}

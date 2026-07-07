@@ -8,46 +8,6 @@
   max-width: 900px;
 }
 
-.d-rsvp-qr {
-  width: 300px;
-  box-sizing: border-box;
-  margin-top: 40px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(var(--primary-rgb), 0.15);
-  display: flex;
-  justify-content: center;
-}
-
-.d-rsvp-qr svg {
-  width: 100%;
-  height: auto;
-}
-
-.d-rsvp-btn {
-  width: 300px;
-  box-sizing: border-box;
-  margin-top: 40px;
-  padding: 22px 0;
-  background: var(--primary);
-  border: none;
-  border-radius: 3px;
-  color: var(--cream);
-  font-size: 18px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-family: var(--sans);
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.d-rsvp-btn:hover {
-  opacity: 0.85;
-}
-
 @media (max-width: 600px) {
   .d-section--rsvp {
     padding-top: 140px !important;
@@ -124,20 +84,64 @@
 .d-submit {
   margin-top: 8px;
   padding: 16px 40px;
-  background: transparent;
-  border: 1px solid rgba(var(--primary-rgb),0.4);
+  background: var(--primary);
+  border: 1px solid var(--primary);
   border-radius: 3px;
-  color: var(--primary);
+  color: var(--cream);
   font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   font-family: var(--sans);
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: opacity 0.2s;
   align-self: flex-start;
 }
 
 .d-submit:hover {
-  background: rgba(var(--primary-rgb),0.1);
-  border-color: rgba(var(--primary-rgb),0.7);
+  opacity: 0.85;
+}
+
+.d-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.d-field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.d-field-row .d-field {
+  flex: 1;
+}
+
+.d-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23A34720'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.d-rsvp-message {
+  margin: 0;
+  font-size: 14px;
+  font-family: var(--sans);
+}
+
+.d-rsvp-message--success {
+  color: #2f7a4f;
+}
+
+.d-rsvp-message--error {
+  color: #b3402a;
+}
+
+@media (max-width: 480px) {
+  .d-field-row {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
