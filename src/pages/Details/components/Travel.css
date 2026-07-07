@@ -43,6 +43,7 @@
   align-items: center;
   gap: 48px;
   width: 100%;
+  margin-bottom: 200px;
 }
 
 .d-hotel-card {
@@ -83,4 +84,62 @@
   font-size: 15px;
   text-decoration: none;
   margin-top: 4px;
+}
+
+.d-explore-photos {
+  display: grid;
+  grid-template-columns: 4fr 3fr 3fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    'a h h'
+    'a h h'
+    'b h h'
+    'b c d'
+    'b c d';
+  gap: clamp(3px, 0.6vw, 5px);
+  width: 100%;
+  max-width: 640px;
+  height: clamp(420px, 58vw, 560px);
+  margin: 44px auto clamp(56px, 8vw, 80px);
+  background: #fff;
+  border: 3px solid #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.d-explore-item {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+.d-explore-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.d-explore-item:hover img {
+  transform: scale(1.06);
+}
+
+.d-explore-item--four {
+  grid-area: h;
+}
+
+.d-explore-item--two {
+  grid-area: a;
+}
+
+.d-explore-item--five {
+  grid-area: b;
+}
+
+.d-explore-item--one {
+  grid-area: c;
+}
+
+.d-explore-item--three {
+  grid-area: d;
 }
