@@ -22,6 +22,7 @@
   width: clamp(24px, 2.6vw, 40px);
   height: clamp(24px, 2.6vw, 40px);
   flex-shrink: 0;
+  
 }
 
 .d-music-yt-target {
