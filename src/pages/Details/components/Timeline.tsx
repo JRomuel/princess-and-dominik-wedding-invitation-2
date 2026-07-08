@@ -7,7 +7,7 @@ import { DiamondRingsIcon, CocktailIcon, DiningIcon } from '../shared/icons'
 import './Timeline.css'
 
 const EVENTS = [
-  { time: W.ceremony.time, label: 'Ceremony', venue: W.ceremony.name, place: 'Boac, Marinduque', Icon: DiamondRingsIcon },
+  { time: W.ceremony.time, label: 'Ceremony', venue: W.ceremony.fullName, place: 'Boac, Marinduque', Icon: DiamondRingsIcon },
   { time: '4:30 PM', label: 'Cocktails', venue: W.reception.name, place: 'Marinduque', Icon: CocktailIcon },
   { time: '6:00 PM', label: 'Reception', venue: `${W.reception.name} Marinduque`, place: '', Icon: DiningIcon },
 ]

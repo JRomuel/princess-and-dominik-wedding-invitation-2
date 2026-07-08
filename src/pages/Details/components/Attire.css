@@ -56,6 +56,12 @@
   margin-bottom: 36px;
 }
 
+.d-attire-reference--single {
+  grid-template-columns: 1fr;
+  max-width: 320px;
+  justify-items: center;
+}
+
 .d-attire-reference img {
   width: 100%;
   height: auto;

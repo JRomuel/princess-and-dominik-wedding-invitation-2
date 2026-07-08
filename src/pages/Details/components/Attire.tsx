@@ -4,12 +4,15 @@ import { W } from '../weddingInfo'
 import { reveal } from '../shared/reveal'
 import principalAttireMen from '../../../assets/principal-attire-men-new-2.png'
 import principalAttireWoman from '../../../assets/principal-attire-woman-new.png'
+import secondaryAttireWoman from '../../../assets/secondary-female.png'
+import secondaryAttireMen from '../../../assets/secondary-male.png'
+import maidOfHonorAttire from '../../../assets/maid-of-honor.jpg'
 import groomsmenAttire from '../../../assets/groomsmen.png'
 import bridesmaidAttire from '../../../assets/bridesmaid-new.png'
 import flowerGirlAttire from '../../../assets/flower-girl-new.png'
 import bearerAttire from '../../../assets/bearer-new.png'
 import maleGuestAttire from '../../../assets/male-guest-new.png'
-import femaleGuestAttire from '../../../assets/female-guest-new.png'
+import femaleGuestAttire from '../../../assets/female-guest-new-2.png'
 import './Attire.css'
 
 export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -92,6 +95,22 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
           <div className="d-attire-reference">
             <motion.img src={principalAttireWoman} alt="Principal sponsor ladies attire reference" {...reveal({ y: 24 })} />
             <motion.img src={principalAttireMen} alt="Principal sponsor gentlemen attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
+        </div>
+
+        <div className="d-attire-category">
+          <p className="d-body d-body--center"><strong>Secondary Sponsors</strong></p>
+          <div className="d-attire-reference">
+            <motion.img src={secondaryAttireWoman} alt="Secondary sponsor ladies attire reference" {...reveal({ y: 24 })} />
+            <motion.img src={secondaryAttireMen} alt="Secondary sponsor gentlemen attire reference" {...reveal({ y: 24, delay: 0.15 })} />
+          </div>
+        </div>
+
+        <div className="d-attire-category">
+          <p className="d-body d-body--center"><strong>Maid of Honor</strong></p>
+          <p className="d-body d-body--center">Light terracotta gown/ long dress</p>
+          <div className="d-attire-reference d-attire-reference--single">
+            <motion.img src={maidOfHonorAttire} alt="Maid of honor attire reference" {...reveal({ y: 24 })} />
           </div>
         </div>
 
