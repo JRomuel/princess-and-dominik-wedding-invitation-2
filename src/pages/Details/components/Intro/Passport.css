@@ -37,7 +37,7 @@
 
 .d-passport-title {
   font-family: 'Ballet', cursive;
-  font-size: clamp(28px, 5vw, 80px);
+  font-size: clamp(24px, 5vw, 80px);
   font-weight: 400;
   color: var(--primary);
   text-transform: capitalize;

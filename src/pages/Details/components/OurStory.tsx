@@ -25,7 +25,7 @@ export default function OurStory({ onSectionRef }: { onSectionRef: (id: SectionI
         <RevealParagraphs
           className="d-body"
           paragraphs={[
-            `From a chance meeting to a love that feels like home — that's the simplest way to
+            `What began as a chance encounter grew into a love that feels like home — that's the simplest way to
             describe our journey. What started as an unexpected encounter quickly grew into
             something neither of us could have planned, a connection built on laughter, shared
             adventures, and an unspoken understanding that we were meant to find each other.`,
@@ -38,7 +38,7 @@ export default function OurStory({ onSectionRef }: { onSectionRef: (id: SectionI
             there.`,
           ]}
         />
-        <p className="d-hashtag">#PRINCESandDOMINIK</p>
+        <p className="d-hashtag">#DominikFoundHisMissingPieCes</p>
 
         <div className="d-story-music">
           <MusicPlayer />

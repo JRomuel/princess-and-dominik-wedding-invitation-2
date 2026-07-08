@@ -3,13 +3,13 @@ import timelineBg from '../../../assets/timeline-bg-4.jpg'
 import type { SectionId } from '../sectionConfig'
 import { W } from '../weddingInfo'
 import { useParallaxBg } from '../shared/useParallaxBg'
-import { DiamondRingsIcon, CocktailIcon, DiningIcon } from '../shared/icons'
+import { CeremonyIcon, CocktailsIcon, ReceptionIcon } from '../shared/icons'
 import './Timeline.css'
 
 const EVENTS = [
-  { time: W.ceremony.time, label: 'Ceremony', venue: W.ceremony.fullName, place: 'Boac, Marinduque', Icon: DiamondRingsIcon },
-  { time: '4:30 PM', label: 'Cocktails', venue: W.reception.name, place: 'Marinduque', Icon: CocktailIcon },
-  { time: '6:00 PM', label: 'Reception', venue: `${W.reception.name} Marinduque`, place: '', Icon: DiningIcon },
+  { time: W.ceremony.time, label: 'Ceremony', venue: W.ceremony.fullName, place: 'Boac, Marinduque', Icon: CeremonyIcon },
+  { time: '4:30 PM', label: 'Cocktails', venue: W.reception.name, place: 'Marinduque', Icon: CocktailsIcon },
+  { time: '6:00 PM', label: 'Reception', venue: `${W.reception.name} Marinduque`, place: '', Icon: ReceptionIcon },
 ]
 
 export default function Timeline({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -34,11 +34,11 @@ export default function Timeline({ onSectionRef }: { onSectionRef: (id: SectionI
           <div className="d-wt-list">
             {EVENTS.map((event) => (
               <div className="d-wt-item" key={event.label}>
-                <p className="d-wt-time">{event.time}</p>
+                <event.Icon />
                 <div className="d-wt-dot" />
                 <div className="d-wt-content">
                   <p className="d-wt-label">
-                    <event.Icon />
+                    <span className="d-wt-time">{event.time}</span>
                     {event.label}
                   </p>
                   <p className="d-wt-title">{event.venue}</p>

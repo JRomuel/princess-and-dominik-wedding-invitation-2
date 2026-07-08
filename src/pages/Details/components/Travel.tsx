@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import balarImg from '../../../assets/balar.jpg'
-import boacHotelImg from '../../../assets/boac-hotel.jpg'
 import marinaImg from '../../../assets/marina.jpg'
 import rezidenciaImg from '../../../assets/faeldo.jpg'
 import parkImg from '../../../assets/falls.png'
@@ -44,13 +43,6 @@ const HOTELS = [
     image: balarImg,
     address: 'Brgy. Balaring, Boac, Marinduque, Philippines, 4900',
     clip: 'a',
-  },
-  {
-    name: 'The Boac Hotel',
-    contact: 'Bed & Breakfast',
-    image: boacHotelImg,
-    address: 'Cor. Deogracias St., San Miguel, Boac, Marinduque, Philippines, 4900',
-    clip: 'c',
   },
   {
     name: 'Marina Marinduque Hotel & Resort',

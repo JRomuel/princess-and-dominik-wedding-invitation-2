@@ -85,7 +85,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
 
               <div className="d-entourage-group d-entourage-group--wide" style={{ marginTop: '32px' }}>
                 <p className="d-entourage-subtitle d-entourage-subtitle--tight">Cord</p>
-                <p className="d-name">Daryl Pilande &amp; Sarah Jeane Largo</p>
+                <p className="d-name">Sarah Jeane Largo &amp; Daryl Pilande </p>
               </div>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
             <div className="d-entourage-group d-entourage-group--wide">
               <p className="d-entourage-subtitle">Groomsmen &amp; Bridesmaids</p>
               <p className="d-name">Justin Süß &amp; Justyna Süß</p>
-              <p className="d-name">Manuel Schäfler &amp; Ella Williams (Katrin Schäfler)</p>
+              <p className="d-name">Manuel Schäfler &amp; Ella Williams</p>
               <p className="d-name">Nick Schittenhelm &amp; Sheena Jessica Vidad</p>
               <p className="d-name">Froilan Bonus &amp; Edilyn Joy Uy</p>
               <p className="d-name">Niklas Schiller &amp; Stefanie Winkler</p>
@@ -105,15 +105,6 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
           <div className="d-entourage-row" style={{ marginBottom: '24px' }}>
             <div className="d-entourage-group d-entourage-group--wide">
               <p className="d-entourage-subtitle">Bearers &amp; Flower Girls</p>
-            </div>
-          </div>
-
-          <div className="d-entourage-row">
-            <div className="d-entourage-group d-entourage-group--wide">
-              <p className="d-entourage-subtitle d-entourage-subtitle--tight">
-                Banner <br /> <span className="d-entourage-caption">( Here Comes Our Apo )</span>
-              </p>
-              <p className="d-name">Desiderio Largo &amp; Lorna Largo</p>
             </div>
           </div>
 
@@ -140,6 +131,15 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
               <p className="d-name">Lina Schäfler</p>
               <p className="d-name">Bela Louise Mantala</p>
               <p className="d-name">Sophia Andrea Largo</p>
+            </div>
+          </div>
+
+          <div className="d-entourage-row">
+            <div className="d-entourage-group d-entourage-group--wide">
+              <p className="d-entourage-subtitle d-entourage-subtitle--tight">
+                Banner <br /> <span className="d-entourage-caption">( Here Comes Our Apo )</span>
+              </p>
+              <p className="d-name">Desiderio Largo &amp; Lorna Largo</p>
             </div>
           </div>
 

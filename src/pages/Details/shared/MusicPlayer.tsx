@@ -4,9 +4,8 @@ import './MusicPlayer.css'
 
 const TRACKS = [
   { id: '9IzKueQ2ZxY', title: 'Make You Feel My Love', artist: 'Adele' },
-  { id: '5ZD9_spFojY', title: 'On This Day', artist: 'David Pomeranz' },
-  { id: '22gxJEIrLU0', title: 'Kay Tagal', artist: 'Mark Carpio' },
-  { id: '8lbRDzhjqeM', title: 'Libu-Libong Buwan (Uuwian)', artist: 'Kyle Raphael' },
+  { id: '-pz8RfOWS18', title: 'Palagi', artist: 'TJ Monterde' },
+  { id: 'cVpvlaKfLQc', title: 'I Swear', artist: 'All-4-One' },
 ]
 
 function thumbnailUrl(id: string) {

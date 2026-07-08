@@ -4,8 +4,8 @@ import { W } from '../../weddingInfo'
 import './Passport.css'
 
 const arrows = (n: number) => '<'.repeat(n)
-const MRZ_LINE_1 = `${arrows(38)}LUXOR${arrows(14)}RESORT${arrows(41)}`
-const MRZ_LINE_2 = `${arrows(36)}SEE${arrows(13)}YOU${arrows(9)}IN${arrows(7)}MARINDUQUE${arrows(29)}`
+const MRZ_LINE_1 = `${arrows(20)}LUXOR${arrows(14)}RESORT${arrows(59)}`
+const MRZ_LINE_2 = `${arrows(18)}SEE${arrows(13)}YOU${arrows(9)}IN${arrows(7)}MARINDUQUE${arrows(47)}`
 
 function MrzLine({ text }: { text: string }) {
   return (
