@@ -4,10 +4,16 @@ import envelopeImg from '../assets/envelope.png'
 import circleAnim from '../assets/circle-animation.gif'
 import arrowAnim from '../assets/arrow animation.gif'
 import envSeal from '../assets/env-seal.png'
+import { markMusicGesture } from '../pages/Details/shared/musicGesture'
 import './Envelope.css'
 
 export default function Envelope() {
   const navigate = useNavigate()
+
+  function handleOpen() {
+    markMusicGesture()
+    navigate('/details')
+  }
 
   return (
     <motion.div
@@ -16,7 +22,7 @@ export default function Envelope() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: 'spring', stiffness: 80, damping: 16, delay: 1.0 }}
     >
-      <div className="env" style={{ backgroundImage: `url(${envelopeImg})` }} onClick={() => navigate('/details')}>
+      <div className="env" style={{ backgroundImage: `url(${envelopeImg})` }} onClick={handleOpen}>
         <div className="env-seal">
           <img src={envSeal} alt="Wax seal" className="env-seal-img" />
         </div>

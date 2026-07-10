@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { loadYouTubeApi, type YTPlayer } from './youtube'
 import { MusicPlayerContext, TRACKS } from './musicPlayerStore'
+import { consumeMusicGesture } from './musicGesture'
 import './MusicPlayer.css'
 
 export function MusicPlayerProvider({ children }: { children: ReactNode }) {
@@ -28,11 +29,13 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
           iv_load_policy: 3,
           playsinline: 1,
           autoplay: 1,
+          mute: 1,
         },
         events: {
           onReady: (event) => {
             setReady(true)
             event.target.playVideo()
+            if (consumeMusicGesture()) event.target.unMute()
           },
           onStateChange: (event) => {
             if (event.data === YT.PlayerState.ENDED) {
@@ -56,6 +59,15 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    function unmuteOnFirstInteraction() {
+      const player = playerRef.current
+      if (player?.isMuted()) player.unMute()
+    }
+    document.addEventListener('pointerdown', unmuteOnFirstInteraction, { once: true })
+    return () => document.removeEventListener('pointerdown', unmuteOnFirstInteraction)
+  }, [])
+
+  useEffect(() => {
     if (!playing) return
     const interval = setInterval(() => {
       setCurrentTime(playerRef.current?.getCurrentTime() ?? 0)
@@ -73,8 +85,12 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
   function togglePlay() {
     const player = playerRef.current
     if (!player) return
-    if (playing) player.pauseVideo()
-    else player.playVideo()
+    if (playing) {
+      player.pauseVideo()
+    } else {
+      if (player.isMuted()) player.unMute()
+      player.playVideo()
+    }
   }
 
   function seekTo(seconds: number) {

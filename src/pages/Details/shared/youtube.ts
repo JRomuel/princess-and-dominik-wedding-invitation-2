@@ -10,6 +10,9 @@ export interface YTPlayer {
   seekTo(seconds: number, allowSeekAhead: boolean): void
   getCurrentTime(): number
   getDuration(): number
+  mute(): void
+  unMute(): void
+  isMuted(): boolean
   destroy(): void
 }
 
@@ -24,6 +27,7 @@ interface YTPlayerOptions {
     iv_load_policy?: 1 | 3
     playsinline?: 0 | 1
     autoplay?: 0 | 1
+    mute?: 0 | 1
   }
   events?: {
     onReady?: (event: YTPlayerEvent) => void
