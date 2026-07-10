@@ -23,6 +23,7 @@ interface YTPlayerOptions {
     rel?: 0 | 1
     iv_load_policy?: 1 | 3
     playsinline?: 0 | 1
+    autoplay?: 0 | 1
   }
   events?: {
     onReady?: (event: YTPlayerEvent) => void

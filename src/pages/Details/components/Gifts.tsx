@@ -33,9 +33,7 @@ export default function Gifts({ onSectionRef }: { onSectionRef: (id: SectionId, 
 
         <h2 className="d-heading">A note on gifts</h2>
         <p className="d-body d-body--center">
-          Your presence at our wedding is the greatest gift of all. However, if you wish to
-          give a gift, we would be grateful for a monetary contribution to help us build our
-          new life together.
+          The joy of celebrating this special day with you is the greatest gift of all. For those who wish to honor us with a gift, a monetary contribution would be sincerely appreciated as we start this beautiful new chapter together.
         </p>
 
       </div>

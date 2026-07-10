@@ -5,6 +5,8 @@ import detailsHeroBg from '../../assets/details-hero-background-22.jpeg'
 import mapImage from '../../assets/map-image-2.png'
 import tocPhoto from '../../assets/card-image.jpg'
 import { NAV, type SectionId } from './sectionConfig'
+import { MusicPlayerProvider } from './shared/MusicPlayerContext'
+import FloatingMusicButton from './shared/FloatingMusicButton'
 import Nav from './components/Nav'
 import TableOfContents from './components/TableOfContents'
 import Hero from './components/Hero'
@@ -74,27 +76,31 @@ export default function Details() {
   }
 
   return (
-    <div className="details-page">
-      <Nav
-        navOpen={navOpen}
-        activeSection={activeSection}
-        onToggle={() => setNavOpen(open => !open)}
-        onNavigate={scrollTo}
-      />
+    <MusicPlayerProvider>
+      <div className="details-page">
+        <Nav
+          navOpen={navOpen}
+          activeSection={activeSection}
+          onToggle={() => setNavOpen(open => !open)}
+          onNavigate={scrollTo}
+        />
 
-      <TableOfContents onNavigate={scrollTo} />
-      <Hero onSectionRef={registerSection} />
-      <Intro />
-      <OurStory onSectionRef={registerSection} />
-      <Venue onSectionRef={registerSection} />
-      <Timeline onSectionRef={registerSection} />
-      <Entourage onSectionRef={registerSection} />
-      <Attire onSectionRef={registerSection} />
-      <Gifts onSectionRef={registerSection} />
-      <Travel onSectionRef={registerSection} />
-      <Faq onSectionRef={registerSection} />
-      <Gallery onSectionRef={registerSection} />
-      <Rsvp onSectionRef={registerSection} />
-    </div>
+        <TableOfContents onNavigate={scrollTo} />
+        <Hero onSectionRef={registerSection} />
+        <Intro />
+        <OurStory onSectionRef={registerSection} />
+        <Venue onSectionRef={registerSection} />
+        <Timeline onSectionRef={registerSection} />
+        <Entourage onSectionRef={registerSection} />
+        <Attire onSectionRef={registerSection} />
+        <Gifts onSectionRef={registerSection} />
+        <Travel onSectionRef={registerSection} />
+        <Faq onSectionRef={registerSection} />
+        <Gallery onSectionRef={registerSection} />
+        <Rsvp onSectionRef={registerSection} />
+
+        <FloatingMusicButton />
+      </div>
+    </MusicPlayerProvider>
   )
 }

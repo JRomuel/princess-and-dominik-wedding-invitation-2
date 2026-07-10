@@ -6,10 +6,8 @@ import parkImg from '../../../assets/falls.png'
 import landmarkImg from '../../../assets/CatanauanandManiwayaIslandTour.jpg'
 import restaurantImg from '../../../assets/museum.png'
 import townImg from '../../../assets/maniwaya.jpg'
-import exploreImg from '../../../assets/images.jpg'
 import type { SectionId } from '../sectionConfig'
 import { reveal } from '../shared/reveal'
-import RevealParagraphs from '../shared/RevealParagraphs'
 import './Travel.css'
 
 const CLIP_VARIANTS = {
@@ -58,6 +56,35 @@ const HOTELS = [
     image: rezidenciaImg,
     address: 'Ilayang Pangi, Gasan, Marinduque, Philippines, 4905',
   },
+]
+
+const PLACES = [
+  {
+    name: 'Maniwaya Island',
+    image: townImg,
+    address: 'Sta. Cruz, Marinduque, Philippines',
+    clip: 'a',
+  },
+  {
+    name: 'Ungab Rock Formation',
+    image: landmarkImg,
+    address: 'Sta. Cruz, Marinduque, Philippines',
+    clip: 'b',
+  },
+  {
+    name: 'National Museum - Marinduque',
+    image: restaurantImg,
+    address: 'Mercader St, Brgy. Malusak, Boac, Marinduque',
+    clip: 'c',
+  },
+
+  {
+    name: 'Kawa-Kawa Falls',
+    image: parkImg,
+    address: 'Santa Cruz, Marinduque, Philippines',
+    clip: 'a',
+  },
+
 ]
 
 export default function Travel({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
@@ -124,40 +151,50 @@ export default function Travel({ onSectionRef }: { onSectionRef: (id: SectionId,
         </div>
 
         <h2 className="d-heading">Things to do</h2>
+        <p className="d-body d-body--center d-travel-intro">
+          Beyond the celebration, our venue boasts proximity to some incredible attractions for you to explore during your stay.
+        </p>
 
-        <motion.div className="d-explore-photos" {...reveal({ y: 30, duration: 0.9, amount: 0.25 })}>
-          <figure className="d-explore-item d-explore-item--one">
-            <img src={parkImg} alt="Waterfalls in Marinduque" />
-          </figure>
-          <figure className="d-explore-item d-explore-item--two">
-            <img src={landmarkImg} alt="Catanauan and Maniwaya Island Tour" />
-          </figure>
-          <figure className="d-explore-item d-explore-item--three">
-            <img src={restaurantImg} alt="Local museum in Marinduque" />
-          </figure>
-          <figure className="d-explore-item d-explore-item--four">
-            <img src={townImg} alt="Maniwaya Island" />
-          </figure>
-          <figure className="d-explore-item d-explore-item--five">
-            <img src={exploreImg} alt="Princess and Dominik exploring together" />
-          </figure>
-        </motion.div>
+        <div className="d-hotel-grid d-hotel-grid--last">
+          {PLACES.map((place, i) => {
+            const variant = CLIP_VARIANTS[place.clip as keyof typeof CLIP_VARIANTS]
+            return (
+            <div className="d-hotel-card" key={place.name}>
+              <motion.div
+                className="d-hotel-photo"
+                style={{ aspectRatio: variant.aspectRatio }}
+                {...reveal({ scale: 0.85, y: 40, duration: 0.8, amount: 0.3, delay: i * 0.15 })}
+              >
+                <svg viewBox={variant.viewBox} preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <clipPath id={`d-place-clip-${i}`}>
+                      <path d={variant.path} />
+                    </clipPath>
+                  </defs>
+                  <image
+                    href={place.image}
+                    width={variant.width}
+                    height={variant.height}
+                    preserveAspectRatio="xMidYMid slice"
+                    clipPath={`url(#d-place-clip-${i})`}
+                  />
+                </svg>
+              </motion.div>
 
-        <RevealParagraphs
-          className="d-body d-body--center"
-          paragraphs={[
-            `Beyond the celebration, our venue boasts proximity to some incredible attractions
-            for you to explore during your stay.`,
-            `Take a relaxing dip at the pristine beach of Maniwaya Island, offering
-            picturesque settings perfect for a romantic getaway.`,
-            `For history enthusiasts, immerse yourselves in the rich cultural heritage at the
-            historic Boac Cathedral and Fort, the Luzon Datum marker, and the local Museum.`,
-            `Additionally, indulge in the vibrant culinary scene with renowned restaurants like
-            Kusina sa Plaza serving up exquisite dishes that promise a delightful gastronomic
-            experience. Whether you're seeking adventure or a serene escape, our location offers
-            an array of activities to complement your celebration and create lasting memories.`,
-          ]}
-        />
+              <p className="d-card-label d-hotel-name">{place.name}</p>
+              <p className="d-body d-hotel-address">{place.address}</p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${place.name}, ${place.address}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-body d-hotel-link"
+              >
+                Location Guide ➝
+              </a>
+            </div>
+            )
+          })}
+        </div>
 
       </div>
     </section>

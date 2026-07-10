@@ -1,12 +1,6 @@
-import { useEffect, useRef, useState, type ChangeEvent } from 'react'
-import { loadYouTubeApi, type YTPlayer } from './youtube'
+import type { ChangeEvent } from 'react'
+import { TRACKS, useMusicPlayer } from './musicPlayerStore'
 import './MusicPlayer.css'
-
-const TRACKS = [
-  { id: '9IzKueQ2ZxY', title: 'Make You Feel My Love', artist: 'Adele' },
-  { id: '-pz8RfOWS18', title: 'Palagi', artist: 'TJ Monterde' },
-  { id: 'cVpvlaKfLQc', title: 'I Swear', artist: 'All-4-One' },
-]
 
 function thumbnailUrl(id: string) {
   return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
@@ -20,74 +14,7 @@ function formatTime(seconds: number) {
 }
 
 export default function MusicPlayer() {
-  const playerRef = useRef<YTPlayer | null>(null)
-  const trackIndexRef = useRef(0)
-  const [ready, setReady] = useState(false)
-  const [playing, setPlaying] = useState(false)
-  const [trackIndex, setTrackIndex] = useState(0)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [durations, setDurations] = useState<Record<number, number>>({})
-
-  useEffect(() => {
-    let cancelled = false
-
-    loadYouTubeApi().then((YT) => {
-      if (cancelled) return
-      playerRef.current = new YT.Player('d-music-yt-target', {
-        videoId: TRACKS[0].id,
-        playerVars: {
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          modestbranding: 1,
-          rel: 0,
-          iv_load_policy: 3,
-          playsinline: 1,
-        },
-        events: {
-          onReady: () => setReady(true),
-          onStateChange: (event) => {
-            if (event.data === YT.PlayerState.ENDED) {
-              playTrack((trackIndexRef.current + 1) % TRACKS.length)
-            }
-            setPlaying(event.data === YT.PlayerState.PLAYING)
-            const duration = event.target.getDuration()
-            if (duration > 0) {
-              const index = trackIndexRef.current
-              setDurations(prev => (prev[index] ? prev : { ...prev, [index]: duration }))
-            }
-          },
-        },
-      })
-    })
-
-    return () => {
-      cancelled = true
-      playerRef.current?.destroy()
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!playing) return
-    const interval = setInterval(() => {
-      setCurrentTime(playerRef.current?.getCurrentTime() ?? 0)
-    }, 500)
-    return () => clearInterval(interval)
-  }, [playing])
-
-  function playTrack(index: number) {
-    trackIndexRef.current = index
-    setTrackIndex(index)
-    setCurrentTime(0)
-    playerRef.current?.loadVideoById(TRACKS[index].id)
-  }
-
-  function togglePlay() {
-    const player = playerRef.current
-    if (!player) return
-    if (playing) player.pauseVideo()
-    else player.playVideo()
-  }
+  const { ready, playing, trackIndex, currentTime, durations, playTrack, togglePlay, seekTo } = useMusicPlayer()
 
   function handleTrackClick(index: number) {
     if (index === trackIndex) togglePlay()
@@ -95,9 +22,7 @@ export default function MusicPlayer() {
   }
 
   function handleSeek(event: ChangeEvent<HTMLInputElement>) {
-    const value = Number(event.target.value)
-    setCurrentTime(value)
-    playerRef.current?.seekTo(value, true)
+    seekTo(Number(event.target.value))
   }
 
   const track = TRACKS[trackIndex]
@@ -122,7 +47,6 @@ export default function MusicPlayer() {
         </svg>
         Listen to our Music
       </p>
-      <div id="d-music-yt-target" className="d-music-yt-target" aria-hidden="true" />
 
       <button
         type="button"

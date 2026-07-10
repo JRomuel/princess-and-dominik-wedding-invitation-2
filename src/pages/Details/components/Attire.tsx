@@ -6,10 +6,10 @@ import principalAttireMen from '../../../assets/principal-attire-men-new-2.png'
 import principalAttireWoman from '../../../assets/principal-attire-woman-new-2.png'
 import secondaryAttireWoman from '../../../assets/secondary-female.png'
 import secondaryAttireMen from '../../../assets/secondary-male.png'
-import maidOfHonorAttire from '../../../assets/maid-of-honor.jpg'
+import maidOfHonorAttire from '../../../assets/maid-of-honor-3.jpg'
 import groomsmenAttire from '../../../assets/groomsmen.png'
 import bridesmaidAttire from '../../../assets/bridesmaid-new.png'
-import flowerGirlAttire from '../../../assets/flower-girl-new.png'
+import flowerGirlAttire from '../../../assets/flower-girl-new-2.png'
 import bearerAttire from '../../../assets/bearer-new.png'
 import maleGuestAttire from '../../../assets/male-guest-new.png'
 import femaleGuestAttire from '../../../assets/female-guest-new-2.png'
@@ -100,6 +100,8 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
 
         <div className="d-attire-category">
           <p className="d-body d-body--center"><strong>Secondary Sponsors</strong></p>
+          <p className="d-body d-body--center">Light terracotta gown/ long dress</p>
+
           <div className="d-attire-reference">
             <motion.img src={secondaryAttireWoman} alt="Secondary sponsor ladies attire reference" {...reveal({ y: 24 })} />
             <motion.img src={secondaryAttireMen} alt="Secondary sponsor gentlemen attire reference" {...reveal({ y: 24, delay: 0.15 })} />
@@ -108,7 +110,7 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
 
         <div className="d-attire-category">
           <p className="d-body d-body--center"><strong>Maid of Honor</strong></p>
-          <p className="d-body d-body--center">Light terracotta gown/ long dress</p>
+          <p className="d-body d-body--center">Rust gown/ long dress</p>
           <div className="d-attire-reference d-attire-reference--single">
             <motion.img src={maidOfHonorAttire} alt="Maid of honor attire reference" {...reveal({ y: 24 })} />
           </div>
@@ -116,6 +118,7 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
 
         <div className="d-attire-category">
           <p className="d-body d-body--center"><strong>Bridesmaid & Groomsmen</strong></p>
+          <p className="d-body d-body--center">Champagne gown/ long dress for Bridesmaid</p>
           <div className="d-attire-reference">
             <motion.img src={bridesmaidAttire} alt="Bridesmaid attire reference" {...reveal({ y: 24 })} />
             <motion.img src={groomsmenAttire} alt="Groomsmen attire reference" {...reveal({ y: 24, delay: 0.15 })} />

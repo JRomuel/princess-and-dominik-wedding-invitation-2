@@ -8,7 +8,7 @@ import './Timeline.css'
 
 const EVENTS = [
   { time: W.ceremony.time, label: 'Ceremony', venue: W.ceremony.fullName, place: 'Boac, Marinduque', Icon: CeremonyIcon },
-  { time: '4:30 PM', label: 'Cocktails', venue: W.reception.name, place: 'Marinduque', Icon: CocktailsIcon },
+  { time: '4:00 PM', label: 'Cocktails', venue: W.reception.name, place: 'Marinduque', Icon: CocktailsIcon },
   { time: '6:00 PM', label: 'Reception', venue: `${W.reception.name} Marinduque`, place: '', Icon: ReceptionIcon },
 ]
 

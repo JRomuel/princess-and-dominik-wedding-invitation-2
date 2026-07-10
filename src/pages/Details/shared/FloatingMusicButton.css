@@ -1,0 +1,49 @@
+.d-floating-music {
+  position: fixed;
+  right: clamp(16px, 4vw, 32px);
+  bottom: clamp(16px, 4vw, 32px);
+  z-index: 90;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary);
+  background: var(--cream);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.d-floating-music svg {
+  width: 22px;
+  height: 22px;
+}
+
+.d-floating-music:hover {
+  transform: scale(1.06);
+}
+
+.d-floating-music:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.d-floating-music--playing {
+  background: var(--primary);
+  color: var(--cream);
+}
+
+@media (max-width: 600px) {
+  .d-floating-music {
+    width: 46px;
+    height: 46px;
+  }
+
+  .d-floating-music svg {
+    width: 19px;
+    height: 19px;
+  }
+}
