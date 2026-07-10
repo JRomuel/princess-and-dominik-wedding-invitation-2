@@ -61,9 +61,11 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     function unmuteOnFirstInteraction() {
       const player = playerRef.current
-      if (player?.isMuted()) player.unMute()
+      if (!player) return
+      if (player.isMuted()) player.unMute()
+      document.removeEventListener('pointerdown', unmuteOnFirstInteraction)
     }
-    document.addEventListener('pointerdown', unmuteOnFirstInteraction, { once: true })
+    document.addEventListener('pointerdown', unmuteOnFirstInteraction)
     return () => document.removeEventListener('pointerdown', unmuteOnFirstInteraction)
   }, [])
 
