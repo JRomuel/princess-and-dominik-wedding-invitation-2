@@ -4,14 +4,15 @@ import envelopeImg from '../assets/envelope.png'
 import circleAnim from '../assets/circle-animation.gif'
 import arrowAnim from '../assets/arrow animation.gif'
 import envSeal from '../assets/env-seal.png'
-import { markMusicGesture } from '../pages/Details/shared/musicGesture'
+import { useMusicPlayer } from '../pages/Details/shared/musicPlayerStore'
 import './Envelope.css'
 
 export default function Envelope() {
   const navigate = useNavigate()
+  const { unmuteAndPlay } = useMusicPlayer()
 
   function handleOpen() {
-    markMusicGesture()
+    unmuteAndPlay()
     navigate('/details')
   }
 

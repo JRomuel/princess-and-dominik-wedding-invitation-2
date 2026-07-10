@@ -17,6 +17,7 @@ export interface MusicPlayerContextValue {
   playTrack: (index: number) => void
   togglePlay: () => void
   seekTo: (seconds: number) => void
+  unmuteAndPlay: () => void
 }
 
 export const MusicPlayerContext = createContext<MusicPlayerContextValue | null>(null)

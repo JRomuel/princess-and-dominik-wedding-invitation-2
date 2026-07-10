@@ -12,6 +12,7 @@ import Envelope from './components/Envelope'
 import Loader from './components/Loader'
 import Details from './pages/Details'
 import PageTransition from './components/PageTransition'
+import { MusicPlayerProvider } from './pages/Details/shared/MusicPlayerContext'
 import './App.css'
 
 const PRELOAD = [heroImg, couplePhoto, passportImg, detailsHeroBg, tocPhoto]
@@ -37,26 +38,26 @@ function App() {
   const handleDone = useCallback(() => setHasLoaded(true), [])
 
   return (
-    <>
-    <AnimatePresence mode="wait">
-      {!hasLoaded ? (
-        <Loader key="loader" onDone={handleDone} images={PRELOAD} />
-      ) : (
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={
-            <PageTransition mode="fade">
-              <Home />
-            </PageTransition>
-          } />
-          <Route path="/details" element={
-            <PageTransition>
-              <Details />
-            </PageTransition>
-          } />
-        </Routes>
-      )}
-    </AnimatePresence>
-    </>
+    <MusicPlayerProvider>
+      <AnimatePresence mode="wait">
+        {!hasLoaded ? (
+          <Loader key="loader" onDone={handleDone} images={PRELOAD} />
+        ) : (
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={
+              <PageTransition mode="fade">
+                <Home />
+              </PageTransition>
+            } />
+            <Route path="/details" element={
+              <PageTransition>
+                <Details />
+              </PageTransition>
+            } />
+          </Routes>
+        )}
+      </AnimatePresence>
+    </MusicPlayerProvider>
   )
 }
 

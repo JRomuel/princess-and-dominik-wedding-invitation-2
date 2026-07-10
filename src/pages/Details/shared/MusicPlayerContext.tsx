@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { loadYouTubeApi, type YTPlayer } from './youtube'
 import { MusicPlayerContext, TRACKS } from './musicPlayerStore'
-import { consumeMusicGesture } from './musicGesture'
 import './MusicPlayer.css'
 
 export function MusicPlayerProvider({ children }: { children: ReactNode }) {
@@ -35,7 +34,6 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
           onReady: (event) => {
             setReady(true)
             event.target.playVideo()
-            if (consumeMusicGesture()) event.target.unMute()
           },
           onStateChange: (event) => {
             if (event.data === YT.PlayerState.ENDED) {
@@ -100,9 +98,16 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
     playerRef.current?.seekTo(seconds, true)
   }
 
+  function unmuteAndPlay() {
+    const player = playerRef.current
+    if (!player) return
+    if (player.isMuted()) player.unMute()
+    player.playVideo()
+  }
+
   return (
     <MusicPlayerContext.Provider
-      value={{ ready, playing, trackIndex, currentTime, durations, playTrack, togglePlay, seekTo }}
+      value={{ ready, playing, trackIndex, currentTime, durations, playTrack, togglePlay, seekTo, unmuteAndPlay }}
     >
       <div id="d-music-yt-target" className="d-music-yt-target" aria-hidden="true" />
       {children}
