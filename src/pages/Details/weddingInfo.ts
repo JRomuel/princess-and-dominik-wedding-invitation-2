@@ -5,7 +5,7 @@ export const W = {
   dateCompact: '28JAN2027',
   rsvpDeadline: 'December 1, 2026',
   location: 'Marinduque, Philippines',
-  website: 'www.princesanddominik.com',
+  website: 'princes-and-dominik.southern-planners.com',
   ceremony: {
     name: 'Boac Cathedral',
     fullName: 'Immaculate Conception Cathedral Parish Boac',

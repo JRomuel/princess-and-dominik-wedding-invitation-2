@@ -76,7 +76,7 @@ export default function ScatteredCards() {
         animate="animate"
       >
         <img src={paperClipImg} alt="" className="paperclip" />
-        <img src={couplePhoto} alt="Princess & Dominik" className="photo-img" />
+        <img src={couplePhoto} alt="Princes & Dominik" className="photo-img" />
       </motion.div>
 
       {/* Passport */}

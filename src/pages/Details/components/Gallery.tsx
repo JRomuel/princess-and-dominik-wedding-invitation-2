@@ -23,7 +23,7 @@ export default function Gallery({ onSectionRef }: { onSectionRef: (id: SectionId
         <p className="d-gallery-tagline">Together is our favorite place to be</p>
 
         <div className="d-gallery-frame">
-          <motion.img src={galleryImage8} alt="Princess and Dominik" className="d-gallery-photo" {...galleryReveal()} />
+          <motion.img src={galleryImage8} alt="Princes and Dominik" className="d-gallery-photo" {...galleryReveal()} />
         </div>
 
         <p className="d-gallery-tagline d-gallery-tagline--tight">Forever starts now</p>
@@ -31,32 +31,32 @@ export default function Gallery({ onSectionRef }: { onSectionRef: (id: SectionId
 
         <div className="d-gallery-trio">
           <div className="d-gallery-trio-item">
-            <motion.img src={galleryImage2} alt="Princess and Dominik" {...galleryReveal(0)} />
+            <motion.img src={galleryImage2} alt="Princes and Dominik" {...galleryReveal(0)} />
           </div>
           <div className="d-gallery-trio-item d-gallery-trio-item--mid">
-            <motion.img src={galleryImage9} alt="Princess and Dominik" {...galleryReveal(0.15)} />
+            <motion.img src={galleryImage9} alt="Princes and Dominik" {...galleryReveal(0.15)} />
           </div>
           <div className="d-gallery-trio-item">
-            <motion.img src={galleryImage1} alt="Princess and Dominik" {...galleryReveal(0.3)} />
+            <motion.img src={galleryImage1} alt="Princes and Dominik" {...galleryReveal(0.3)} />
           </div>
         </div>
 
         <div className="d-gallery-single">
-          <motion.img src={galleryImage3} alt="Princess and Dominik" {...galleryReveal()} />
+          <motion.img src={galleryImage3} alt="Princes and Dominik" {...galleryReveal()} />
         </div>
 
         <div className="d-gallery-quad">
           <div className="d-gallery-quad-item">
-            <motion.img src={galleryImage6} alt="Princess and Dominik" {...galleryReveal(0)} />
+            <motion.img src={galleryImage6} alt="Princes and Dominik" {...galleryReveal(0)} />
           </div>
           <div className="d-gallery-quad-item">
-            <motion.img src={galleryImage7} alt="Princess and Dominik" {...galleryReveal(0.15)} />
+            <motion.img src={galleryImage7} alt="Princes and Dominik" {...galleryReveal(0.15)} />
           </div>
           <div className="d-gallery-quad-item">
-            <motion.img src={galleryImage4} alt="Princess and Dominik" {...galleryReveal(0.3)} />
+            <motion.img src={galleryImage4} alt="Princes and Dominik" {...galleryReveal(0.3)} />
           </div>
           <div className="d-gallery-quad-item">
-            <motion.img src={galleryImage5} alt="Princess and Dominik" {...galleryReveal(0.45)} />
+            <motion.img src={galleryImage5} alt="Princes and Dominik" {...galleryReveal(0.45)} />
           </div>
         </div>
 

@@ -21,26 +21,31 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 export default function Rsvp({ onSectionRef }: { onSectionRef: (id: SectionId, el: HTMLElement | null) => void }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
   const [confirmation, setConfirmation] = useState<'Attending' | 'Not Attending'>('Attending')
   const [ageGroup, setAgeGroup] = useState<'Adult' | 'Kid'>('Adult')
   const [guestOf, setGuestOf] = useState<"Groom's Guest" | "Bride's Guest">("Groom's Guest")
   const [category, setCategory] = useState<string>(CATEGORIES[0])
   const [status, setStatus] = useState<Status>('idle')
+  const [submittedAttending, setSubmittedAttending] = useState(true)
 
   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('submitting')
+    const isAttending = confirmation === 'Attending'
 
     try {
       await fetch(RSVP_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ firstName, lastName, confirmation, ageGroup, guestOf, category }),
+        body: JSON.stringify({ firstName, lastName, email, confirmation, ageGroup, guestOf, category }),
       })
       setStatus('success')
+      setSubmittedAttending(isAttending)
       setFirstName('')
       setLastName('')
+      setEmail('')
       setConfirmation('Attending')
       setAgeGroup('Adult')
       setGuestOf("Groom's Guest")
@@ -79,6 +84,19 @@ export default function Rsvp({ onSectionRef }: { onSectionRef: (id: SectionId, e
                 required
               />
             </div>
+          </div>
+
+          <div className="d-field">
+            <label className="d-label" htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              className="d-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              required
+            />
           </div>
 
           <div className="d-field">
@@ -172,7 +190,11 @@ export default function Rsvp({ onSectionRef }: { onSectionRef: (id: SectionId, e
           </button>
 
           {status === 'success' && (
-            <p className="d-rsvp-message d-rsvp-message--success">Thank you! Your RSVP has been received.</p>
+            <p className="d-rsvp-message d-rsvp-message--success">
+              {submittedAttending
+                ? "Thank you! Your RSVP has been received — check your inbox for your boarding pass."
+                : 'Thank you! Your RSVP has been received.'}
+            </p>
           )}
           {status === 'error' && (
             <p className="d-rsvp-message d-rsvp-message--error">Something went wrong. Please try again.</p>

@@ -1,6 +1,6 @@
 ---
 name: new-page
-description: Scaffold a new route/page component for the Princess & Dominik wedding site with correct travel-theme CSS patterns.
+description: Scaffold a new route/page component for the Princes & Dominik wedding site with correct travel-theme CSS patterns.
 disable-model-invocation: false
 ---
 

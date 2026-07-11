@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Travel-themed wedding invitation SPA for Princess & Dominik (January 28, 2027, Boac Cathedral ceremony and Luxor Resort reception, Marinduque, Philippines).
+Travel-themed wedding invitation SPA for Princes & Dominik (January 28, 2027, Boac Cathedral ceremony and Luxor Resort reception, Marinduque, Philippines).
 
 ## Commands
 
