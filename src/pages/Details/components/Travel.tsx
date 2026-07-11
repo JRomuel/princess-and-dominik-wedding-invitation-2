@@ -103,6 +103,13 @@ export default function Travel({ onSectionRef }: { onSectionRef: (id: SectionId,
           </g>
         </svg>
 
+        <h2 className="d-heading">Arriving Here</h2>
+        <p className="d-body d-body--center d-travel-intro">
+          Marinduque is reached by sea. Take a bus or drive to Lucena City in Quezon, then board a RORO ferry
+          from Dalahican Port to Balanacan Port in Marinduque — the crossing takes about two to three hours. From the
+          port, jeepneys, tricycles, and vans are readily available to take you to Boac and your hotel. <br /><br /><br /><br />
+        </p>
+
         <h2 className="d-heading">Where to stay</h2>
         <p className="d-body d-body--center d-travel-intro">
           There are plenty of accommodation options that cater to all budgets. Group rates are available at these hotels.

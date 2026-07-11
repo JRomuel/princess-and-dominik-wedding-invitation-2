@@ -94,11 +94,14 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
             <div className="d-entourage-group d-entourage-group--wide">
               <p className="d-entourage-subtitle">Groomsmen &amp; Bridesmaids</p>
               <p className="d-name">Justin Süß &amp; Justyna Süß</p>
-              <p className="d-name">Manuel Schäfler &amp; Ella Williams</p>
-              <p className="d-name">Nick Schittenhelm &amp; Sheena Jessica Vidad</p>
+              <p className="d-name">Manuel Schäfler &amp; Katrin Schäfler</p>
+              <p className="d-name">Nick Schittenhelm &amp; Sabrina Unterleitner</p>
+              <p className="d-name">Chris Goehrig &amp; Sheena Jessica Vidad</p>
+              <p className="d-name">Jonas Brög &amp; Ella Williams</p>
               <p className="d-name">Froilan Bonus &amp; Edilyn Joy Uy</p>
               <p className="d-name">Niklas Schiller &amp; Stefanie Winkler</p>
               <p className="d-name">Mark Joseph Largo &amp; Renna Largo</p>
+   
             </div>
           </div>
 

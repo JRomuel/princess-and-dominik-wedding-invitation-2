@@ -4,6 +4,11 @@ import Lenis from 'lenis'
 import detailsHeroBg from '../../assets/details-hero-background-22.jpeg'
 import mapImage from '../../assets/map-image-2.png'
 import tocPhoto from '../../assets/card-image.jpg'
+import roundCard from '../../assets/round-card.png'
+import cutPaperTexture from '../../assets/cut-paper-texture.png'
+import envelopContentTexture from '../../assets/envelop-content-textture.png'
+import envelopeSmall from '../../assets/envelope-small.png'
+import circleTexture from '../../assets/circle-texture.png'
 import { NAV, type SectionId } from './sectionConfig'
 import FloatingMusicButton from './shared/FloatingMusicButton'
 import Nav from './components/Nav'
@@ -26,6 +31,11 @@ export default function Details() {
   preload(detailsHeroBg, { as: 'image', fetchPriority: 'high' })
   preload(mapImage, { as: 'image', fetchPriority: 'high' })
   preload(tocPhoto, { as: 'image', fetchPriority: 'high' })
+  preload(roundCard, { as: 'image', fetchPriority: 'high' })
+  preload(cutPaperTexture, { as: 'image', fetchPriority: 'high' })
+  preload(envelopContentTexture, { as: 'image', fetchPriority: 'high' })
+  preload(envelopeSmall, { as: 'image', fetchPriority: 'high' })
+  preload(circleTexture, { as: 'image', fetchPriority: 'high' })
 
   const lenisRef = useRef<Lenis | null>(null)
   const sectionRefs = useRef<Partial<Record<SectionId, HTMLElement | null>>>({})

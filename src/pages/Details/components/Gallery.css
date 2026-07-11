@@ -155,6 +155,25 @@
   object-fit: cover;
 }
 
+.d-gallery-closing-icon {
+  width: clamp(48px, 8vw, 96px);
+  height: auto;
+  margin-top: 300px;
+}
+
+.d-gallery-closing {
+  margin-top: 24px;
+  max-width: 700px;
+}
+
+.d-gallery-closing-signature {
+  margin-top: 16px;
+  font-family: 'Ms Madi', cursive;
+  font-style: italic;
+  font-size: clamp(30px, 3.5vw, 60px);
+  color: var(--cream);
+}
+
 @media (max-width: 600px) {
   .d-gallery-single {
     margin-top: 56px;

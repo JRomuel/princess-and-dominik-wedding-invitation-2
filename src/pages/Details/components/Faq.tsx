@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: 'What if I have dietary restrictions?',
-    a: 'Please indicate any dietary restrictions when you submit your RSVP. We will do our best to accommodate your needs at the reception.',
+    a: 'Just message us! Let us know your dietary restrictions and we\'ll do our best to accommodate your needs at the reception.',
   },
 ]
 

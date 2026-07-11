@@ -25,6 +25,8 @@ export default function TableOfContents({ onNavigate }: { onNavigate: (id: Secti
             src={tocPhoto}
             alt="Princes and Dominik"
             className="d-toc-photo-img"
+            fetchPriority="high"
+            loading="eager"
             onLoad={() => setPhotoLoaded(true)}
           />
         </motion.div>
@@ -37,7 +39,7 @@ export default function TableOfContents({ onNavigate }: { onNavigate: (id: Secti
           animate={{ opacity: photoLoaded ? 1 : 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
         >
-          <img src={roundCard} alt="" className="d-toc-card-shape" />
+          <img src={roundCard} alt="" className="d-toc-card-shape" fetchPriority="high" loading="eager" />
           <span className="d-toc-card-label">Venue</span>
         </motion.button>
 
@@ -73,7 +75,7 @@ export default function TableOfContents({ onNavigate }: { onNavigate: (id: Secti
         >
           <button type="button" className="d-toc-gift-rotate" onClick={() => onNavigate('gifts')}>
             <span className="d-toc-card-insert" style={{ backgroundImage: `url(${circleTexture})` }} />
-            <img src={envelopeSmall} alt="" className="d-toc-card-shape" />
+            <img src={envelopeSmall} alt="" className="d-toc-card-shape" fetchPriority="high" loading="eager" />
           </button>
           <span className="d-toc-card-label d-toc-card-label--insert">Gifts</span>
         </motion.div>
