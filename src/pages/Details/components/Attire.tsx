@@ -144,6 +144,7 @@ export default function Attire({ onSectionRef }: { onSectionRef: (id: SectionId,
           </div>
         </div>
 
+        <p className="d-body d-body--center">💡 Note: The photos above are mainly a guide to the color palette — feel free to interpret the dress code in your own style.</p>
         <p className="d-body d-body--center">Please avoid jeans and casual attire.</p>
 
         <p className="d-body d-body--small d-body--center" style={{ marginBottom: '32px' }}>
