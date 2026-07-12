@@ -39,6 +39,8 @@ function sendBoardingPassEmail(data) {
 
 Your RSVP is confirmed for Princes & Dominik's wedding.
 
+📎 Please see the attachment — your printable boarding pass (PDF) is attached to this email.
+
 Ceremony: Boac Cathedral, Mataas na Bayan, Boac, Marinduque — 2:00 PM
 Reception: Luxor Resort, Brgy. Pangi, Gasan, Marinduque — 6:00 PM
 Date: January 28, 2027
@@ -238,6 +240,17 @@ function buildBoardingPassHtml(fullName, data) {
                 <p style="margin:0;font-family:${serif};font-size:22px;color:${primary};text-align:left;">RSVP Confirmed</p>
                 <p style="margin:6px 0 0;font-family:${sans};font-size:12px;color:${primary};opacity:0.7;text-align:left;">January 28, 2027 &middot; Marinduque, Philippines</p>
                 <p style="margin:2px 0 0;font-family:${sans};font-size:11px;color:${primary};opacity:0.55;text-align:left;">Party: ${data.guestOf || ''} &middot; ${data.category || ''}</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0 28px 32px;">
+          <table role="presentation" width="100%" style="border-collapse:collapse;background:rgba(163,71,32,0.08);border:1px solid rgba(163,71,32,0.25);border-radius:6px;">
+            <tr>
+              <td style="padding:12px 16px;">
+                <span style="font-family:${sans};font-size:13px;color:${primary};">&#128206; <strong>Please see the attachment</strong> &mdash; your printable boarding pass (PDF) is attached to this email.</span>
               </td>
             </tr>
           </table>
