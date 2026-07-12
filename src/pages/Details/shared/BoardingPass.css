@@ -22,7 +22,7 @@
 .d-boarding-pass-tab span {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  color: var(--cream);
+  color: #fff;
   font-family: var(--sans);
   font-size: clamp(9px, 2.2vw, 14px);
   font-weight: 600;
@@ -52,7 +52,7 @@
 }
 
 .d-boarding-pass-names {
-  font-family: 'Ballet', cursive;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
   font-size: clamp(18px, 5vw, 44px);
   color: var(--primary);
   line-height: 1.3;
