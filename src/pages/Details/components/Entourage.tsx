@@ -44,7 +44,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
               <p className="d-entourage-subtitle">Principal Sponsors</p>
               <p className="d-entourage-subtitle d-entourage-caption">to stand as witnesses to our vows</p>
               <p className="d-name">Mrs. Maria Isabel A. Santillan &amp; Mr. Allan Largo</p>
-              <p className="d-name">Mrs. Maribel Largo &amp; Mr. Leo Calvo</p>
+              <p className="d-name">Ms. Maribel Largo &amp; Mr. Leo Calvo</p>
               <p className="d-name">Mrs. Sabine Martin &amp; Mr. Günther Martin</p>
               <p className="d-name">Mrs. Lalaine Largo &amp; Mr. Ulysis Largo</p>
               <p className="d-name">Mrs. Mary Jane M. Battung &amp; Mr. Frank Vincent A. Battung</p>
