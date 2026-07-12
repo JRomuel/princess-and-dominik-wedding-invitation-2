@@ -87,7 +87,9 @@ export default function Rsvp({ onSectionRef }: { onSectionRef: (id: SectionId, e
           </div>
 
           <div className="d-field">
-            <label className="d-label" htmlFor="email">Email Address</label>
+            <label className="d-label" htmlFor="email">
+              Email Address <span className="d-label-hint"><strong>(To receive your boarding pass)</strong></span>
+            </label>
             <input
               id="email"
               className="d-input"

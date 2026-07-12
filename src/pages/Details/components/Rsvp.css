@@ -60,6 +60,12 @@
   border-color: rgba(var(--primary-rgb),0.5);
 }
 
+.d-label-hint {
+  color: var(--primary);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 .d-radio-group {
   display: flex;
   gap: 24px;
