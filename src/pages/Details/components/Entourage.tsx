@@ -85,7 +85,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
 
               <div className="d-entourage-group d-entourage-group--wide" style={{ marginTop: '32px' }}>
                 <p className="d-entourage-subtitle d-entourage-subtitle--tight">Cord</p>
-                <p className="d-name">Sarah Jeane Largo &amp; Daryl Pilande </p>
+                <p className="d-name">Sarah Jeane Largo &amp; Jhonald Vergara Hintay </p>
               </div>
             </div>
           </div>
