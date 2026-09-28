@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react'
 export const TRACKS = [
   { id: '9IzKueQ2ZxY', title: 'Make You Feel My Love', artist: 'Adele' },
   { id: '-pz8RfOWS18', title: 'Palagi', artist: 'TJ Monterde' },
-  { id: 'cVpvlaKfLQc', title: 'I Swear', artist: 'All-4-One' },
+  { id: 'Vk-iPksP-IA', title: 'Risk It All', artist: 'Bruno Mars' },
   { id: '22gxJEIrLU0', title: 'Kay Tagal', artist: 'Mark Carpio' },
   { id: '5ZD9_spFojY', title: 'On This Day', artist: 'David Pomeranz' },
 ]

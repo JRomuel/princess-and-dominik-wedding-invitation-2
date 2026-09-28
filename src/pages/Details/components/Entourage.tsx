@@ -63,7 +63,7 @@ export default function Entourage({ onSectionRef }: { onSectionRef: (id: Section
                 </div>
                 <div className="d-entourage-group">
                   <p className="d-group-label d-group-label--lg">Maid of Honor</p>
-                  <p className="d-name">Jean Rose Santos</p>
+                  <p className="d-name">Jean Rose Santos Raj</p>
                 </div>
               </div>
             </div>

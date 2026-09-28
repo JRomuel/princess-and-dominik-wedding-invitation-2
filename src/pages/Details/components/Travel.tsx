@@ -49,13 +49,6 @@ const HOTELS = [
     address: 'Balaring, Boac, Marinduque, Philippines, 4900',
     clip: 'b',
   },
-  {
-    name: 'Rezidencia Faeldo Resort & Cafe',
-    contact: '0917 180 0286',
-    clip: 'a',
-    image: rezidenciaImg,
-    address: 'Ilayang Pangi, Gasan, Marinduque, Philippines, 4905',
-  },
 ]
 
 const PLACES = [
