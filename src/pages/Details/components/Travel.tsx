@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import balarImg from '../../../assets/balar.jpg'
 import marinaImg from '../../../assets/marina.jpg'
-import rezidenciaImg from '../../../assets/faeldo.jpg'
 import parkImg from '../../../assets/falls.png'
 import landmarkImg from '../../../assets/CatanauanandManiwayaIslandTour.jpg'
 import restaurantImg from '../../../assets/museum.png'
